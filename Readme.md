@@ -41,6 +41,14 @@ Make sure the following are installed on your system:
   ```bash
   pip install -r requirements.txt
   ```
+- Set env variables:
+  ```bash
+  export MYSQL_HOST='localhost'
+  export MYSQL_USER='root'
+  export MYSQL_PASSWORD='********'
+  export MYSQL_DB='football_tracker'
+  ```  
+
 - Start the Flask server:
   ```bash
   flask --app server.main run --port=5001

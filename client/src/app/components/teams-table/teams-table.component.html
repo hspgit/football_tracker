@@ -1,0 +1,36 @@
+<div class="teams-container">
+  <h2>Teams List</h2>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading">
+    Loading teams...
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <!-- Teams Table -->
+  <table *ngIf="!loading && !error && teams.length > 0" class="teams-table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>established_year</th>
+      <!-- Add other columns as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let team of teams">
+      <td>{{ team.team_name }}</td>
+      <td>{{ team.established_year }}</td>
+      <!-- Add other fields as needed -->
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- No Teams State -->
+  <div *ngIf="!loading && !error && teams.length === 0" class="no-teams">
+    No teams found.
+  </div>
+</div>

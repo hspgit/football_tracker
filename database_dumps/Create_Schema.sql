@@ -21,10 +21,8 @@ CREATE TABLE sponsor (
 );
 
 CREATE TABLE league (
-    name VARCHAR(128),
-    country VARCHAR(128) NOT NULL,
-    season INT NOT NULL,
-    PRIMARY KEY (name, season)
+    name VARCHAR(128) PRIMARY KEY,
+    country VARCHAR(128) NOT NULL
 );
 
 CREATE TABLE stadium (
@@ -42,18 +40,33 @@ CREATE TABLE broadcaster (
     PRIMARY KEY (channel_name, commentator)
 );
 
+CREATE TABLE player (
+    player_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(128) NOT NULL,
+    last_name VARCHAR(128) NOT NULL,
+    dob DATE NOT NULL,
+    nationality VARCHAR(128) NOT NULL,
+    market_value DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
+    jersey_number INT NOT NULL,
+    position_abb VARCHAR(10) NOT NULL,
+    FOREIGN KEY (position_abb) 
+        REFERENCES field_position(abb) 
+        ON UPDATE CASCADE 
+        ON DELETE CASCADE
+);
+
 CREATE TABLE league_team (
     league_name VARCHAR(128),
-    season INT,
     team_name VARCHAR(128),
+    season INT,
     matches_played INT NOT NULL DEFAULT 0,
     wins INT NOT NULL DEFAULT 0,
     losses INT NOT NULL DEFAULT 0,
     goals_scored INT NOT NULL DEFAULT 0,
     goals_conceded INT NOT NULL DEFAULT 0,
-    PRIMARY KEY (league_name, season, team_name),
-    FOREIGN KEY (league_name, season) 
-        REFERENCES league(name, season) 
+    PRIMARY KEY (league_name, team_name, season),
+    FOREIGN KEY (league_name) 
+        REFERENCES league(name) 
         ON UPDATE CASCADE 
         ON DELETE CASCADE,
     FOREIGN KEY (team_name) 
@@ -63,39 +76,35 @@ CREATE TABLE league_team (
     -- point, draws, goal_difference are derived attributes        
 );
 
+CREATE TABLE player_team (
+    player_id INT,
+    team_name VARCHAR(128),
+    season INT,
+    PRIMARY KEY (player_id, team_name, season),
+    FOREIGN KEY (player_id) REFERENCES player(player_id),
+    FOREIGN KEY (team_name) REFERENCES team(name)
+);
+
+CREATE TABLE team_captain (
+    captain_id INT,
+    team_name VARCHAR(128),
+    season INT,
+    PRIMARY KEY (captain_id, team_name, season),
+    FOREIGN KEY (captain_id) REFERENCES player(player_id),
+    FOREIGN KEY (team_name) REFERENCES team(name)
+);
+
 CREATE TABLE sponsor_league (
     sponsor_name VARCHAR(128),
     league_name VARCHAR(128),
-    season INT,
     sponsorship_amount DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
-    PRIMARY KEY (sponsor_name, league_name, season),
+    PRIMARY KEY (sponsor_name, league_name),
     FOREIGN KEY (sponsor_name) 
         REFERENCES sponsor(name) 
         ON UPDATE CASCADE 
         ON DELETE CASCADE,
-    FOREIGN KEY (league_name, season) 
-        REFERENCES league(name, season) 
-        ON UPDATE CASCADE 
-        ON DELETE CASCADE
-);
-
-CREATE TABLE player (
-    player_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(128) NOT NULL,
-    last_name VARCHAR(128) NOT NULL,
-    dob DATE NOT NULL,
-    nationality VARCHAR(128) NOT NULL,
-    market_value DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
-    transfer_date DATE NOT NULL,
-    jersey_number INT NOT NULL,
-    team_name VARCHAR(128),
-    position_abb VARCHAR(10) NOT NULL,
-    FOREIGN KEY (team_name) 
-        REFERENCES team(name) 
-        ON UPDATE CASCADE 
-        ON DELETE CASCADE,
-    FOREIGN KEY (position_abb) 
-        REFERENCES field_position(abb) 
+    FOREIGN KEY (league_name) 
+        REFERENCES league(name) 
         ON UPDATE CASCADE 
         ON DELETE CASCADE
 );
@@ -159,10 +168,6 @@ CREATE TABLE player_stat (
         ON DELETE CASCADE
 );
 
-ALTER TABLE team 
-    ADD COLUMN captain_id INT NOT NULL,
-    ADD FOREIGN KEY (captain_id) 
-        REFERENCES player(player_id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE;
+
+
         

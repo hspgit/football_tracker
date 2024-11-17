@@ -25,11 +25,7 @@ INSERT INTO manager (First_Name, Last_Name, DOB, Nationality, team_name) VALUES
     ('Thomas', 'Frank', '1973-10-09', 'Denmark', 'Brentford');
     
 
-    
--- Manchester City Captain for 2022 Season
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-    (8, 'Manchester City', 2022),
-    (8, 'Manchester City', 2023); -- Kevin De Bruyne
+
 
 -- Arsenal Captain for 2022 Season
 INSERT INTO team_captain (captain_id, team_name, season) VALUES

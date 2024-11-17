@@ -16,7 +16,7 @@ CALL get_all_teams();
 DELIMITER //
 
 CREATE TRIGGER check_teams_not_equal
-BEFORE INSERT ON fixture
+BEFORE INSERT ON game
 FOR EACH ROW
 BEGIN
     IF NEW.team_1_name = NEW.team_2_name THEN
@@ -27,7 +27,6 @@ END; //
 
 DELIMITER ;
 
-Select * from player;
 
 DROP PROCEDURE IF EXISTS update_league_team_stats;
 DELIMITER $$

@@ -1,38 +1,38 @@
 INSERT INTO team (name, established_year) VALUES
-                                              ("Manchester United", 1878),
-                                              ("Tottenham Hotspur", 1882),
-                                              ("Aston Villa", 1874),
-                                              ("Newcastle United", 1892),
-                                              ("Fulham", 1879),
-                                              ("Brentford", 1889),
-                                              ("Arsenal", 1886),
-                                              ("Liverpool", 1892),
-                                              ("Chelsea", 1905),
-                                              ("Manchester City", 1880);
+                                              ('Manchester United', 1878),
+                                              ('Tottenham Hotspur', 1882),
+                                              ('Aston Villa', 1874),
+                                              ('Newcastle United', 1892),
+                                              ('Fulham', 1879),
+                                              ('Brentford', 1889),
+                                              ('Arsenal', 1886),
+                                              ('Liverpool', 1892),
+                                              ('Chelsea', 1905),
+                                              ('Manchester City', 1880);
 
 INSERT INTO team (name, established_year) VALUES
-                                              ("Real Madrid", 1902),
-                                              ("Barcelona", 1899),
-                                              ("Atletico Madrid", 1903),
-                                              ("Sevilla", 1890),
-                                              ("Real Betis", 1907),
-                                              ("Real Sociedad", 1909),
-                                              ("Athletic Club", 1898),
-                                              ("Valencia", 1919),
-                                              ("Villarreal", 1923),
-                                              ("Espanyol", 1900);
+                                              ('Real Madrid', 1902),
+                                              ('Barcelona', 1899),
+                                              ('Atletico Madrid', 1903),
+                                              ('Sevilla', 1890),
+                                              ('Real Betis', 1907),
+                                              ('Real Sociedad', 1909),
+                                              ('Athletic Club', 1898),
+                                              ('Valencia', 1919),
+                                              ('Villarreal', 1923),
+                                              ('Espanyol', 1900);
 
 INSERT INTO team (name, established_year) VALUES
-                                              ("LA Galaxy", 1994),
-                                              ("DC United", 1994),
-                                              ("New York Red Bulls", 1994),
-                                              ("Seattle Sounders", 2007),
-                                              ("Portland Timbers", 2009),
-                                              ("Atlanta United", 2014),
-                                              ("Orlando City", 2013),
-                                              ("Toronto", 2005),
-                                              ("Chicago Fire", 1997),
-                                              ("Inter Miami", 2018);
+                                              ('LA Galaxy', 1994),
+                                              ('DC United', 1994),
+                                              ('New York Red Bulls', 1994),
+                                              ('Seattle Sounders', 2007),
+                                              ('Portland Timbers', 2009),
+                                              ('Atlanta United', 2014),
+                                              ('Orlando City', 2013),
+                                              ('Toronto', 2005),
+                                              ('Chicago Fire', 1997),
+                                              ('Inter Miami', 2018);
 
 INSERT INTO field_position (Abb, Name, Description) VALUES
                                                         ('GK', 'Goalkeeper', 'The player who guards the goal and is the only one allowed to handle the ball within the penalty area.'),

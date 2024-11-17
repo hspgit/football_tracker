@@ -1,4 +1,5 @@
 -- Sample data
+USE football_tracker;
 INSERT INTO team (name, established_year) VALUES
     ("Manchester United", 1878),
     ("Tottenham Hotspur", 1882),
@@ -95,7 +96,7 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
     ('Erling', 'Haaland', '2000-07-21', 'Norway', 180000000.00, 9, 'ST');
 
 -- Arsenal Players
-INSERT INTO player (first_name, last_name, dob, nationality, market_value, transfer_date, jersey_number, position_abb) VALUES
+INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES
     ('Aaron', 'Ramsdale', '1998-05-14', 'England', 25000000.00, 1, 'GK'),
     ('William', 'Saliba', '2001-03-24', 'France', 35000000.00, 12, 'CB'),
     ('Ben', 'White', '1997-10-08', 'England', 50000000.00, 4, 'CB'),
@@ -108,8 +109,7 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, trans
     ('Gabriel', 'Jesus', '1997-04-03', 'Brazil', 75000000.00, 9, 'ST'),
     ('Kai', 'Havertz', '1999-06-11', 'Germany', 75000000.00, 29, 'CAM');  
     
-Alter table player DROP column transfer_date;
-    
+
 -- Manchester City Players in the 2022 Season
 INSERT INTO player_team (player_id, team_name, season) VALUES
     (1, 'Manchester City', 2022),

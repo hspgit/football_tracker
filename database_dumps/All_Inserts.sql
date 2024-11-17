@@ -963,7 +963,7 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2024);
 
-INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Marcão', 'Laude', '1996-06-05', 'Brazil', 12000000.00, 6, 'CB');
+INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Marcão', 'Teixeira', '1996-06-05', 'Brazil', 12000000.00, 6, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2024);
@@ -1953,7 +1953,7 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2024);
 
-INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Lionel', 'Messi', '1987-06-24', 'Argentina', 50000000.00, 10, 'GK');
+INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Lionel', 'Messi', '1987-06-24', 'Argentina', 50000000.00, 10, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2024);

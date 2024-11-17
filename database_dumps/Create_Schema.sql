@@ -125,6 +125,8 @@ CREATE TABLE manager (
 CREATE TABLE game (
     team_1_name VARCHAR(128),
     team_2_name VARCHAR(128),
+    team_1_goals INT,
+    team_2_goals INT,
     stadium_name VARCHAR(128) NOT NULL,
     broadcaster_channel_name VARCHAR(128) NOT NULL,
     broadcaster_commentator VARCHAR(128) NOT NULL,

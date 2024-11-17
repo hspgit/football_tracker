@@ -1,3 +1,5 @@
+use football_tracker;
+
 -- Sample data
 INSERT INTO team (name, established_year) VALUES
     ("Manchester United", 1878),
@@ -62,8 +64,8 @@ INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUE
     ('Barclays', 'Premier League', 50000000.00);    
     
 -- Delete the Premier League from the league table
-DELETE FROM league WHERE name = 'Premier League'; 
-DELETE FROM sponsor WHERE name = 'Barclays';    
+-- DELETE FROM league WHERE name = 'Premier League'; 
+-- DELETE FROM sponsor WHERE name = 'Barclays';    
 
 -- Verify deletion in sponsor_league
 SELECT * FROM sponsor_league WHERE league_name = 'Premier League';
@@ -95,7 +97,7 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
     ('Erling', 'Haaland', '2000-07-21', 'Norway', 180000000.00, 9, 'ST');
 
 -- Arsenal Players
-INSERT INTO player (first_name, last_name, dob, nationality, market_value, transfer_date, jersey_number, position_abb) VALUES
+INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES
     ('Aaron', 'Ramsdale', '1998-05-14', 'England', 25000000.00, 1, 'GK'),
     ('William', 'Saliba', '2001-03-24', 'France', 35000000.00, 12, 'CB'),
     ('Ben', 'White', '1997-10-08', 'England', 50000000.00, 4, 'CB'),
@@ -216,8 +218,8 @@ VALUES
 
 
     
-INSERT INTO game (team_1_name, team_2_name, stadium_name, broadcaster_channel_name, broadcaster_commentator, match_date, attendance) VALUES
-('Arsenal', 'Manchester City', 'Emirates Stadium', 'BBC Sport', 'Gary Lineker', '2022-01-01 15:00:00', 59757);    
+INSERT INTO game (team_1_name, team_2_name, team_1_goals, team_2_goals, stadium_name, broadcaster_channel_name, broadcaster_commentator, match_date, attendance) VALUES
+('Arsenal', 'Manchester City', 1, 2, 'Emirates Stadium', 'BBC Sport', 'Gary Lineker', '2022-01-01 15:00:00', 59757);    
 
 -- Saka stats
 INSERT INTO player_stat (player_id, team_1_name, team_2_name, match_date, goals_scored, yellow_card, red_card) VALUES

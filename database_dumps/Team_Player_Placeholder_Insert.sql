@@ -1971,3 +1971,135 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2024);
+
+
+-- Inserting managers now
+
+INSERT INTO manager (First_Name, Last_Name, DOB, Nationality, team_name) VALUES
+                                                                             ('Erik', 'ten Hag', '1970-02-02', 'Netherlands', 'Manchester United'),
+                                                                             ('Mikel', 'Arteta', '1982-03-26', 'Spain', 'Arsenal'),
+                                                                             ('Pep', 'Guardiola', '1971-01-18', 'Spain', 'Manchester City'),
+                                                                             ('Jurgen', 'Klopp', '1967-06-16', 'Germany', 'Liverpool'),
+                                                                             ('Mauricio', 'Pochettino', '1972-03-02', 'Argentina', 'Chelsea'),
+                                                                             ('Eddie', 'Howe', '1977-11-29', 'England', 'Newcastle United'),
+                                                                             ('Ange', 'Postecoglou', '1965-08-27', 'Australia', 'Tottenham Hotspur'),
+                                                                             ('Unai', 'Emery', '1971-11-03', 'Spain', 'Aston Villa'),
+                                                                             ('Marco', 'Silva', '1977-07-12', 'Portugal', 'Fulham'),
+                                                                             ('Thomas', 'Frank', '1973-10-09', 'Denmark', 'Brentford'),
+
+                                                                             -- La Liga managers
+                                                                             ('Carlo', 'Ancelotti', '1959-06-10', 'Italy', 'Real Madrid'),
+                                                                             ('Xavi', 'Hernandez', '1980-01-25', 'Spain', 'Barcelona'),
+                                                                             ('Diego', 'Simeone', '1970-04-28', 'Argentina', 'Atletico Madrid'),
+                                                                             ('Jose', 'Luis Mendilibar', '1961-03-14', 'Spain', 'Sevilla'),
+                                                                             ('Manuel', 'Pellegrini', '1953-09-16', 'Chile', 'Real Betis'),
+                                                                             ('Imanol', 'Alguacil', '1971-07-04', 'Spain', 'Real Sociedad'),
+                                                                             ('Ernesto', 'Valverde', '1964-02-09', 'Spain', 'Athletic Club'),
+                                                                             ('Ruben', 'Baraja', '1975-07-11', 'Spain', 'Valencia'),
+                                                                             ('Quique', 'Setien', '1958-09-27', 'Spain', 'Villarreal'),
+                                                                             ('Luis', 'Garcia', '1975-09-01', 'Spain', 'Espanyol'),
+
+                                                                             -- MLS managers
+                                                                             ('Greg', 'Vanney', '1974-06-11', 'USA', 'LA Galaxy'),
+                                                                             ('Wayne', 'Rooney', '1985-10-24', 'England', 'DC United'),
+                                                                             ('Troy', 'Lesesne', '1983-09-04', 'USA', 'New York Red Bulls'),
+                                                                             ('Brian', 'Schmetzer', '1962-08-18', 'USA', 'Seattle Sounders'),
+                                                                             ('Giovanni', 'Savarese', '1971-07-14', 'Venezuela', 'Portland Timbers'),
+                                                                             ('Gonzalo', 'Pineda', '1982-10-19', 'Mexico', 'Atlanta United'),
+                                                                             ('Oscar', 'Pareja', '1968-06-10', 'Colombia', 'Orlando City'),
+                                                                             ('Bob', 'Bradley', '1958-03-03', 'USA', 'Toronto'),
+                                                                             ('Frank', 'Klopas', '1966-09-01', 'USA', 'Chicago Fire'),
+                                                                             ('Gerardo', 'Martino', '1962-11-20', 'Argentina', 'Inter Miami');
+
+-- Inserting Broadcasters
+INSERT INTO broadcaster (Channel_Name, Commentator, Streaming_Link) VALUES
+                                                                        ('Sky Sports', 'Martin Tyler', 'https://www.sky.com/sports'),
+                                                                        ('BBC Sport', 'Gary Lineker', 'https://www.bbc.co.uk/sport'),
+                                                                        ('NBC Sports', 'Arlo White', 'https://www.nbcsports.com');
+
+
+-- Inserting stadiums
+INSERT INTO stadium (Name, City, Zip_Code, Capacity) VALUES
+                                                         -- Premier League stadiums
+                                                         ('Old Trafford', 'Manchester', 'M16 0RA', 74879),
+                                                         ('Emirates Stadium', 'London', 'N5 1BU', 60260),
+                                                         ('Etihad Stadium', 'Manchester', 'M11 3FF', 53600),
+                                                         ('Anfield', 'Liverpool', 'L4 0TH', 54074),
+                                                         ('Stamford Bridge', 'London', 'SW6 1HS', 40742),
+                                                         ('Villa Park', 'Birmingham', 'B6 6HE', 42682),
+                                                         ('St James Park', 'Newcastle upon Tyne', 'NE1 4ST', 52305),
+                                                         ('Craven Cottage', 'London', 'SW6 6HH', 25700),
+                                                         ('Brentford Community Stadium', 'London', 'TW8 0NT', 17250),
+                                                         ('London Stadium', 'London', 'E20 2ST', 60000),
+
+                                                         -- La Liga stadiums
+                                                         ('Santiago Bernabéu', 'Madrid', '28036', 81044),
+                                                         ('Camp Nou', 'Barcelona', '08028', 99354),
+                                                         ('Wanda Metropolitano', 'Madrid', '28022', 68456),
+                                                         ('Ramon Sanchez Pizjuan', 'Seville', '41005', 43883),
+                                                         ('Benito Villamarin', 'Seville', '41012', 60721),
+                                                         ('Anoeta', 'San Sebastian', '20014', 39800),
+                                                         ('San Mamés', 'Bilbao', '48013', 53289),
+                                                         ('Mestalla', 'Valencia', '46010', 49865),
+                                                         ('Estadio de la Ceramica', 'Villarreal', '12540', 23500),
+                                                         ('RCDE Stadium', 'Barcelona', '08940', 40500),
+
+                                                         -- MLS stadiums
+                                                         ('Dignity Health Sports Park', 'Carson', '90746', 27000),
+                                                         ('Audi Field', 'Washington D.C.', '20024', 20000),
+                                                         ('Red Bull Arena', 'Harrison', '07029', 25000),
+                                                         ('Lumen Field', 'Seattle', '98134', 72000),
+                                                         ('Providence Park', 'Portland', '97205', 25218),
+                                                         ('Mercedes-Benz Stadium', 'Atlanta', '30313', 71000),
+                                                         ('Exploria Stadium', 'Orlando', '32805', 25500),
+                                                         ('BMO Field', 'Toronto', 'M6K 3C3', 30000),
+                                                         ('Soldier Field', 'Chicago', '60605', 61500),
+                                                         ('DRV PNK Stadium', 'Fort Lauderdale', '33309', 19500);
+
+-- Insert Barclays into the sponsor table
+INSERT INTO sponsor (name, country, industry, website_url) VALUES
+    ('Barclays', 'England', 'Banking', 'https://www.barclays.co.uk');
+
+-- Link Barclays to the Premier League in the sponsor_league table
+INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
+    ('Barclays', 'Premier League', 50000000.00);
+
+-- Insert Santander into the sponsor table
+INSERT INTO sponsor (name, country, industry, website_url) VALUES
+    ('Santander', 'Spain', 'Banking', 'https://www.santander.com');
+
+-- Link Santander to La Liga in the sponsor_league table
+INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
+    ('Santander', 'La Liga', 45000000.00);
+
+-- Insert Adidas into the sponsor table
+INSERT INTO sponsor (name, country, industry, website_url) VALUES
+    ('Adidas', 'Germany', 'Sportswear', 'https://www.adidas.com');
+
+-- Link Adidas to MLS in the sponsor_league table
+INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
+    ('Adidas', 'MLS', 25000000.00);
+
+-- Insert Emirates into the sponsor table
+INSERT INTO sponsor (name, country, industry, website_url) VALUES
+    ('Emirates', 'UAE', 'Airline', 'https://www.emirates.com');
+
+-- Link Emirates to Premier League in the sponsor_league table
+INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
+    ('Emirates', 'Premier League', 40000000.00);
+
+-- Insert Coca-Cola into the sponsor table
+INSERT INTO sponsor (name, country, industry, website_url) VALUES
+    ('Coca-Cola', 'USA', 'Beverage', 'https://www.coca-cola.com');
+
+-- Link Coca-Cola to MLS in the sponsor_league table
+INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
+    ('Coca-Cola', 'MLS', 15000000.00);
+
+-- Insert Rakuten into the sponsor table
+INSERT INTO sponsor (name, country, industry, website_url) VALUES
+    ('Rakuten', 'Japan', 'E-commerce', 'https://www.rakuten.com');
+
+-- Link Rakuten to La Liga in the sponsor_league table
+INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
+    ('Rakuten', 'La Liga', 30000000.00);

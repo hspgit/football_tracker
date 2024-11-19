@@ -1,0 +1,24 @@
+:host {
+    height: 100vh;
+    width: 100vw;
+}
+
+mat-sidenav-container {
+    height: 100%;
+    width: 100%;
+}
+
+mat-sidenav {
+    width: 260px;
+    padding: 16px 8px;
+}
+
+
+mat-panel-title {
+    font-weight: normal;
+}
+
+mat-expansion-panel-header{
+    padding: 0 16px;
+}
+

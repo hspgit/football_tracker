@@ -1,27 +1,89 @@
 import { Component } from '@angular/core';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-import { TeamsTableComponent } from './components/teams-table/teams-table.component';
-import {TeamDetailsComponent} from "./components/team-details/team-details.component";
-import {PlayerDetailsComponent} from "./components/player-details/player-details.component";
+import {RouterLinkActive, RouterOutlet, Router, NavigationEnd, RouterLink} from '@angular/router';
+import {MatListItem, MatNavList} from '@angular/material/list'
+import {
+  MatDrawer,
+  MatDrawerContainer,
+  MatDrawerContent,
+  MatSidenav,
+  MatSidenavContainer,
+    MatSidenavContent,
+} from "@angular/material/sidenav";
+import {MatFabButton} from "@angular/material/button";
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
-    TeamsTableComponent,
-    TeamDetailsComponent,
-    PlayerDetailsComponent,
-    RouterOutlet,
-    RouterLink,
+      RouterOutlet,
+    MatNavList,
+    MatDrawerContainer,
+    MatDrawerContent,
+    MatDrawer,
+    MatSidenavContainer,
+    MatSidenav,
+    MatListItem,
+    MatSidenavContent,
+    MatFabButton,
     RouterLinkActive,
-    MatSidenavModule,
-    MatListModule,
-  ]
+    RouterLink,
+      MatExpansionModule
+
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'client';
+
+  links = [
+    {
+      name: "League Table",
+      href: '/league-table',
+      isActive: false,
+      subItems: [
+        {
+          name: 'Premier League', href: '/league-table/premier-league'
+        },
+        {
+          name: 'La Liga', href: '/league-table/la-liga'
+        },
+        {
+          name: 'Major League Soccer', href: '/league-table/major-league-soccer'
+        }
+      ]
+    },
+    {
+      name: "Team Details",
+      href: '/team-details',
+      isActive: false
+    },
+    {
+    name: "Player Details",
+      href: '/player-details',
+      isActive: false
+    }
+  ]
+
+  constructor(protected router: Router) {
+  }
+
+  ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.setActiveLink(this.router.url);
+      }
+    });
+  }
+
+  setActiveLink(activePath: string) {
+    this.links.forEach(link => {
+      link.isActive = link.href === activePath ||
+          (link.subItems?.some(item => item.href === activePath) ?? false);
+    })
+  }
 }
+
+

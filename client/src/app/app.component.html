@@ -1,4 +1,15 @@
-<div class="app-container">
-    <h1>Teams Application</h1>
-    <app-teams-table></app-teams-table>
-</div>
+<mat-sidenav-container class="example-container">
+    <!-- Sidenav -->
+    <mat-sidenav mode="side" opened>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/teams-table" routerLinkActive="active-link" >Teams Table</a>
+            <a mat-list-item routerLink="/player-details" routerLinkActive="active-link">Player Details</a>
+            <a mat-list-item routerLink="/team-details" routerLinkActive="active-link">Team Details</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Main content -->
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

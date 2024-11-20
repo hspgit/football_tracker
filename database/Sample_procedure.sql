@@ -43,10 +43,8 @@ BEGIN
     DECLARE league_name VARCHAR(128);
 
     -- Determine season
-    SET calc_season = CASE 
-        WHEN MONTH(p_match_date) > 7 THEN YEAR(p_match_date) + 1
-        ELSE YEAR(p_match_date)
-    END;
+    SET calc_season = YEAR(p_match_date);
+
 
     -- Get league name (both teams share the same league)
     SELECT lt.league_name

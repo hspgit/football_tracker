@@ -61,9 +61,22 @@ export class AppComponent {
       isActive: false
     },
     {
-    name: "Player Details",
+      name: "Player Details",
       href: '/player-details',
       isActive: false
+    },
+    {
+      name: "Game Details",
+      href: '/game-details',
+      isActive: false,
+      subItems: [
+        {
+          name: 'Add Game', href: '/game-details/add-game'
+        },
+        {
+          name: 'View Game', href: '/game-details/view-game'
+        }
+      ]
     }
   ]
 

@@ -4,7 +4,7 @@ A web application for tracking football leagues, teams, matches, and player stat
 
 ## Prerequisites
 Make sure the following are installed on your system:
-- **Angular 17**
+- **Angular 18**
 - **npm**
 - **Node.js**
 - **Python 3.9**

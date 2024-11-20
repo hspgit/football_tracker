@@ -49,7 +49,7 @@ INSERT INTO field_position (Abb, Name, Description) VALUES
 
 INSERT INTO league (name, country) VALUES
                                        ('La Liga', 'Spain'),
-                                       ('MLS', 'United States'),
+                                       ('Major League Soccer', 'United States'),
                                        ('Premier League', 'England');
 
 
@@ -119,37 +119,37 @@ VALUES
     ('La Liga', 'Villarreal', 2024),
     ('La Liga', 'Espanyol', 2024),
 
-    -- MLS teams
-    ('MLS', 'LA Galaxy', 2022),
-    ('MLS', 'DC United', 2022),
-    ('MLS', 'New York Red Bulls', 2022),
-    ('MLS', 'Seattle Sounders', 2022),
-    ('MLS', 'Portland Timbers', 2022),
-    ('MLS', 'Atlanta United', 2022),
-    ('MLS', 'Orlando City', 2022),
-    ('MLS', 'Toronto', 2022),
-    ('MLS', 'Chicago Fire', 2022),
-    ('MLS', 'Inter Miami', 2022),
-    ('MLS', 'LA Galaxy', 2023),
-    ('MLS', 'DC United', 2023),
-    ('MLS', 'New York Red Bulls', 2023),
-    ('MLS', 'Seattle Sounders', 2023),
-    ('MLS', 'Portland Timbers', 2023),
-    ('MLS', 'Atlanta United', 2023),
-    ('MLS', 'Orlando City', 2023),
-    ('MLS', 'Toronto', 2023),
-    ('MLS', 'Chicago Fire', 2023),
-    ('MLS', 'Inter Miami', 2023),
-    ('MLS', 'LA Galaxy', 2024),
-    ('MLS', 'DC United', 2024),
-    ('MLS', 'New York Red Bulls', 2024),
-    ('MLS', 'Seattle Sounders', 2024),
-    ('MLS', 'Portland Timbers', 2024),
-    ('MLS', 'Atlanta United', 2024),
-    ('MLS', 'Orlando City', 2024),
-    ('MLS', 'Toronto', 2024),
-    ('MLS', 'Chicago Fire', 2024),
-    ('MLS', 'Inter Miami', 2024);
+    -- Major League Soccer teams
+    ('Major League Soccer', 'LA Galaxy', 2022),
+    ('Major League Soccer', 'DC United', 2022),
+    ('Major League Soccer', 'New York Red Bulls', 2022),
+    ('Major League Soccer', 'Seattle Sounders', 2022),
+    ('Major League Soccer', 'Portland Timbers', 2022),
+    ('Major League Soccer', 'Atlanta United', 2022),
+    ('Major League Soccer', 'Orlando City', 2022),
+    ('Major League Soccer', 'Toronto', 2022),
+    ('Major League Soccer', 'Chicago Fire', 2022),
+    ('Major League Soccer', 'Inter Miami', 2022),
+    ('Major League Soccer', 'LA Galaxy', 2023),
+    ('Major League Soccer', 'DC United', 2023),
+    ('Major League Soccer', 'New York Red Bulls', 2023),
+    ('Major League Soccer', 'Seattle Sounders', 2023),
+    ('Major League Soccer', 'Portland Timbers', 2023),
+    ('Major League Soccer', 'Atlanta United', 2023),
+    ('Major League Soccer', 'Orlando City', 2023),
+    ('Major League Soccer', 'Toronto', 2023),
+    ('Major League Soccer', 'Chicago Fire', 2023),
+    ('Major League Soccer', 'Inter Miami', 2023),
+    ('Major League Soccer', 'LA Galaxy', 2024),
+    ('Major League Soccer', 'DC United', 2024),
+    ('Major League Soccer', 'New York Red Bulls', 2024),
+    ('Major League Soccer', 'Seattle Sounders', 2024),
+    ('Major League Soccer', 'Portland Timbers', 2024),
+    ('Major League Soccer', 'Atlanta United', 2024),
+    ('Major League Soccer', 'Orlando City', 2024),
+    ('Major League Soccer', 'Toronto', 2024),
+    ('Major League Soccer', 'Chicago Fire', 2024),
+    ('Major League Soccer', 'Inter Miami', 2024);
 
 -- Players for Team: Manchester City
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Ederson', 'Moraes', '1993-08-17', 'Brazil', 50000000.00, 31, 'GK');
@@ -1999,7 +1999,7 @@ INSERT INTO manager (First_Name, Last_Name, DOB, Nationality, team_name) VALUES
                                                                              ('Quique', 'Setien', '1958-09-27', 'Spain', 'Villarreal'),
                                                                              ('Luis', 'Garcia', '1975-09-01', 'Spain', 'Espanyol'),
 
-                                                                             -- MLS managers
+                                                                             -- Major League Soccer managers
                                                                              ('Greg', 'Vanney', '1974-06-11', 'USA', 'LA Galaxy'),
                                                                              ('Wayne', 'Rooney', '1985-10-24', 'England', 'DC United'),
                                                                              ('Troy', 'Lesesne', '1983-09-04', 'USA', 'New York Red Bulls'),
@@ -2044,7 +2044,7 @@ INSERT INTO stadium (Name, City, Zip_Code, Capacity) VALUES
                                                          ('Estadio de la Ceramica', 'Villarreal', '12540', 23500),
                                                          ('RCDE Stadium', 'Barcelona', '08940', 40500),
 
-                                                         -- MLS stadiums
+                                                         -- Major League Soccer stadiums
                                                          ('Dignity Health Sports Park', 'Carson', '90746', 27000),
                                                          ('Audi Field', 'Washington D.C.', '20024', 20000),
                                                          ('Red Bull Arena', 'Harrison', '07029', 25000),
@@ -2076,9 +2076,9 @@ INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUE
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
     ('Adidas', 'Germany', 'Sportswear', 'https://www.adidas.com');
 
--- Link Adidas to MLS in the sponsor_league table
+-- Link Adidas to Major League Soccer in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
-    ('Adidas', 'MLS', 25000000.00);
+    ('Adidas', 'Major League Soccer', 25000000.00);
 
 -- Insert Emirates into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
@@ -2092,9 +2092,9 @@ INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUE
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
     ('Coca-Cola', 'USA', 'Beverage', 'https://www.coca-cola.com');
 
--- Link Coca-Cola to MLS in the sponsor_league table
+-- Link Coca-Cola to Major League Soccer in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
-    ('Coca-Cola', 'MLS', 15000000.00);
+    ('Coca-Cola', 'Major League Soccer', 15000000.00);
 
 -- Insert Rakuten into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES

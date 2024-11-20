@@ -1,0 +1,50 @@
+<p>Select League</p>
+<mat-form-field>
+  <mat-label>Select League</mat-label>
+  <mat-select (selectionChange)="onLeagueChange($event.value)">
+    @for (league of leagues; track league) {
+      <mat-option [value]="league.value">{{league.viewValue}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+<p> Team 1</p>
+<mat-form-field>
+  <mat-label>Select Team 1</mat-label>
+  <mat-select (selectionChange)="onTeam1Change($event.value)">
+    @for (team of teams; track team) {
+      <mat-option [value]="team.value">{{team.viewValue}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
+<p> Team 2</p>
+<mat-form-field>
+  <mat-label>Select Team 2</mat-label>
+  <mat-select (selectionChange)="onTeam2Change($event.value)">
+    @for (team of teams; track team) {
+      <mat-option [value]="team.value">{{team.viewValue}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Select Team 2</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Team 2"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      @for (option of filteredOptions | async; track option) {
+        <mat-option [value]="option">{{option}}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<p> Date </p>
+<p> Stadium </p>
+<p> Broadcaster </p>
+<p>Channel</p>
+<p>Attendance</p>

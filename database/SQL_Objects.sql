@@ -75,3 +75,23 @@ END $$
 DELIMITER ;
 
 CALL get_all_stadiums();
+
+DELIMITER $$
+
+CREATE PROCEDURE get_stadiums_by_teams (
+    IN team_1_name VARCHAR(255),
+    IN team_2_name VARCHAR(255)
+)
+BEGIN
+    SELECT
+        *
+    FROM
+        stadium
+    WHERE
+        Team_Name = team_1_name OR Team_Name = team_2_name;
+END $$
+
+DELIMITER ;
+
+-- Example call:
+CALL get_stadiums_by_teams('Manchester United', 'Arsenal');

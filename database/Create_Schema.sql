@@ -30,6 +30,8 @@ CREATE TABLE stadium (
     city VARCHAR(128) NOT NULL,
     zip_code VARCHAR(20) NOT NULL,
     capacity INT NOT NULL DEFAULT 0,
+    team_name VARCHAR(128) NOT NULL,
+    FOREIGN KEY (team_name) REFERENCES team(name),
     UNIQUE (city, zip_code)
 );
 
@@ -130,7 +132,7 @@ CREATE TABLE game (
     stadium_name VARCHAR(128) NOT NULL,
     broadcaster_channel_name VARCHAR(128) NOT NULL,
     broadcaster_commentator VARCHAR(128) NOT NULL,
-    match_date DATETIME NOT NULL,
+    match_date DATE NOT NULL,
     attendance INT NOT NULL DEFAULT 0,
     PRIMARY KEY (team_1_name, team_2_name, match_date),
     FOREIGN KEY (team_1_name) 
@@ -155,7 +157,7 @@ CREATE TABLE player_stat (
     player_id INT NOT NULL,
     team_1_name VARCHAR(128) NOT NULL,
     team_2_name VARCHAR(128) NOT NULL,
-    match_date DATETIME NOT NULL,
+    match_date DATE NOT NULL,
     goals_scored INT NOT NULL DEFAULT 0,
     yellow_card INT NOT NULL DEFAULT 0,
     red_card INT NOT NULL DEFAULT 0,

@@ -2019,42 +2019,42 @@ INSERT INTO broadcaster (Channel_Name, Commentator, Streaming_Link) VALUES
 
 
 -- Inserting stadiums
-INSERT INTO stadium (Name, City, Zip_Code, Capacity) VALUES
-                                                         -- Premier League stadiums
-                                                         ('Old Trafford', 'Manchester', 'M16 0RA', 74879),
-                                                         ('Emirates Stadium', 'London', 'N5 1BU', 60260),
-                                                         ('Etihad Stadium', 'Manchester', 'M11 3FF', 53600),
-                                                         ('Anfield', 'Liverpool', 'L4 0TH', 54074),
-                                                         ('Stamford Bridge', 'London', 'SW6 1HS', 40742),
-                                                         ('Villa Park', 'Birmingham', 'B6 6HE', 42682),
-                                                         ('St James Park', 'Newcastle upon Tyne', 'NE1 4ST', 52305),
-                                                         ('Craven Cottage', 'London', 'SW6 6HH', 25700),
-                                                         ('Brentford Community Stadium', 'London', 'TW8 0NT', 17250),
-                                                         ('London Stadium', 'London', 'E20 2ST', 60000),
+INSERT INTO stadium (Name, City, Zip_Code, Capacity, Team_Name) VALUES
+                                                                    -- Premier League stadiums
+                                                                    ('Old Trafford', 'Manchester', 'M16 0RA', 74879, 'Manchester United'),
+                                                                    ('Emirates Stadium', 'London', 'N5 1BU', 60260, 'Arsenal'),
+                                                                    ('Etihad Stadium', 'Manchester', 'M11 3FF', 53600, 'Manchester City'),
+                                                                    ('Anfield', 'Liverpool', 'L4 0TH', 54074, 'Liverpool'),
+                                                                    ('Stamford Bridge', 'London', 'SW6 1HS', 40742, 'Chelsea'),
+                                                                    ('Villa Park', 'Birmingham', 'B6 6HE', 42682, 'Aston Villa'),
+                                                                    ('St James Park', 'Newcastle upon Tyne', 'NE1 4ST', 52305, 'Newcastle United'),
+                                                                    ('Craven Cottage', 'London', 'SW6 6HH', 25700, 'Fulham'),
+                                                                    ('Brentford Community Stadium', 'London', 'TW8 0NT', 17250, 'Brentford'),
+                                                                    ('London Stadium', 'London', 'E20 2ST', 60000, 'Tottenham Hotspur'),
 
-                                                         -- La Liga stadiums
-                                                         ('Santiago Bernabéu', 'Madrid', '28036', 81044),
-                                                         ('Camp Nou', 'Barcelona', '08028', 99354),
-                                                         ('Wanda Metropolitano', 'Madrid', '28022', 68456),
-                                                         ('Ramon Sanchez Pizjuan', 'Seville', '41005', 43883),
-                                                         ('Benito Villamarin', 'Seville', '41012', 60721),
-                                                         ('Anoeta', 'San Sebastian', '20014', 39800),
-                                                         ('San Mamés', 'Bilbao', '48013', 53289),
-                                                         ('Mestalla', 'Valencia', '46010', 49865),
-                                                         ('Estadio de la Ceramica', 'Villarreal', '12540', 23500),
-                                                         ('RCDE Stadium', 'Barcelona', '08940', 40500),
+                                                                    -- La Liga stadiums
+                                                                    ('Santiago Bernabéu', 'Madrid', '28036', 81044, 'Real Madrid'),
+                                                                    ('Camp Nou', 'Barcelona', '08028', 99354, 'Barcelona'),
+                                                                    ('Wanda Metropolitano', 'Madrid', '28022', 68456, 'Atletico Madrid'),
+                                                                    ('Ramon Sanchez Pizjuan', 'Seville', '41005', 43883, 'Sevilla'),
+                                                                    ('Benito Villamarin', 'Seville', '41012', 60721, 'Real Betis'),
+                                                                    ('Anoeta', 'San Sebastian', '20014', 39800, 'Real Sociedad'),
+                                                                    ('San Mamés', 'Bilbao', '48013', 53289, 'Athletic Club'),
+                                                                    ('Mestalla', 'Valencia', '46010', 49865, 'Valencia'),
+                                                                    ('Estadio de la Ceramica', 'Villarreal', '12540', 23500, 'Villarreal'),
+                                                                    ('RCDE Stadium', 'Barcelona', '08940', 40500, 'Espanyol'),
 
-                                                         -- Major League Soccer stadiums
-                                                         ('Dignity Health Sports Park', 'Carson', '90746', 27000),
-                                                         ('Audi Field', 'Washington D.C.', '20024', 20000),
-                                                         ('Red Bull Arena', 'Harrison', '07029', 25000),
-                                                         ('Lumen Field', 'Seattle', '98134', 72000),
-                                                         ('Providence Park', 'Portland', '97205', 25218),
-                                                         ('Mercedes-Benz Stadium', 'Atlanta', '30313', 71000),
-                                                         ('Exploria Stadium', 'Orlando', '32805', 25500),
-                                                         ('BMO Field', 'Toronto', 'M6K 3C3', 30000),
-                                                         ('Soldier Field', 'Chicago', '60605', 61500),
-                                                         ('DRV PNK Stadium', 'Fort Lauderdale', '33309', 19500);
+                                                                    -- Major League Soccer stadiums
+                                                                    ('Dignity Health Sports Park', 'Carson', '90746', 27000, 'LA Galaxy'),
+                                                                    ('Audi Field', 'Washington D.C.', '20024', 20000, 'DC United'),
+                                                                    ('Red Bull Arena', 'Harrison', '07029', 25000, 'New York Red Bulls'),
+                                                                    ('Lumen Field', 'Seattle', '98134', 72000, 'Seattle Sounders'),
+                                                                    ('Providence Park', 'Portland', '97205', 25218, 'Portland Timbers'),
+                                                                    ('Mercedes-Benz Stadium', 'Atlanta', '30313', 71000, 'Atlanta United'),
+                                                                    ('Exploria Stadium', 'Orlando', '32805', 25500, 'Orlando City'),
+                                                                    ('BMO Field', 'Toronto', 'M6K 3C3', 30000, 'Toronto'),
+                                                                    ('Soldier Field', 'Chicago', '60605', 61500, 'Chicago Fire'),
+                                                                    ('DRV PNK Stadium', 'Fort Lauderdale', '33309', 19500, 'Inter Miami');
 
 -- Insert Barclays into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES

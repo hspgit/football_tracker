@@ -7,9 +7,7 @@ CREATE PROCEDURE get_team_players_for_season (
 )
 BEGIN
     SELECT
-        p.player_id AS player_id,
-        p.first_name,
-        p.last_name
+        *
     FROM
         player p
             INNER JOIN
@@ -76,11 +74,11 @@ DELIMITER ;
 
 CALL get_all_stadiums();
 
+DROP PROCEDURE IF EXISTS get_stadiums_by_teams_list;
 DELIMITER $$
 
-CREATE PROCEDURE get_stadiums_by_teams (
-    IN team_1_name VARCHAR(255),
-    IN team_2_name VARCHAR(255)
+CREATE PROCEDURE get_stadiums_by_teams_list (
+    IN team_names_list VARCHAR(1000)
 )
 BEGIN
     SELECT
@@ -88,10 +86,25 @@ BEGIN
     FROM
         stadium
     WHERE
-        Team_Name = team_1_name OR Team_Name = team_2_name;
+        FIND_IN_SET(Team_Name, team_names_list);
 END $$
 
 DELIMITER ;
 
--- Example call:
-CALL get_stadiums_by_teams('Manchester United', 'Arsenal');
+CALL get_stadiums_by_teams_list('Manchester United,Arsenal,Chelsea');
+CALL get_stadiums_by_teams_list('Manchester City,Arsenal,Chelsea');
+
+DROP PROCEDURE IF EXISTS get_all_broadcasters;
+DELIMITER $$
+CREATE PROCEDURE get_all_broadcasters()
+BEGIN
+        SELECT
+            *
+        FROM
+             broadcaster;
+end $$
+
+DELIMITER ;
+
+CALL get_all_broadcasters;
+

@@ -1,9 +1,27 @@
 .example-form {
   min-width: 150px;
   max-width: 500px;
-  width: 100%;
+  width: 70%;
 }
 
 .example-full-width {
-  width: 100%;
+  width: 70%;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+  line-height: 1;
+}
+
+.stat-table-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.stat-table {
+  width: 40%; /* Each table occupies 40% of the parent container */
+  margin: 0 5%; /* Add spacing (5% on each side) to center the tables within the container */
+  display: inline-block; /* Align tables horizontally */
+  vertical-align: top; /* Ensure tables align at the top */
 }

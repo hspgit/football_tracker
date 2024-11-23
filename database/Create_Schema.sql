@@ -36,10 +36,8 @@ CREATE TABLE stadium (
 );
 
 CREATE TABLE broadcaster (
-    channel_name VARCHAR(128),
-    commentator VARCHAR(128),
-    streaming_link VARCHAR(256) NOT NULL,
-    PRIMARY KEY (channel_name, commentator)
+    channel_name VARCHAR(128) PRIMARY KEY ,
+    streaming_link VARCHAR(256) NOT NULL
 );
 
 CREATE TABLE player (
@@ -131,10 +129,9 @@ CREATE TABLE game (
     team_2_goals INT,
     stadium_name VARCHAR(128) NOT NULL,
     broadcaster_channel_name VARCHAR(128) NOT NULL,
-    broadcaster_commentator VARCHAR(128) NOT NULL,
     match_date DATE NOT NULL,
     attendance INT NOT NULL DEFAULT 0,
-    PRIMARY KEY (team_1_name, team_2_name, match_date),
+    PRIMARY KEY (team_1_name, team_2_name, match_date, broadcaster_channel_name),
     FOREIGN KEY (team_1_name) 
         REFERENCES team(name) 
         ON UPDATE CASCADE 
@@ -147,8 +144,8 @@ CREATE TABLE game (
         REFERENCES stadium(name) 
         ON UPDATE CASCADE 
         ON DELETE CASCADE,
-    FOREIGN KEY (broadcaster_channel_name, broadcaster_commentator) 
-        REFERENCES broadcaster(channel_name, commentator) 
+    FOREIGN KEY (broadcaster_channel_name)
+        REFERENCES broadcaster(channel_name)
         ON UPDATE CASCADE 
         ON DELETE CASCADE
 );

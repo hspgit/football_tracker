@@ -6,14 +6,21 @@ import {Stadium} from "../app.models";
 @Injectable({
   providedIn: 'root'
 })
-export class LeagueService {
+export class StadiumService {
 
-  private apiUrl = 'http://localhost:5001/api/stadium';  // API endpoint
+  private apiUrl = 'http://localhost:5001/api/stadiums';  // API endpoint
 
   constructor(private http: HttpClient) {
   }
 
-  getAllLeagues(): Observable<any> {
+  getAllStadiums(): Observable<any> {
     return this.http.get<Stadium[]>(`${this.apiUrl}/all`);
+  }
+
+  getStadiumsForTeams(team1Name: string, team2Name: string): Observable<any> {
+    const teamNamesList = `${team1Name},${team2Name}`; // Create a comma-separated list of team names
+    const params = new HttpParams().set('team_names', teamNamesList); // Pass the list as a parameter
+
+    return this.http.get<Stadium[]>(`${this.apiUrl}/byTeams`, { params }); // Call the API endpoint
   }
 }

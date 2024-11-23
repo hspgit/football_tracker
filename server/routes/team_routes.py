@@ -1,8 +1,7 @@
 # server/routes/team_routes.py
 from flask import Blueprint, jsonify, request
 from server.db import get_db_connection
-from server.models.player import MiniPlayer
-
+from server.models.player import Player
 
 team_bp = Blueprint('team_bp', __name__)
 
@@ -34,10 +33,16 @@ def get_team_players_for_season():
 
             # Format the result into a list of MiniPlayer objects
             players = [
-                MiniPlayer(
+                Player(
                     player_id=row['player_id'],
                     first_name=row['first_name'],
-                    last_name=row['last_name']
+                    last_name=row['last_name'],
+                    dob= row['dob'],
+                    nationality = row['nationality'],
+                    market_value = ['market_value'],
+                    jersey_number = ['jersey_number'],
+                    position_abb = ['position_abb']
+
                 ).__dict__ for row in result
             ]
 

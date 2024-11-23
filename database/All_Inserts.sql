@@ -1,155 +1,155 @@
 INSERT INTO team (name, established_year) VALUES
-                                              ('Manchester United', 1878),
-                                              ('Tottenham Hotspur', 1882),
-                                              ('Aston Villa', 1874),
-                                              ('Newcastle United', 1892),
-                                              ('Fulham', 1879),
-                                              ('Brentford', 1889),
-                                              ('Arsenal', 1886),
-                                              ('Liverpool', 1892),
-                                              ('Chelsea', 1905),
-                                              ('Manchester City', 1880);
+('Manchester United', 1878),
+('Tottenham Hotspur', 1882),
+('Aston Villa', 1874),
+('Newcastle United', 1892),
+('Fulham', 1879),
+('Brentford', 1889),
+('Arsenal', 1886),
+('Liverpool', 1892),
+('Chelsea', 1905),
+('Manchester City', 1880);
 
 INSERT INTO team (name, established_year) VALUES
-                                              ('Real Madrid', 1902),
-                                              ('Barcelona', 1899),
-                                              ('Atletico Madrid', 1903),
-                                              ('Sevilla', 1890),
-                                              ('Real Betis', 1907),
-                                              ('Real Sociedad', 1909),
-                                              ('Athletic Club', 1898),
-                                              ('Valencia', 1919),
-                                              ('Villarreal', 1923),
-                                              ('Espanyol', 1900);
+('Real Madrid', 1902),
+('Barcelona', 1899),
+('Atletico Madrid', 1903),
+('Sevilla', 1890),
+('Real Betis', 1907),
+('Real Sociedad', 1909),
+('Athletic Club', 1898),
+('Valencia', 1919),
+('Villarreal', 1923),
+('Espanyol', 1900);
 
 INSERT INTO team (name, established_year) VALUES
-                                              ('LA Galaxy', 1994),
-                                              ('DC United', 1994),
-                                              ('New York Red Bulls', 1994),
-                                              ('Seattle Sounders', 2007),
-                                              ('Portland Timbers', 2009),
-                                              ('Atlanta United', 2014),
-                                              ('Orlando City', 2013),
-                                              ('Toronto', 2005),
-                                              ('Chicago Fire', 1997),
-                                              ('Inter Miami', 2018);
+('LA Galaxy', 1994),
+('DC United', 1994),
+('New York Red Bulls', 1994),
+('Seattle Sounders', 2007),
+('Portland Timbers', 2009),
+('Atlanta United', 2014),
+('Orlando City', 2013),
+('Toronto', 2005),
+('Chicago Fire', 1997),
+('Inter Miami', 2018);
 
 INSERT INTO field_position (Abb, Name, Description) VALUES
-                                                        ('GK', 'Goalkeeper', 'The player who guards the goal and is the only one allowed to handle the ball within the penalty area.'),
-                                                        ('CB', 'Center Back', 'A defender who primarily stays in the central area of the field, focusing on defending against opposing attackers.'),
-                                                        ('RB', 'Right Back', 'A defender positioned on the right side, tasked with stopping attacks from the left-wing and supporting the right-wing offense.'),
-                                                        ('LB', 'Left Back', 'A defender positioned on the left side, tasked with stopping attacks from the right-wing and supporting the left-wing offense.'),
-                                                        ('CM', 'Central Midfielder', 'A midfielder who plays centrally, involved in both defending and attacking roles, and connecting the defense and offense.'),
-                                                        ('CDM', 'Central Defensive Midfielder', 'A midfielder focused on defending, often positioned in front of the center-backs to protect the defensive line.'),
-                                                        ('CAM', 'Central Attacking Midfielder', 'An offensive midfielder positioned just behind the forwards, creating scoring opportunities.'),
-                                                        ('RW', 'Right Winger', 'An attacker who plays on the right side, often attempting to cross the ball into the penalty area or cut inside to shoot.'),
-                                                        ('LW', 'Left Winger', 'An attacker who plays on the left side, focusing on delivering crosses or cutting inside to create scoring chances.'),
-                                                        ('ST', 'Striker', 'The main goal-scorer on the team, positioned close to the opponent’s goal to take shots and create scoring opportunities.');
+('GK', 'Goalkeeper', 'The player who guards the goal and is the only one allowed to handle the ball within the penalty area.'),
+('CB', 'Center Back', 'A defender who primarily stays in the central area of the field, focusing on defending against opposing attackers.'),
+('RB', 'Right Back', 'A defender positioned on the right side, tasked with stopping attacks from the left-wing and supporting the right-wing offense.'),
+('LB', 'Left Back', 'A defender positioned on the left side, tasked with stopping attacks from the right-wing and supporting the left-wing offense.'),
+('CM', 'Central Midfielder', 'A midfielder who plays centrally, involved in both defending and attacking roles, and connecting the defense and offense.'),
+('CDM', 'Central Defensive Midfielder', 'A midfielder focused on defending, often positioned in front of the center-backs to protect the defensive line.'),
+('CAM', 'Central Attacking Midfielder', 'An offensive midfielder positioned just behind the forwards, creating scoring opportunities.'),
+('RW', 'Right Winger', 'An attacker who plays on the right side, often attempting to cross the ball into the penalty area or cut inside to shoot.'),
+('LW', 'Left Winger', 'An attacker who plays on the left side, focusing on delivering crosses or cutting inside to create scoring chances.'),
+('ST', 'Striker', 'The main goal-scorer on the team, positioned close to the opponent’s goal to take shots and create scoring opportunities.');
 
 
 INSERT INTO league (name, country) VALUES
-                                       ('La Liga', 'Spain'),
-                                       ('Major League Soccer', 'United States'),
-                                       ('Premier League', 'England');
+('La Liga', 'Spain'),
+('Major League Soccer', 'United States'),
+('Premier League', 'England');
 
 
 INSERT INTO league_team (league_name, team_name, season)
 VALUES
-    -- Premier League teams
-    ('Premier League', 'Manchester United', 2022),
-    ('Premier League', 'Tottenham Hotspur', 2022),
-    ('Premier League', 'Aston Villa', 2022),
-    ('Premier League', 'Newcastle United', 2022),
-    ('Premier League', 'Fulham', 2022),
-    ('Premier League', 'Brentford', 2022),
-    ('Premier League', 'Arsenal', 2022),
-    ('Premier League', 'Liverpool', 2022),
-    ('Premier League', 'Chelsea', 2022),
-    ('Premier League', 'Manchester City', 2022),
-    ('Premier League', 'Manchester United', 2023),
-    ('Premier League', 'Tottenham Hotspur', 2023),
-    ('Premier League', 'Aston Villa', 2023),
-    ('Premier League', 'Newcastle United', 2023),
-    ('Premier League', 'Fulham', 2023),
-    ('Premier League', 'Brentford', 2023),
-    ('Premier League', 'Arsenal', 2023),
-    ('Premier League', 'Liverpool', 2023),
-    ('Premier League', 'Chelsea', 2023),
-    ('Premier League', 'Manchester City', 2023),
-    ('Premier League', 'Manchester United', 2024),
-    ('Premier League', 'Tottenham Hotspur', 2024),
-    ('Premier League', 'Aston Villa', 2024),
-    ('Premier League', 'Newcastle United', 2024),
-    ('Premier League', 'Fulham', 2024),
-    ('Premier League', 'Brentford', 2024),
-    ('Premier League', 'Arsenal', 2024),
-    ('Premier League', 'Liverpool', 2024),
-    ('Premier League', 'Chelsea', 2024),
-    ('Premier League', 'Manchester City', 2024),
+-- Premier League teams
+('Premier League', 'Manchester United', 2022),
+('Premier League', 'Tottenham Hotspur', 2022),
+('Premier League', 'Aston Villa', 2022),
+('Premier League', 'Newcastle United', 2022),
+('Premier League', 'Fulham', 2022),
+('Premier League', 'Brentford', 2022),
+('Premier League', 'Arsenal', 2022),
+('Premier League', 'Liverpool', 2022),
+('Premier League', 'Chelsea', 2022),
+('Premier League', 'Manchester City', 2022),
+('Premier League', 'Manchester United', 2023),
+('Premier League', 'Tottenham Hotspur', 2023),
+('Premier League', 'Aston Villa', 2023),
+('Premier League', 'Newcastle United', 2023),
+('Premier League', 'Fulham', 2023),
+('Premier League', 'Brentford', 2023),
+('Premier League', 'Arsenal', 2023),
+('Premier League', 'Liverpool', 2023),
+('Premier League', 'Chelsea', 2023),
+('Premier League', 'Manchester City', 2023),
+('Premier League', 'Manchester United', 2024),
+('Premier League', 'Tottenham Hotspur', 2024),
+('Premier League', 'Aston Villa', 2024),
+('Premier League', 'Newcastle United', 2024),
+('Premier League', 'Fulham', 2024),
+('Premier League', 'Brentford', 2024),
+('Premier League', 'Arsenal', 2024),
+('Premier League', 'Liverpool', 2024),
+('Premier League', 'Chelsea', 2024),
+('Premier League', 'Manchester City', 2024),
 
-    -- La Liga teams
-    ('La Liga', 'Real Madrid', 2022),
-    ('La Liga', 'Barcelona', 2022),
-    ('La Liga', 'Atletico Madrid', 2022),
-    ('La Liga', 'Sevilla', 2022),
-    ('La Liga', 'Real Betis', 2022),
-    ('La Liga', 'Real Sociedad', 2022),
-    ('La Liga', 'Athletic Club', 2022),
-    ('La Liga', 'Valencia', 2022),
-    ('La Liga', 'Villarreal', 2022),
-    ('La Liga', 'Espanyol', 2022),
-    ('La Liga', 'Real Madrid', 2023),
-    ('La Liga', 'Barcelona', 2023),
-    ('La Liga', 'Atletico Madrid', 2023),
-    ('La Liga', 'Sevilla', 2023),
-    ('La Liga', 'Real Betis', 2023),
-    ('La Liga', 'Real Sociedad', 2023),
-    ('La Liga', 'Athletic Club', 2023),
-    ('La Liga', 'Valencia', 2023),
-    ('La Liga', 'Villarreal', 2023),
-    ('La Liga', 'Espanyol', 2023),
-    ('La Liga', 'Real Madrid', 2024),
-    ('La Liga', 'Barcelona', 2024),
-    ('La Liga', 'Atletico Madrid', 2024),
-    ('La Liga', 'Sevilla', 2024),
-    ('La Liga', 'Real Betis', 2024),
-    ('La Liga', 'Real Sociedad', 2024),
-    ('La Liga', 'Athletic Club', 2024),
-    ('La Liga', 'Valencia', 2024),
-    ('La Liga', 'Villarreal', 2024),
-    ('La Liga', 'Espanyol', 2024),
+-- La Liga teams
+('La Liga', 'Real Madrid', 2022),
+('La Liga', 'Barcelona', 2022),
+('La Liga', 'Atletico Madrid', 2022),
+('La Liga', 'Sevilla', 2022),
+('La Liga', 'Real Betis', 2022),
+('La Liga', 'Real Sociedad', 2022),
+('La Liga', 'Athletic Club', 2022),
+('La Liga', 'Valencia', 2022),
+('La Liga', 'Villarreal', 2022),
+('La Liga', 'Espanyol', 2022),
+('La Liga', 'Real Madrid', 2023),
+('La Liga', 'Barcelona', 2023),
+('La Liga', 'Atletico Madrid', 2023),
+('La Liga', 'Sevilla', 2023),
+('La Liga', 'Real Betis', 2023),
+('La Liga', 'Real Sociedad', 2023),
+('La Liga', 'Athletic Club', 2023),
+('La Liga', 'Valencia', 2023),
+('La Liga', 'Villarreal', 2023),
+('La Liga', 'Espanyol', 2023),
+('La Liga', 'Real Madrid', 2024),
+('La Liga', 'Barcelona', 2024),
+('La Liga', 'Atletico Madrid', 2024),
+('La Liga', 'Sevilla', 2024),
+('La Liga', 'Real Betis', 2024),
+('La Liga', 'Real Sociedad', 2024),
+('La Liga', 'Athletic Club', 2024),
+('La Liga', 'Valencia', 2024),
+('La Liga', 'Villarreal', 2024),
+('La Liga', 'Espanyol', 2024),
 
-    -- Major League Soccer teams
-    ('Major League Soccer', 'LA Galaxy', 2022),
-    ('Major League Soccer', 'DC United', 2022),
-    ('Major League Soccer', 'New York Red Bulls', 2022),
-    ('Major League Soccer', 'Seattle Sounders', 2022),
-    ('Major League Soccer', 'Portland Timbers', 2022),
-    ('Major League Soccer', 'Atlanta United', 2022),
-    ('Major League Soccer', 'Orlando City', 2022),
-    ('Major League Soccer', 'Toronto', 2022),
-    ('Major League Soccer', 'Chicago Fire', 2022),
-    ('Major League Soccer', 'Inter Miami', 2022),
-    ('Major League Soccer', 'LA Galaxy', 2023),
-    ('Major League Soccer', 'DC United', 2023),
-    ('Major League Soccer', 'New York Red Bulls', 2023),
-    ('Major League Soccer', 'Seattle Sounders', 2023),
-    ('Major League Soccer', 'Portland Timbers', 2023),
-    ('Major League Soccer', 'Atlanta United', 2023),
-    ('Major League Soccer', 'Orlando City', 2023),
-    ('Major League Soccer', 'Toronto', 2023),
-    ('Major League Soccer', 'Chicago Fire', 2023),
-    ('Major League Soccer', 'Inter Miami', 2023),
-    ('Major League Soccer', 'LA Galaxy', 2024),
-    ('Major League Soccer', 'DC United', 2024),
-    ('Major League Soccer', 'New York Red Bulls', 2024),
-    ('Major League Soccer', 'Seattle Sounders', 2024),
-    ('Major League Soccer', 'Portland Timbers', 2024),
-    ('Major League Soccer', 'Atlanta United', 2024),
-    ('Major League Soccer', 'Orlando City', 2024),
-    ('Major League Soccer', 'Toronto', 2024),
-    ('Major League Soccer', 'Chicago Fire', 2024),
-    ('Major League Soccer', 'Inter Miami', 2024);
+-- Major League Soccer teams
+('Major League Soccer', 'LA Galaxy', 2022),
+('Major League Soccer', 'DC United', 2022),
+('Major League Soccer', 'New York Red Bulls', 2022),
+('Major League Soccer', 'Seattle Sounders', 2022),
+('Major League Soccer', 'Portland Timbers', 2022),
+('Major League Soccer', 'Atlanta United', 2022),
+('Major League Soccer', 'Orlando City', 2022),
+('Major League Soccer', 'Toronto', 2022),
+('Major League Soccer', 'Chicago Fire', 2022),
+('Major League Soccer', 'Inter Miami', 2022),
+('Major League Soccer', 'LA Galaxy', 2023),
+('Major League Soccer', 'DC United', 2023),
+('Major League Soccer', 'New York Red Bulls', 2023),
+('Major League Soccer', 'Seattle Sounders', 2023),
+('Major League Soccer', 'Portland Timbers', 2023),
+('Major League Soccer', 'Atlanta United', 2023),
+('Major League Soccer', 'Orlando City', 2023),
+('Major League Soccer', 'Toronto', 2023),
+('Major League Soccer', 'Chicago Fire', 2023),
+('Major League Soccer', 'Inter Miami', 2023),
+('Major League Soccer', 'LA Galaxy', 2024),
+('Major League Soccer', 'DC United', 2024),
+('Major League Soccer', 'New York Red Bulls', 2024),
+('Major League Soccer', 'Seattle Sounders', 2024),
+('Major League Soccer', 'Portland Timbers', 2024),
+('Major League Soccer', 'Atlanta United', 2024),
+('Major League Soccer', 'Orlando City', 2024),
+('Major League Soccer', 'Toronto', 2024),
+('Major League Soccer', 'Chicago Fire', 2024),
+('Major League Soccer', 'Inter Miami', 2024);
 
 -- Players for Team: Manchester City
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Ederson', 'Moraes', '1993-08-17', 'Brazil', 50000000.00, 31, 'GK');
@@ -192,9 +192,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester City', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester City', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Manchester City', 2022),
-                                                             (LAST_INSERT_ID(), 'Manchester City', 2023),
-                                                             (LAST_INSERT_ID(), 'Manchester City', 2024);
+(LAST_INSERT_ID(), 'Manchester City', 2022),
+(LAST_INSERT_ID(), 'Manchester City', 2023),
+(LAST_INSERT_ID(), 'Manchester City', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Bernardo', 'Silva', '1994-08-10', 'Portugal', 80000000.00, 20, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester City', 2022);
@@ -247,9 +247,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Arsenal', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Arsenal', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Arsenal', 2022),
-                                                             (LAST_INSERT_ID(), 'Arsenal', 2023),
-                                                             (LAST_INSERT_ID(), 'Arsenal', 2024);
+(LAST_INSERT_ID(), 'Arsenal', 2022),
+(LAST_INSERT_ID(), 'Arsenal', 2023),
+(LAST_INSERT_ID(), 'Arsenal', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Bukayo', 'Saka', '2001-09-05', 'England', 100000000.00, 7, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Arsenal', 2022);
@@ -307,9 +307,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester United', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester United', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Manchester United', 2022),
-                                                             (LAST_INSERT_ID(), 'Manchester United', 2023),
-                                                             (LAST_INSERT_ID(), 'Manchester United', 2024);
+(LAST_INSERT_ID(), 'Manchester United', 2022),
+(LAST_INSERT_ID(), 'Manchester United', 2023),
+(LAST_INSERT_ID(), 'Manchester United', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Mason', 'Mount', '1999-01-10', 'England', 55000000.00, 7, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester United', 2022);
@@ -338,9 +338,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Tottenham Hotspur', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Tottenham Hotspur', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Tottenham Hotspur', 2022),
-                                                             (LAST_INSERT_ID(), 'Tottenham Hotspur', 2023),
-                                                             (LAST_INSERT_ID(), 'Tottenham Hotspur', 2024);
+(LAST_INSERT_ID(), 'Tottenham Hotspur', 2022),
+(LAST_INSERT_ID(), 'Tottenham Hotspur', 2023),
+(LAST_INSERT_ID(), 'Tottenham Hotspur', 2024);
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb)
 VALUES ('James', 'Maddison', '1996-11-23', 'England', 70000000.00, 10, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Tottenham Hotspur', 2022);
@@ -450,9 +450,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Aston Villa', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Aston Villa', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Aston Villa', 2022),
-                                                             (LAST_INSERT_ID(), 'Aston Villa', 2023),
-                                                             (LAST_INSERT_ID(), 'Aston Villa', 2024);
+(LAST_INSERT_ID(), 'Aston Villa', 2022),
+(LAST_INSERT_ID(), 'Aston Villa', 2023),
+(LAST_INSERT_ID(), 'Aston Villa', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb)
 VALUES ('Douglas', 'Luiz', '1998-05-09', 'Brazil', 25000000.0 ,6 , 'CM');
@@ -483,9 +483,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Newcastle United', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Newcastle United', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Newcastle United', 2022),
-                                                             (LAST_INSERT_ID(), 'Newcastle United', 2023),
-                                                             (LAST_INSERT_ID(), 'Newcastle United', 2024);
+(LAST_INSERT_ID(), 'Newcastle United', 2022),
+(LAST_INSERT_ID(), 'Newcastle United', 2023),
+(LAST_INSERT_ID(), 'Newcastle United', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Sven', 'Botman', '2000-01-12', 'Netherlands', 45000000.00, 4, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Newcastle United', 2022);
@@ -543,9 +543,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Fulham', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Fulham', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Fulham', 2022),
-                                                             (LAST_INSERT_ID(), 'Fulham', 2023),
-                                                             (LAST_INSERT_ID(), 'Fulham', 2024);
+(LAST_INSERT_ID(), 'Fulham', 2022),
+(LAST_INSERT_ID(), 'Fulham', 2023),
+(LAST_INSERT_ID(), 'Fulham', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Issa', 'Diop', '1997-01-09', 'France', 15000000.00, 31, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Fulham', 2022);
@@ -623,9 +623,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Brentford', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Brentford', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Brentford', 2022),
-                                                             (LAST_INSERT_ID(), 'Brentford', 2023),
-                                                             (LAST_INSERT_ID(), 'Brentford', 2024);
+(LAST_INSERT_ID(), 'Brentford', 2022),
+(LAST_INSERT_ID(), 'Brentford', 2023),
+(LAST_INSERT_ID(), 'Brentford', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Mathias', 'Jensen', '1996-01-01', 'Denmark', 14000000.00, 8, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Brentford', 2022);
@@ -663,9 +663,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Liverpool', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Liverpool', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Liverpool', 2022),
-                                                             (LAST_INSERT_ID(), 'Liverpool', 2023),
-                                                             (LAST_INSERT_ID(), 'Liverpool', 2024);
+(LAST_INSERT_ID(), 'Liverpool', 2022),
+(LAST_INSERT_ID(), 'Liverpool', 2023),
+(LAST_INSERT_ID(), 'Liverpool', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Trent', 'Alexander-Arnold', '1998-10-07', 'England', 80000000.00, 66, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Liverpool', 2022);
@@ -718,9 +718,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chelsea', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chelsea', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Chelsea', 2022),
-                                                             (LAST_INSERT_ID(), 'Chelsea', 2023),
-                                                             (LAST_INSERT_ID(), 'Chelsea', 2024);
+(LAST_INSERT_ID(), 'Chelsea', 2022),
+(LAST_INSERT_ID(), 'Chelsea', 2023),
+(LAST_INSERT_ID(), 'Chelsea', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Enzo', 'Fernández', '2001-01-17', 'Argentina', 120000000.00, 8, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chelsea', 2022);
@@ -783,9 +783,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Madrid', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Madrid', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Real Madrid', 2022),
-                                                             (LAST_INSERT_ID(), 'Real Madrid', 2023),
-                                                             (LAST_INSERT_ID(), 'Real Madrid', 2024);
+(LAST_INSERT_ID(), 'Real Madrid', 2022),
+(LAST_INSERT_ID(), 'Real Madrid', 2023),
+(LAST_INSERT_ID(), 'Real Madrid', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Eder', 'Militão', '1998-01-18', 'Brazil', 65000000.00, 3, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Madrid', 2022);
@@ -838,9 +838,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Barcelona', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Barcelona', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Barcelona', 2022),
-                                                             (LAST_INSERT_ID(), 'Barcelona', 2023),
-                                                             (LAST_INSERT_ID(), 'Barcelona', 2024);
+(LAST_INSERT_ID(), 'Barcelona', 2022),
+(LAST_INSERT_ID(), 'Barcelona', 2023),
+(LAST_INSERT_ID(), 'Barcelona', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Jules', 'Koundé', '1998-11-12', 'France', 60000000.00, 23, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Barcelona', 2022);
@@ -923,9 +923,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atletico Madrid', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atletico Madrid', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Atletico Madrid', 2022),
-                                                             (LAST_INSERT_ID(), 'Atletico Madrid', 2023),
-                                                             (LAST_INSERT_ID(), 'Atletico Madrid', 2024);
+(LAST_INSERT_ID(), 'Atletico Madrid', 2022),
+(LAST_INSERT_ID(), 'Atletico Madrid', 2023),
+(LAST_INSERT_ID(), 'Atletico Madrid', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Rodrigo', 'De Paul', '1994-05-24', 'Argentina', 35000000.00, 5, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atletico Madrid', 2022);
@@ -998,9 +998,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Sevilla', 2022),
-                                                             (LAST_INSERT_ID(), 'Sevilla', 2023),
-                                                             (LAST_INSERT_ID(), 'Sevilla', 2024);
+(LAST_INSERT_ID(), 'Sevilla', 2022),
+(LAST_INSERT_ID(), 'Sevilla', 2023),
+(LAST_INSERT_ID(), 'Sevilla', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Lucien', 'Agoumé', '2002-02-09', 'France', 5000000.00, 20, 'CDM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2022);
@@ -1028,9 +1028,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Betis', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Betis', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Real Betis', 2022),
-                                                             (LAST_INSERT_ID(), 'Real Betis', 2023),
-                                                             (LAST_INSERT_ID(), 'Real Betis', 2024);
+(LAST_INSERT_ID(), 'Real Betis', 2022),
+(LAST_INSERT_ID(), 'Real Betis', 2023),
+(LAST_INSERT_ID(), 'Real Betis', 2024);
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Diego', 'Llorente', '1993-08-16', 'Spain', 8000000.00, 6, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Betis', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Betis', 2023);
@@ -1127,9 +1127,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Sociedad', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Sociedad', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Real Sociedad', 2022),
-                                                             (LAST_INSERT_ID(), 'Real Sociedad', 2023),
-                                                             (LAST_INSERT_ID(), 'Real Sociedad', 2024);
+(LAST_INSERT_ID(), 'Real Sociedad', 2022),
+(LAST_INSERT_ID(), 'Real Sociedad', 2023),
+(LAST_INSERT_ID(), 'Real Sociedad', 2024);
 
 -- Players for Team: Athletic Club
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Unai', 'Simón', '1997-06-11', 'Spain', 25000000.00, 1, 'GK');
@@ -1142,9 +1142,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Athletic Club', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Athletic Club', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Athletic Club', 2022),
-                                                             (LAST_INSERT_ID(), 'Athletic Club', 2023),
-                                                             (LAST_INSERT_ID(), 'Athletic Club', 2024);
+(LAST_INSERT_ID(), 'Athletic Club', 2022),
+(LAST_INSERT_ID(), 'Athletic Club', 2023),
+(LAST_INSERT_ID(), 'Athletic Club', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Dani', 'Vivian', '1999-07-05', 'Spain', 15000000.00, 3, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Athletic Club', 2022);
@@ -1223,9 +1223,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Valencia', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Valencia', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Valencia', 2022),
-                                                             (LAST_INSERT_ID(), 'Valencia', 2023),
-                                                             (LAST_INSERT_ID(), 'Valencia', 2024);
+(LAST_INSERT_ID(), 'Valencia', 2022),
+(LAST_INSERT_ID(), 'Valencia', 2023),
+(LAST_INSERT_ID(), 'Valencia', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Diego', 'López', '2002-02-13', 'Spain', 12000000.00, 16, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Valencia', 2022);
@@ -1268,9 +1268,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Villarreal', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Villarreal', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Villarreal', 2022),
-                                                             (LAST_INSERT_ID(), 'Villarreal', 2023),
-                                                             (LAST_INSERT_ID(), 'Villarreal', 2024);
+(LAST_INSERT_ID(), 'Villarreal', 2022),
+(LAST_INSERT_ID(), 'Villarreal', 2023),
+(LAST_INSERT_ID(), 'Villarreal', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Jorge', 'Cuenca', '1999-11-17', 'Spain', 5000000.00, 4, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Villarreal', 2022);
@@ -1333,9 +1333,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Espanyol', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Espanyol', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Espanyol', 2022),
-                                                             (LAST_INSERT_ID(), 'Espanyol', 2023),
-                                                             (LAST_INSERT_ID(), 'Espanyol', 2024);
+(LAST_INSERT_ID(), 'Espanyol', 2022),
+(LAST_INSERT_ID(), 'Espanyol', 2023),
+(LAST_INSERT_ID(), 'Espanyol', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Brian', 'Oliván', '1994-04-01', 'Spain', 2000000.00, 14, 'LB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Espanyol', 2022);
@@ -1388,9 +1388,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'LA Galaxy', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'LA Galaxy', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'LA Galaxy', 2022),
-                                                             (LAST_INSERT_ID(), 'LA Galaxy', 2023),
-                                                             (LAST_INSERT_ID(), 'LA Galaxy', 2024);
+(LAST_INSERT_ID(), 'LA Galaxy', 2022),
+(LAST_INSERT_ID(), 'LA Galaxy', 2023),
+(LAST_INSERT_ID(), 'LA Galaxy', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Martín', 'Cáceres', '1987-04-07', 'Uruguay', 400000.00, 22, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'LA Galaxy', 2022);
@@ -1438,9 +1438,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'DC United', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'DC United', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'DC United', 2022),
-                                                             (LAST_INSERT_ID(), 'DC United', 2023),
-                                                             (LAST_INSERT_ID(), 'DC United', 2024);
+(LAST_INSERT_ID(), 'DC United', 2022),
+(LAST_INSERT_ID(), 'DC United', 2023),
+(LAST_INSERT_ID(), 'DC United', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Mateusz', 'Klich', '1990-06-13', 'Poland', 2093588.00, 43, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'DC United', 2022);
@@ -1508,9 +1508,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'New York Red Bulls', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'New York Red Bulls', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'New York Red Bulls', 2022),
-                                                             (LAST_INSERT_ID(), 'New York Red Bulls', 2023),
-                                                             (LAST_INSERT_ID(), 'New York Red Bulls', 2024);
+(LAST_INSERT_ID(), 'New York Red Bulls', 2022),
+(LAST_INSERT_ID(), 'New York Red Bulls', 2023),
+(LAST_INSERT_ID(), 'New York Red Bulls', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Andrés', 'Reyes', '1999-09-08', 'Colombia', 9600000.00, 4, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'New York Red Bulls', 2022);
@@ -1578,9 +1578,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Seattle Sounders', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Seattle Sounders', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Seattle Sounders', 2022),
-                                                             (LAST_INSERT_ID(), 'Seattle Sounders', 2023),
-                                                             (LAST_INSERT_ID(), 'Seattle Sounders', 2024);
+(LAST_INSERT_ID(), 'Seattle Sounders', 2022),
+(LAST_INSERT_ID(), 'Seattle Sounders', 2023),
+(LAST_INSERT_ID(), 'Seattle Sounders', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('João', 'Paulo', '1991-03-08', 'Brazil', 3000000.00, 6, 'CDM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Seattle Sounders', 2022);
@@ -1643,9 +1643,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Portland Timbers', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Portland Timbers', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Portland Timbers', 2022),
-                                                             (LAST_INSERT_ID(), 'Portland Timbers', 2023),
-                                                             (LAST_INSERT_ID(), 'Portland Timbers', 2024);
+(LAST_INSERT_ID(), 'Portland Timbers', 2022),
+(LAST_INSERT_ID(), 'Portland Timbers', 2023),
+(LAST_INSERT_ID(), 'Portland Timbers', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Cristhian', 'Paredes', '1998-05-18', 'Paraguay', 1400000.00, 22, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Portland Timbers', 2022);
@@ -1678,9 +1678,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atlanta United', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atlanta United', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Atlanta United', 2022),
-                                                             (LAST_INSERT_ID(), 'Atlanta United', 2023),
-                                                             (LAST_INSERT_ID(), 'Atlanta United', 2024);
+(LAST_INSERT_ID(), 'Atlanta United', 2022),
+(LAST_INSERT_ID(), 'Atlanta United', 2023),
+(LAST_INSERT_ID(), 'Atlanta United', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Ronald', 'Hernández', '1997-09-21', 'Venezuela', 450000.00, 2, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atlanta United', 2022);
@@ -1768,9 +1768,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Orlando City', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Orlando City', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Orlando City', 2022),
-                                                             (LAST_INSERT_ID(), 'Orlando City', 2023),
-                                                             (LAST_INSERT_ID(), 'Orlando City', 2024);
+(LAST_INSERT_ID(), 'Orlando City', 2022),
+(LAST_INSERT_ID(), 'Orlando City', 2023),
+(LAST_INSERT_ID(), 'Orlando City', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Facundo', 'Torres', '2000-04-13', 'Uruguay', 12000000.00, 17, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Orlando City', 2022);
@@ -1823,9 +1823,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Toronto', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Toronto', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Toronto', 2022),
-                                                             (LAST_INSERT_ID(), 'Toronto', 2023),
-                                                             (LAST_INSERT_ID(), 'Toronto', 2024);
+(LAST_INSERT_ID(), 'Toronto', 2022),
+(LAST_INSERT_ID(), 'Toronto', 2023),
+(LAST_INSERT_ID(), 'Toronto', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Federico', 'Bernardeschi', '1994-02-16', 'Italy', 8000000.00, 10, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Toronto', 2022);
@@ -1868,9 +1868,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chicago Fire', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chicago Fire', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Chicago Fire', 2022),
-                                                             (LAST_INSERT_ID(), 'Chicago Fire', 2023),
-                                                             (LAST_INSERT_ID(), 'Chicago Fire', 2024);
+(LAST_INSERT_ID(), 'Chicago Fire', 2022),
+(LAST_INSERT_ID(), 'Chicago Fire', 2023),
+(LAST_INSERT_ID(), 'Chicago Fire', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Carlos', 'Terán', '2000-09-24', 'Colombia', 1500000.00, 4, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chicago Fire', 2022);
@@ -1958,9 +1958,9 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2024);
 INSERT INTO team_captain (captain_id, team_name, season) VALUES
-                                                             (LAST_INSERT_ID(), 'Inter Miami', 2022),
-                                                             (LAST_INSERT_ID(), 'Inter Miami', 2023),
-                                                             (LAST_INSERT_ID(), 'Inter Miami', 2024);
+(LAST_INSERT_ID(), 'Inter Miami', 2022),
+(LAST_INSERT_ID(), 'Inter Miami', 2023),
+(LAST_INSERT_ID(), 'Inter Miami', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Leonardo', 'Campana', '2000-07-24', 'Ecuador', 4000000.00, 9, 'ST');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2022);
@@ -1976,130 +1976,131 @@ INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(),
 -- Inserting managers now
 
 INSERT INTO manager (First_Name, Last_Name, DOB, Nationality, team_name) VALUES
-                                                                             ('Erik', 'ten Hag', '1970-02-02', 'Netherlands', 'Manchester United'),
-                                                                             ('Mikel', 'Arteta', '1982-03-26', 'Spain', 'Arsenal'),
-                                                                             ('Pep', 'Guardiola', '1971-01-18', 'Spain', 'Manchester City'),
-                                                                             ('Jurgen', 'Klopp', '1967-06-16', 'Germany', 'Liverpool'),
-                                                                             ('Mauricio', 'Pochettino', '1972-03-02', 'Argentina', 'Chelsea'),
-                                                                             ('Eddie', 'Howe', '1977-11-29', 'England', 'Newcastle United'),
-                                                                             ('Ange', 'Postecoglou', '1965-08-27', 'Australia', 'Tottenham Hotspur'),
-                                                                             ('Unai', 'Emery', '1971-11-03', 'Spain', 'Aston Villa'),
-                                                                             ('Marco', 'Silva', '1977-07-12', 'Portugal', 'Fulham'),
-                                                                             ('Thomas', 'Frank', '1973-10-09', 'Denmark', 'Brentford'),
+('Erik', 'ten Hag', '1970-02-02', 'Netherlands', 'Manchester United'),
+('Mikel', 'Arteta', '1982-03-26', 'Spain', 'Arsenal'),
+('Pep', 'Guardiola', '1971-01-18', 'Spain', 'Manchester City'),
+('Jurgen', 'Klopp', '1967-06-16', 'Germany', 'Liverpool'),
+('Mauricio', 'Pochettino', '1972-03-02', 'Argentina', 'Chelsea'),
+('Eddie', 'Howe', '1977-11-29', 'England', 'Newcastle United'),
+('Ange', 'Postecoglou', '1965-08-27', 'Australia', 'Tottenham Hotspur'),
+('Unai', 'Emery', '1971-11-03', 'Spain', 'Aston Villa'),
+('Marco', 'Silva', '1977-07-12', 'Portugal', 'Fulham'),
+('Thomas', 'Frank', '1973-10-09', 'Denmark', 'Brentford'),
 
-                                                                             -- La Liga managers
-                                                                             ('Carlo', 'Ancelotti', '1959-06-10', 'Italy', 'Real Madrid'),
-                                                                             ('Xavi', 'Hernandez', '1980-01-25', 'Spain', 'Barcelona'),
-                                                                             ('Diego', 'Simeone', '1970-04-28', 'Argentina', 'Atletico Madrid'),
-                                                                             ('Jose', 'Luis Mendilibar', '1961-03-14', 'Spain', 'Sevilla'),
-                                                                             ('Manuel', 'Pellegrini', '1953-09-16', 'Chile', 'Real Betis'),
-                                                                             ('Imanol', 'Alguacil', '1971-07-04', 'Spain', 'Real Sociedad'),
-                                                                             ('Ernesto', 'Valverde', '1964-02-09', 'Spain', 'Athletic Club'),
-                                                                             ('Ruben', 'Baraja', '1975-07-11', 'Spain', 'Valencia'),
-                                                                             ('Quique', 'Setien', '1958-09-27', 'Spain', 'Villarreal'),
-                                                                             ('Luis', 'Garcia', '1975-09-01', 'Spain', 'Espanyol'),
+-- La Liga managers
+('Carlo', 'Ancelotti', '1959-06-10', 'Italy', 'Real Madrid'),
+('Xavi', 'Hernandez', '1980-01-25', 'Spain', 'Barcelona'),
+('Diego', 'Simeone', '1970-04-28', 'Argentina', 'Atletico Madrid'),
+('Jose', 'Luis Mendilibar', '1961-03-14', 'Spain', 'Sevilla'),
+('Manuel', 'Pellegrini', '1953-09-16', 'Chile', 'Real Betis'),
+('Imanol', 'Alguacil', '1971-07-04', 'Spain', 'Real Sociedad'),
+('Ernesto', 'Valverde', '1964-02-09', 'Spain', 'Athletic Club'),
+('Ruben', 'Baraja', '1975-07-11', 'Spain', 'Valencia'),
+('Quique', 'Setien', '1958-09-27', 'Spain', 'Villarreal'),
+('Luis', 'Garcia', '1975-09-01', 'Spain', 'Espanyol'),
 
-                                                                             -- Major League Soccer managers
-                                                                             ('Greg', 'Vanney', '1974-06-11', 'USA', 'LA Galaxy'),
-                                                                             ('Wayne', 'Rooney', '1985-10-24', 'England', 'DC United'),
-                                                                             ('Troy', 'Lesesne', '1983-09-04', 'USA', 'New York Red Bulls'),
-                                                                             ('Brian', 'Schmetzer', '1962-08-18', 'USA', 'Seattle Sounders'),
-                                                                             ('Giovanni', 'Savarese', '1971-07-14', 'Venezuela', 'Portland Timbers'),
-                                                                             ('Gonzalo', 'Pineda', '1982-10-19', 'Mexico', 'Atlanta United'),
-                                                                             ('Oscar', 'Pareja', '1968-06-10', 'Colombia', 'Orlando City'),
-                                                                             ('Bob', 'Bradley', '1958-03-03', 'USA', 'Toronto'),
-                                                                             ('Frank', 'Klopas', '1966-09-01', 'USA', 'Chicago Fire'),
-                                                                             ('Gerardo', 'Martino', '1962-11-20', 'Argentina', 'Inter Miami');
+-- Major League Soccer managers
+('Greg', 'Vanney', '1974-06-11', 'USA', 'LA Galaxy'),
+('Wayne', 'Rooney', '1985-10-24', 'England', 'DC United'),
+('Troy', 'Lesesne', '1983-09-04', 'USA', 'New York Red Bulls'),
+('Brian', 'Schmetzer', '1962-08-18', 'USA', 'Seattle Sounders'),
+('Giovanni', 'Savarese', '1971-07-14', 'Venezuela', 'Portland Timbers'),
+('Gonzalo', 'Pineda', '1982-10-19', 'Mexico', 'Atlanta United'),
+('Oscar', 'Pareja', '1968-06-10', 'Colombia', 'Orlando City'),
+('Bob', 'Bradley', '1958-03-03', 'USA', 'Toronto'),
+('Frank', 'Klopas', '1966-09-01', 'USA', 'Chicago Fire'),
+('Gerardo', 'Martino', '1962-11-20', 'Argentina', 'Inter Miami');
 
 -- Inserting Broadcasters
-INSERT INTO broadcaster (Channel_Name, Commentator, Streaming_Link) VALUES
-                                                                        ('Sky Sports', 'Martin Tyler', 'https://www.sky.com/sports'),
-                                                                        ('BBC Sport', 'Gary Lineker', 'https://www.bbc.co.uk/sport'),
-                                                                        ('NBC Sports', 'Arlo White', 'https://www.nbcsports.com');
-
+INSERT INTO broadcaster (Channel_Name, Streaming_Link) VALUES
+('Sky Sports', 'https://www.sky.com/sports'),
+('BBC Sport', 'https://www.bbc.co.uk/sport'),
+('NBC Sports', 'https://www.nbcsports.com'),
+('ESPN', 'https://www.espn.com'),
+('Fox Sports', 'https://www.foxsports.com');
 
 -- Inserting stadiums
 INSERT INTO stadium (Name, City, Zip_Code, Capacity, Team_Name) VALUES
-                                                                    -- Premier League stadiums
-                                                                    ('Old Trafford', 'Manchester', 'M16 0RA', 74879, 'Manchester United'),
-                                                                    ('Emirates Stadium', 'London', 'N5 1BU', 60260, 'Arsenal'),
-                                                                    ('Etihad Stadium', 'Manchester', 'M11 3FF', 53600, 'Manchester City'),
-                                                                    ('Anfield', 'Liverpool', 'L4 0TH', 54074, 'Liverpool'),
-                                                                    ('Stamford Bridge', 'London', 'SW6 1HS', 40742, 'Chelsea'),
-                                                                    ('Villa Park', 'Birmingham', 'B6 6HE', 42682, 'Aston Villa'),
-                                                                    ('St James Park', 'Newcastle upon Tyne', 'NE1 4ST', 52305, 'Newcastle United'),
-                                                                    ('Craven Cottage', 'London', 'SW6 6HH', 25700, 'Fulham'),
-                                                                    ('Brentford Community Stadium', 'London', 'TW8 0NT', 17250, 'Brentford'),
-                                                                    ('London Stadium', 'London', 'E20 2ST', 60000, 'Tottenham Hotspur'),
+-- Premier League stadiums
+('Old Trafford', 'Manchester', 'M16 0RA', 74879, 'Manchester United'),
+('Emirates Stadium', 'London', 'N5 1BU', 60260, 'Arsenal'),
+('Etihad Stadium', 'Manchester', 'M11 3FF', 53600, 'Manchester City'),
+('Anfield', 'Liverpool', 'L4 0TH', 54074, 'Liverpool'),
+('Stamford Bridge', 'London', 'SW6 1HS', 40742, 'Chelsea'),
+('Villa Park', 'Birmingham', 'B6 6HE', 42682, 'Aston Villa'),
+('St James Park', 'Newcastle upon Tyne', 'NE1 4ST', 52305, 'Newcastle United'),
+('Craven Cottage', 'London', 'SW6 6HH', 25700, 'Fulham'),
+('Brentford Community Stadium', 'London', 'TW8 0NT', 17250, 'Brentford'),
+('London Stadium', 'London', 'E20 2ST', 60000, 'Tottenham Hotspur'),
 
-                                                                    -- La Liga stadiums
-                                                                    ('Santiago Bernabéu', 'Madrid', '28036', 81044, 'Real Madrid'),
-                                                                    ('Camp Nou', 'Barcelona', '08028', 99354, 'Barcelona'),
-                                                                    ('Wanda Metropolitano', 'Madrid', '28022', 68456, 'Atletico Madrid'),
-                                                                    ('Ramon Sanchez Pizjuan', 'Seville', '41005', 43883, 'Sevilla'),
-                                                                    ('Benito Villamarin', 'Seville', '41012', 60721, 'Real Betis'),
-                                                                    ('Anoeta', 'San Sebastian', '20014', 39800, 'Real Sociedad'),
-                                                                    ('San Mamés', 'Bilbao', '48013', 53289, 'Athletic Club'),
-                                                                    ('Mestalla', 'Valencia', '46010', 49865, 'Valencia'),
-                                                                    ('Estadio de la Ceramica', 'Villarreal', '12540', 23500, 'Villarreal'),
-                                                                    ('RCDE Stadium', 'Barcelona', '08940', 40500, 'Espanyol'),
+-- La Liga stadiums
+('Santiago Bernabéu', 'Madrid', '28036', 81044, 'Real Madrid'),
+('Camp Nou', 'Barcelona', '08028', 99354, 'Barcelona'),
+('Wanda Metropolitano', 'Madrid', '28022', 68456, 'Atletico Madrid'),
+('Ramon Sanchez Pizjuan', 'Seville', '41005', 43883, 'Sevilla'),
+('Benito Villamarin', 'Seville', '41012', 60721, 'Real Betis'),
+('Anoeta', 'San Sebastian', '20014', 39800, 'Real Sociedad'),
+('San Mamés', 'Bilbao', '48013', 53289, 'Athletic Club'),
+('Mestalla', 'Valencia', '46010', 49865, 'Valencia'),
+('Estadio de la Ceramica', 'Villarreal', '12540', 23500, 'Villarreal'),
+('RCDE Stadium', 'Barcelona', '08940', 40500, 'Espanyol'),
 
-                                                                    -- Major League Soccer stadiums
-                                                                    ('Dignity Health Sports Park', 'Carson', '90746', 27000, 'LA Galaxy'),
-                                                                    ('Audi Field', 'Washington D.C.', '20024', 20000, 'DC United'),
-                                                                    ('Red Bull Arena', 'Harrison', '07029', 25000, 'New York Red Bulls'),
-                                                                    ('Lumen Field', 'Seattle', '98134', 72000, 'Seattle Sounders'),
-                                                                    ('Providence Park', 'Portland', '97205', 25218, 'Portland Timbers'),
-                                                                    ('Mercedes-Benz Stadium', 'Atlanta', '30313', 71000, 'Atlanta United'),
-                                                                    ('Exploria Stadium', 'Orlando', '32805', 25500, 'Orlando City'),
-                                                                    ('BMO Field', 'Toronto', 'M6K 3C3', 30000, 'Toronto'),
-                                                                    ('Soldier Field', 'Chicago', '60605', 61500, 'Chicago Fire'),
-                                                                    ('DRV PNK Stadium', 'Fort Lauderdale', '33309', 19500, 'Inter Miami');
+-- Major League Soccer stadiums
+('Dignity Health Sports Park', 'Carson', '90746', 27000, 'LA Galaxy'),
+('Audi Field', 'Washington D.C.', '20024', 20000, 'DC United'),
+('Red Bull Arena', 'Harrison', '07029', 25000, 'New York Red Bulls'),
+('Lumen Field', 'Seattle', '98134', 72000, 'Seattle Sounders'),
+('Providence Park', 'Portland', '97205', 25218, 'Portland Timbers'),
+('Mercedes-Benz Stadium', 'Atlanta', '30313', 71000, 'Atlanta United'),
+('Exploria Stadium', 'Orlando', '32805', 25500, 'Orlando City'),
+('BMO Field', 'Toronto', 'M6K 3C3', 30000, 'Toronto'),
+('Soldier Field', 'Chicago', '60605', 61500, 'Chicago Fire'),
+('DRV PNK Stadium', 'Fort Lauderdale', '33309', 19500, 'Inter Miami');
 
 -- Insert Barclays into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
-    ('Barclays', 'England', 'Banking', 'https://www.barclays.co.uk');
+('Barclays', 'England', 'Banking', 'https://www.barclays.co.uk');
 
 -- Link Barclays to the Premier League in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
-    ('Barclays', 'Premier League', 50000000.00);
+('Barclays', 'Premier League', 50000000.00);
 
 -- Insert Santander into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
-    ('Santander', 'Spain', 'Banking', 'https://www.santander.com');
+('Santander', 'Spain', 'Banking', 'https://www.santander.com');
 
 -- Link Santander to La Liga in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
-    ('Santander', 'La Liga', 45000000.00);
+('Santander', 'La Liga', 45000000.00);
 
 -- Insert Adidas into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
-    ('Adidas', 'Germany', 'Sportswear', 'https://www.adidas.com');
+('Adidas', 'Germany', 'Sportswear', 'https://www.adidas.com');
 
 -- Link Adidas to Major League Soccer in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
-    ('Adidas', 'Major League Soccer', 25000000.00);
+('Adidas', 'Major League Soccer', 25000000.00);
 
 -- Insert Emirates into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
-    ('Emirates', 'UAE', 'Airline', 'https://www.emirates.com');
+('Emirates', 'UAE', 'Airline', 'https://www.emirates.com');
 
 -- Link Emirates to Premier League in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
-    ('Emirates', 'Premier League', 40000000.00);
+('Emirates', 'Premier League', 40000000.00);
 
 -- Insert Coca-Cola into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
-    ('Coca-Cola', 'USA', 'Beverage', 'https://www.coca-cola.com');
+('Coca-Cola', 'USA', 'Beverage', 'https://www.coca-cola.com');
 
 -- Link Coca-Cola to Major League Soccer in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
-    ('Coca-Cola', 'Major League Soccer', 15000000.00);
+('Coca-Cola', 'Major League Soccer', 15000000.00);
 
 -- Insert Rakuten into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
-    ('Rakuten', 'Japan', 'E-commerce', 'https://www.rakuten.com');
+('Rakuten', 'Japan', 'E-commerce', 'https://www.rakuten.com');
 
 -- Link Rakuten to La Liga in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
-    ('Rakuten', 'La Liga', 30000000.00);
+('Rakuten', 'La Liga', 30000000.00);

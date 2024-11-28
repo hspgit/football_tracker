@@ -7,12 +7,6 @@ CREATE TABLE team (
     established_year INT NOT NULL
 );
 
-CREATE TABLE field_position (
-    abb VARCHAR(10) PRIMARY KEY,
-    name VARCHAR(128) NOT NULL,
-    description TEXT NOT NULL
-);
-
 CREATE TABLE sponsor (
     name VARCHAR(128) PRIMARY KEY,
     country VARCHAR(128) NOT NULL,
@@ -35,11 +29,6 @@ CREATE TABLE stadium (
     UNIQUE (city, zip_code)
 );
 
-CREATE TABLE broadcaster (
-    channel_name VARCHAR(128) PRIMARY KEY ,
-    streaming_link VARCHAR(256) NOT NULL
-);
-
 CREATE TABLE player (
     player_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(128) NOT NULL,
@@ -48,11 +37,7 @@ CREATE TABLE player (
     nationality VARCHAR(128) NOT NULL,
     market_value DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
     jersey_number INT NOT NULL,
-    position_abb VARCHAR(10) NOT NULL,
-    FOREIGN KEY (position_abb) 
-        REFERENCES field_position(abb) 
-        ON UPDATE CASCADE 
-        ON DELETE CASCADE
+    position_abb VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE league_team (
@@ -125,13 +110,10 @@ CREATE TABLE manager (
 CREATE TABLE game (
     team_1_name VARCHAR(128),
     team_2_name VARCHAR(128),
-    team_1_goals INT,
-    team_2_goals INT,
     stadium_name VARCHAR(128) NOT NULL,
-    broadcaster_channel_name VARCHAR(128) NOT NULL,
     match_date DATE NOT NULL,
     attendance INT NOT NULL DEFAULT 0,
-    PRIMARY KEY (team_1_name, team_2_name, match_date, broadcaster_channel_name),
+    PRIMARY KEY (team_1_name, team_2_name, match_date),
     FOREIGN KEY (team_1_name) 
         REFERENCES team(name) 
         ON UPDATE CASCADE 
@@ -143,30 +125,26 @@ CREATE TABLE game (
     FOREIGN KEY (stadium_name) 
         REFERENCES stadium(name) 
         ON UPDATE CASCADE 
-        ON DELETE CASCADE,
-    FOREIGN KEY (broadcaster_channel_name)
-        REFERENCES broadcaster(channel_name)
-        ON UPDATE CASCADE 
         ON DELETE CASCADE
 );
 
 CREATE TABLE player_stat (
-    player_id INT NOT NULL,
-    team_1_name VARCHAR(128) NOT NULL,
-    team_2_name VARCHAR(128) NOT NULL,
-    match_date DATE NOT NULL,
-    goals_scored INT NOT NULL DEFAULT 0,
-    yellow_card INT NOT NULL DEFAULT 0,
-    red_card INT NOT NULL DEFAULT 0,
-    PRIMARY KEY (player_id, team_1_name, team_2_name, match_date),
-    FOREIGN KEY (player_id) 
-        REFERENCES player(player_id) 
-        ON UPDATE CASCADE 
-        ON DELETE CASCADE,
-    FOREIGN KEY (team_1_name, team_2_name, match_date) 
-        REFERENCES game(team_1_name, team_2_name, match_date) 
-        ON UPDATE CASCADE 
-        ON DELETE CASCADE
+     player_id INT NOT NULL,
+     team_1_name VARCHAR(128) NOT NULL,
+     team_2_name VARCHAR(128) NOT NULL,
+     match_date DATE NOT NULL,
+     goals_scored INT NOT NULL DEFAULT 0,
+     yellow_card INT NOT NULL DEFAULT 0,
+     red_card INT NOT NULL DEFAULT 0,
+     PRIMARY KEY (player_id, team_1_name, team_2_name, match_date),
+     FOREIGN KEY (player_id)
+         REFERENCES player(player_id)
+         ON UPDATE CASCADE
+         ON DELETE CASCADE,
+     FOREIGN KEY (team_1_name, team_2_name, match_date)
+         REFERENCES game(team_1_name, team_2_name, match_date)
+         ON UPDATE CASCADE
+         ON DELETE CASCADE
 );
 
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {League, Team} from "../app.models";
+import {League, LeagueTableRow, Team} from "../app.models";
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +25,17 @@ export class LeagueService {
 
     // Make the HTTP GET request to the Flask API
     return this.http.get<Team[]>(`${this.apiUrl}/teams`, { params });
+  }
+
+  getLeagueTable(leagueName: string, season: number, sortColumn: string, sortOrder: string): Observable<any> {
+    // Prepare the query parameters
+    const params = new HttpParams()
+      .set('league_name', leagueName)
+      .set('season', season.toString())
+      .set('sort_column', sortColumn)
+      .set('sort_order',sortOrder);
+
+    // Make the HTTP GET request to the Flask API
+    return this.http.get<LeagueTableRow[]>(`${this.apiUrl}/table`, { params });
   }
 }

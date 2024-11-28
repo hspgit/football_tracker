@@ -166,3 +166,47 @@ SELECT * FROM football_tracker.league_team where season = 2023 order by matches_
 
 
 
+DELIMITER $$
+
+CREATE PROCEDURE get_league_table(
+    IN in_league_name VARCHAR(128),
+    IN in_season INT,
+    IN sortColumnsAndOrders VARCHAR(512) -- Single string containing columns and their sort orders
+)
+BEGIN
+    -- Set default sorting if no input is provided
+    IF sortColumnsAndOrders IS NULL OR sortColumnsAndOrders = '' THEN
+        SET sortColumnsAndOrders = 'points DESC'; -- Default to sorting by points in descending order
+    END IF;
+
+    -- Validate the sortColumnsAndOrders input (basic validation example)
+    -- NOTE: Stronger validation may require splitting and checking each column and order individually.
+    IF sortColumnsAndOrders NOT REGEXP '^[a-zA-Z0-9_, ]+(ASC|DESC)?$' THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid sortColumnsAndOrders';
+    END IF;
+
+    -- Build dynamic query
+    SET @sql_query = CONCAT(
+            'SELECT ',
+            'league_name, team_name, season, matches_played, wins, losses, goals_scored, goals_conceded, ',
+            '(wins * 3 + losses * 0 + (matches_played - wins - losses) * 1) AS points, ',
+            '(goals_scored - goals_conceded) AS goal_difference, ',
+            '(matches_played - wins - losses) AS draws ',
+            'FROM league_team ',
+            'WHERE league_name = "', in_league_name, '" ',
+            'AND season = ', in_season, ' ',
+            'ORDER BY ', sortColumnsAndOrders -- Add dynamic sorting
+                     );
+
+    -- Prepare and execute the dynamic SQL
+    PREPARE stmt FROM @sql_query;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+
+END $$
+
+DELIMITER ;
+
+CALL get_league_table('Premier League', 2024, 'points DESC, goal_difference ASC');
+CALL get_league_table('Premier League', 2024, 'team_name ASC, matches_played DESC');
+CALL get_league_table('Premier League', 2024, NULL);

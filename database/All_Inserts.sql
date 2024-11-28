@@ -34,17 +34,17 @@ INSERT INTO team (name, established_year) VALUES
 ('Chicago Fire', 1997),
 ('Inter Miami', 2018);
 
-INSERT INTO field_position (Abb, Name, Description) VALUES
-('GK', 'Goalkeeper', 'The player who guards the goal and is the only one allowed to handle the ball within the penalty area.'),
-('CB', 'Center Back', 'A defender who primarily stays in the central area of the field, focusing on defending against opposing attackers.'),
-('RB', 'Right Back', 'A defender positioned on the right side, tasked with stopping attacks from the left-wing and supporting the right-wing offense.'),
-('LB', 'Left Back', 'A defender positioned on the left side, tasked with stopping attacks from the right-wing and supporting the left-wing offense.'),
-('CM', 'Central Midfielder', 'A midfielder who plays centrally, involved in both defending and attacking roles, and connecting the defense and offense.'),
-('CDM', 'Central Defensive Midfielder', 'A midfielder focused on defending, often positioned in front of the center-backs to protect the defensive line.'),
-('CAM', 'Central Attacking Midfielder', 'An offensive midfielder positioned just behind the forwards, creating scoring opportunities.'),
-('RW', 'Right Winger', 'An attacker who plays on the right side, often attempting to cross the ball into the penalty area or cut inside to shoot.'),
-('LW', 'Left Winger', 'An attacker who plays on the left side, focusing on delivering crosses or cutting inside to create scoring chances.'),
-('ST', 'Striker', 'The main goal-scorer on the team, positioned close to the opponent’s goal to take shots and create scoring opportunities.');
+# INSERT INTO field_position (Abb, Name, Description) VALUES
+# ('GK', 'Goalkeeper', 'The player who guards the goal and is the only one allowed to handle the ball within the penalty area.'),
+# ('CB', 'Center Back', 'A defender who primarily stays in the central area of the field, focusing on defending against opposing attackers.'),
+# ('RB', 'Right Back', 'A defender positioned on the right side, tasked with stopping attacks from the left-wing and supporting the right-wing offense.'),
+# ('LB', 'Left Back', 'A defender positioned on the left side, tasked with stopping attacks from the right-wing and supporting the left-wing offense.'),
+# ('CM', 'Central Midfielder', 'A midfielder who plays centrally, involved in both defending and attacking roles, and connecting the defense and offense.'),
+# ('CDM', 'Central Defensive Midfielder', 'A midfielder focused on defending, often positioned in front of the center-backs to protect the defensive line.'),
+# ('CAM', 'Central Attacking Midfielder', 'An offensive midfielder positioned just behind the forwards, creating scoring opportunities.'),
+# ('RW', 'Right Winger', 'An attacker who plays on the right side, often attempting to cross the ball into the penalty area or cut inside to shoot.'),
+# ('LW', 'Left Winger', 'An attacker who plays on the left side, focusing on delivering crosses or cutting inside to create scoring chances.'),
+# ('ST', 'Striker', 'The main goal-scorer on the team, positioned close to the opponent’s goal to take shots and create scoring opportunities.');
 
 
 INSERT INTO league (name, country) VALUES
@@ -2011,13 +2011,13 @@ INSERT INTO manager (First_Name, Last_Name, DOB, Nationality, team_name) VALUES
 ('Frank', 'Klopas', '1966-09-01', 'USA', 'Chicago Fire'),
 ('Gerardo', 'Martino', '1962-11-20', 'Argentina', 'Inter Miami');
 
--- Inserting Broadcasters
-INSERT INTO broadcaster (Channel_Name, Streaming_Link) VALUES
-('Sky Sports', 'https://www.sky.com/sports'),
-('BBC Sport', 'https://www.bbc.co.uk/sport'),
-('NBC Sports', 'https://www.nbcsports.com'),
-('ESPN', 'https://www.espn.com'),
-('Fox Sports', 'https://www.foxsports.com');
+# -- Inserting Broadcasters
+# INSERT INTO broadcaster (Channel_Name, Streaming_Link) VALUES
+# ('Sky Sports', 'https://www.sky.com/sports'),
+# ('BBC Sport', 'https://www.bbc.co.uk/sport'),
+# ('NBC Sports', 'https://www.nbcsports.com'),
+# ('ESPN', 'https://www.espn.com'),
+# ('Fox Sports', 'https://www.foxsports.com');
 
 -- Inserting stadiums
 INSERT INTO stadium (Name, City, Zip_Code, Capacity, Team_Name) VALUES

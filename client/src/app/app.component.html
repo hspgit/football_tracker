@@ -7,7 +7,9 @@
                         {{ link.name }}
                     </a>
                 } @else {
-                    <mat-expansion-panel class="mat-elevation-z0">
+                    <mat-expansion-panel
+                      [expanded]="isSubItemActive(link.subItems)"
+                      class="mat-elevation-z0">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 {{ link.name }}

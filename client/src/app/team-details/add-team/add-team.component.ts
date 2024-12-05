@@ -1,41 +1,31 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatStepperModule} from '@angular/material/stepper';
-import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
-import {MatError, MatFormField, MatHint, MatLabel, MatSuffix} from '@angular/material/form-field';
-import {MatInput} from '@angular/material/input';
-import {MatOption} from '@angular/material/core';
-import {MatSelect, MatSelectTrigger} from '@angular/material/select';
-import {insertTeamAndPlayerPayload, League} from '../app.models';
-import {LeagueService} from '../services/league.service';
-import {MatButton} from '@angular/material/button';
-import {NgForOf, NgIf} from '@angular/common';
-import {TeamService} from '../services/team.service';
-import {MatRadioButton, MatRadioGroup} from '@angular/material/radio';
+import {
+  MatDatepickerModule,
+} from '@angular/material/datepicker';
+import {MatError, MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import {insertTeamAndPlayerPayload, League} from '../../app.models';
+import {LeagueService} from '../../services/league.service';
+import {MatButtonModule} from '@angular/material/button';
+import {TeamService} from '../../services/team.service';
 
 @Component({
   selector: 'app-add-team',
   standalone: true,
   imports: [
     MatStepperModule,
-    MatDatepicker,
-    MatDatepickerInput,
-    MatDatepickerToggle,
-    MatFormField,
-    MatHint,
-    MatInput,
-    MatLabel,
-    MatOption,
-    MatSelect,
-    MatSuffix,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
     ReactiveFormsModule,
-    MatSelectTrigger,
-    MatButton,
-    NgForOf,
-    NgIf,
+    MatButtonModule,
     MatError,
-    MatRadioGroup,
-    MatRadioButton
   ],
   templateUrl: './add-team.component.html',
   styleUrl: './add-team.component.css'
@@ -88,7 +78,7 @@ export class AddTeamComponent implements OnInit{
 
   createInitialPlayers(): FormGroup[] {
     const players: FormGroup[] = [];
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 2; i++) {
       players.push(this.createPlayerForm());
     }
     return players;

@@ -18,7 +18,9 @@ CREATE TABLE stadium (
     zip_code VARCHAR(20) NOT NULL,
     capacity INT NOT NULL DEFAULT 0,
     team_name VARCHAR(128) NOT NULL,
-    FOREIGN KEY (team_name) REFERENCES team(name),
+    FOREIGN KEY (team_name) REFERENCES team(name)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
     UNIQUE (city, zip_code)
 );
 
@@ -59,8 +61,12 @@ CREATE TABLE player_team (
     team_name VARCHAR(128),
     season INT,
     PRIMARY KEY (player_id, team_name, season),
-    FOREIGN KEY (player_id) REFERENCES player(player_id),
+    FOREIGN KEY (player_id) REFERENCES player(player_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
     FOREIGN KEY (team_name) REFERENCES team(name)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
 
 CREATE TABLE manager (

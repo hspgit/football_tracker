@@ -53,6 +53,8 @@ export class PlayerDetailsComponent {
   selectedPlayerStats: PlayerStatRow[] | undefined
   chartData!: ChartConfiguration['data'];
   chartOptions: ChartConfiguration['options'];
+  selectedPlayerTeam = '';
+  selectedPlayerSeason =  '';
 
   constructor(
     private playerService: PlayerService,
@@ -86,7 +88,22 @@ export class PlayerDetailsComponent {
 
   onPlayerSelected(selectedPlayer: Player): void {
     this.selectedPlayer = selectedPlayer;
+    this.fetchPlayerTeam();
     this.fetchPlayerStats();
+  }
+
+  fetchPlayerTeam() {
+    if (this.selectedPlayer) {
+      this.playerService.getLatestTeam(this.selectedPlayer?.player_id).subscribe({
+        next: (data) => {
+          // @ts-ignore
+          this.selectedPlayerTeam = data['team_name'];
+          // @ts-ignore
+          this.selectedPlayerSeason = data['season'];
+        }
+      })
+    }
+
   }
 
   fetchPlayerStats() {

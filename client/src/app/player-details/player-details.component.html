@@ -37,6 +37,7 @@
         <!--      <p><strong>Date of Birth:</strong> {{ selectedPlayer.dob | date: 'longDate' }}</p>-->
         <p><strong>Nationality:</strong> {{ selectedPlayer.nationality }}</p>
         <p><strong>Market Value:</strong> ${{ selectedPlayer.market_value | number: '1.0-2' }}</p>
+        <p><strong>Latest Team:</strong> {{selectedPlayerTeam}} ({{selectedPlayerSeason}})</p>
       </mat-card-content>
     </mat-card>
 

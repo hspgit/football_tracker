@@ -11,7 +11,8 @@ import {AddGameComponent} from './game-details/add-game/add-game.component';
 import {ViewGameComponent} from './game-details/view-game/view-game.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {SponsorDetailsComponent} from './sponsor-details/sponsor-details.component';
-import {AddTeamComponent} from './add-team/add-team.component';
+import {AddTeamComponent} from './team-details/add-team/add-team.component';
+import {ViewTeamComponent} from './team-details/view-team/view-team.component';
 
 export const routes: Routes = [
   {
@@ -37,15 +38,19 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'add-team',
-    component: AddTeamComponent
-  },
-  {
-    path: 'player-details',
-    component: PlayerDetailsComponent },
-  {
     path: 'team-details',
-    component: TeamDetailsComponent},
+    component: TeamDetailsComponent,
+    children: [
+      {
+        path: 'add-team',
+        component: AddTeamComponent
+      },
+      {
+        path: 'view-team',
+        component: ViewTeamComponent
+      }
+    ]
+  },
   {
     path: 'game-details',
     component: GameDetailsComponent,
@@ -57,13 +62,12 @@ export const routes: Routes = [
       {
         path: 'view-game',
         component: ViewGameComponent
-      },
-      // {
-      //   path: 'update-game',
-      //   component: UpdateGameComponent
-      // }
+      }
     ]
   },
+  {
+    path: 'player-details',
+    component: PlayerDetailsComponent },
   {
     path: 'sponsor-details',
     component: SponsorDetailsComponent

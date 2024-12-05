@@ -20,4 +20,14 @@ export class PlayerService {
     // Make the HTTP GET request to the Flask API
     return this.http.get<Player[]>(`${this.playersBaseUrl}/all`, {params});
   }
+
+  getLatestTeam(id: number) {
+    const params = new HttpParams()
+      .set('player_id', id)
+
+    return this.http.get(`${this.playersBaseUrl}/latest-team`, {params});
+
+  }
+
+
 }

@@ -129,64 +129,72 @@
       <form [formGroup]="playersFormGroup">
         <div class="players-add-group">
           <div formArrayName="players">
-          <div *ngFor="let player of players.controls; let i = index"
-               [formGroupName]="i"
-               class="player-form">
-            <h4>Player {{ i + 1 }}</h4>
+            @for (player of players.controls; track $index) {
+              <div [formGroupName]="$index" class="player-form">
+                <h4>Player {{ $index + 1 }}</h4>
 
-            <div class="input-fields">
-              <mat-form-field>
-                <mat-label>First Name</mat-label>
-                <input matInput formControlName="first_name" placeholder="First Name">
-                <mat-error *ngIf="player.get('first_name')?.invalid">First Name is required</mat-error>
-              </mat-form-field>
+                <div class="input-fields">
+                  <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="first_name" placeholder="First Name">
+                    @if (player.get('first_name')?.invalid) {
+                      <mat-error>First Name is required</mat-error>
+                    }
+                  </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Last Name</mat-label>
-                <input matInput formControlName="last_name" placeholder="Last Name">
-                <mat-error *ngIf="player.get('last_name')?.invalid">Last Name is required</mat-error>
-              </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="last_name" placeholder="Last Name">
+                    @if (player.get('last_name')?.invalid) {
+                      <mat-error>Last Name is required</mat-error>
+                    }
+                  </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Date of Birth</mat-label>
-                <input matInput type="date" formControlName="dob">
-                <mat-error *ngIf="player.get('dob')?.invalid">Date of Birth is required</mat-error>
-              </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput type="date" formControlName="dob">
+                    @if (player.get('dob')?.invalid) {
+                      <mat-error>Date of Birth is required</mat-error>
+                    }
+                  </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Nationality</mat-label>
-                <input matInput formControlName="nationality" placeholder="Nationality">
-                <mat-error *ngIf="player.get('nationality')?.invalid">Nationality is required</mat-error>
-              </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Nationality</mat-label>
+                    <input matInput formControlName="nationality" placeholder="Nationality">
+                    @if (player.get('nationality')?.invalid) {
+                      <mat-error>Nationality is required</mat-error>
+                    }
+                  </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Market Value</mat-label>
-                <input matInput type="number" formControlName="market_value" placeholder="Market Value">
-                <mat-error *ngIf="player.get('market_value')?.invalid">Market Value is required</mat-error>
-              </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Market Value</mat-label>
+                    <input matInput type="number" formControlName="market_value" placeholder="Market Value">
+                    @if (player.get('market_value')?.invalid) {
+                      <mat-error>Market Value is required</mat-error>
+                    }
+                  </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Jersey Number</mat-label>
-                <input matInput type="number" formControlName="jersey_number" placeholder="Jersey Number">
-                <mat-error *ngIf="player.get('jersey_number')?.invalid">Jersey Number is required</mat-error>
-              </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Jersey Number</mat-label>
+                    <input matInput type="number" formControlName="jersey_number" placeholder="Jersey Number">
+                    @if (player.get('jersey_number')?.invalid) {
+                      <mat-error>Jersey Number is required</mat-error>
+                    }
+                  </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Position</mat-label>
-                <input matInput formControlName="position_abb" placeholder="Position Abbreviation">
-                <mat-error *ngIf="player.get('position_abb')?.invalid">Position is required</mat-error>
-              </mat-form-field>
-            </div>
-
-
+                  <mat-form-field>
+                    <mat-label>Position</mat-label>
+                    <input matInput formControlName="position_abb" placeholder="Position Abbreviation">
+                    @if (player.get('position_abb')?.invalid) {
+                      <mat-error>Position is required</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div>
+            }
           </div>
-        </div>
 
         </div>
-
-
-        <mat-error *ngIf="playersFormGroup.get('captain')?.invalid">Captain selection is required</mat-error>
-
 
         <div>
           <button mat-button matStepperPrevious>Back</button>

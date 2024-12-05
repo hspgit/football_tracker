@@ -13,7 +13,7 @@
         <mat-autocomplete
           autoActiveFirstOption
           #auto="matAutocomplete"
-          (optionSelected)="onPlayerSelected($event.option.value)"
+          (optionSelected)="onTeamSelected($event.option.value)"
           [displayWith]="displayFn">
           @for (option of teamFilteredOptions | async; track option) {
             <mat-option [value]=option>
@@ -32,10 +32,10 @@
         <mat-card-header>
           <mat-card-title>{{ selectedTeam.name }} ({{ selectedTeam.established_year }})</mat-card-title>
           <mat-card-subtitle>
-            League: {{selectedTeamDetails.league_name}}
+            Latest League: {{selectedTeamDetails.league_name}} ({{lastExistingSeason}})
           </mat-card-subtitle>
           <mat-card-subtitle>
-            Manager(Age): {{ selectedTeamDetails.first_name }} {{ selectedTeamDetails.last_name }} ({{ calculateAge(selectedTeamDetails.dob) }})
+            Manager: {{ selectedTeamDetails.first_name }} {{ selectedTeamDetails.last_name }} ({{ calculateAge(selectedTeamDetails.dob) }})
           </mat-card-subtitle>
           <mat-card-subtitle>
             Home Stadium: {{selectedTeamDetails.stadium_name}}

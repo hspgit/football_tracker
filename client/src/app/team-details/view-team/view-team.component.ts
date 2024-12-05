@@ -52,6 +52,7 @@ export class ViewTeamComponent {
   selectedTeamStats: LeagueTableRow[] = []
   chartData!: ChartConfiguration['data'];
   chartOptions: ChartConfiguration['options'];
+  lastExistingSeason = 0;
 
   constructor(
     private teamsService: TeamService,
@@ -85,10 +86,20 @@ export class ViewTeamComponent {
     else return of([]);
   }
 
-  onPlayerSelected(selectedTeam: Team): void {
+  onTeamSelected(selectedTeam: Team): void {
     this.selectedTeam = selectedTeam;
-    this.fetchTeamDetails();
-    this.fetchTeamPlayers();
+    this.getLastExistingSeason();
+
+  }
+
+  getLastExistingSeason() {
+    this.teamsService.getLastExistingSeason(this.selectedTeam.name).subscribe({
+      next: (data) => {
+        this.lastExistingSeason = data.season;
+        this.fetchTeamDetails();
+        this.fetchTeamPlayers();
+      }
+    });
   }
 
   fetchTeamStats() {
@@ -184,7 +195,7 @@ export class ViewTeamComponent {
 
   fetchTeamDetails() {
     if (this.selectedTeam) {
-      this.teamsService.getTeamDetails(this.selectedTeam.name, 2024).subscribe({
+      this.teamsService.getTeamDetails(this.selectedTeam.name, this.lastExistingSeason).subscribe({
         next: (data => {
           this.selectedTeamDetails = data[0];
           this.fetchTeamStats()
@@ -195,7 +206,7 @@ export class ViewTeamComponent {
 
   fetchTeamPlayers() {
     if (this.selectedTeam) {
-      this.teamsService.getTeamPlayers(this.selectedTeam.name, 2024).subscribe({
+      this.teamsService.getTeamPlayers(this.selectedTeam.name, this.lastExistingSeason).subscribe({
         next: (resp) => {
           // Join the player details into a single string
           this.selectedTeamPlayers = resp

@@ -216,3 +216,41 @@ def insert_team():
 
     finally:
         connection.close()
+
+
+@team_bp.route('/latest-season', methods=['GET'])
+def latest_season():
+    team_name = request.args.get('team_name')
+
+    if not team_name:
+        return jsonify({'error': 'Team Name is required'}), 400
+
+
+    conn = get_db_connection()
+    cursor = conn.cursor()  # Use dictionary cursor to get column names
+
+    try:
+        # Call the stored procedure
+        cursor.callproc('get_latest_season_by_team', [team_name])
+
+        # Fetch results from the procedure
+        results = cursor.fetchone()
+
+        # Check if a team was found
+        if results and results['season'] is not None:
+            return jsonify({
+                'league_name': results['league_name'],
+                'season': results['season']
+            })
+        else:
+            return jsonify({
+                'league_name': None,
+                'season': None
+            }), 404
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        cursor.close()
+        conn.close()

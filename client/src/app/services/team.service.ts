@@ -45,4 +45,13 @@ export class TeamService {
       );
   }
 
+  getLastExistingSeason(teamName: string) {
+    const params = new HttpParams().set('team_name', teamName)
+
+    return this.http.get<{
+      league_name: string,
+      season: number
+    }>(`${this.teamsBaseUrl}/latest-season`, {params})
+  }
+
 }

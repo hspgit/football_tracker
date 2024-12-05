@@ -845,3 +845,44 @@ END $$
 DELIMITER ;
 
 CALL get_latest_team_by_player_id(123);
+
+
+DROP PROCEDURE IF EXISTS get_latest_season_by_team;
+DELIMITER $$
+
+CREATE PROCEDURE get_latest_season_by_team(
+    IN in_team_name VARCHAR(255)
+)
+BEGIN
+    DECLARE v_league_name VARCHAR(255);
+    DECLARE v_season INT;
+
+    -- Check 2024 season first
+    SELECT league_name, season INTO v_league_name, v_season
+    FROM league_team
+    WHERE team_name = in_team_name AND season = 2024
+    LIMIT 1;
+
+    -- If no league found for 2024, check 2023
+    IF v_league_name IS NULL THEN
+        SELECT league_name, season INTO v_league_name, v_season
+        FROM league_team
+        WHERE team_name = in_team_name AND season = 2023
+        LIMIT 1;
+    END IF;
+
+    -- If no league found for 2023, check 2022
+    IF v_league_name IS NULL THEN
+        SELECT league_name, season INTO v_league_name, v_season
+        FROM league_team
+        WHERE team_name = in_team_name AND season = 2022
+        LIMIT 1;
+    END IF;
+
+    -- Return the found league name and season
+    SELECT v_league_name AS league_name, v_season AS season;
+END $$
+
+DELIMITER ;
+
+CALL get_latest_season_by_team('Test22');

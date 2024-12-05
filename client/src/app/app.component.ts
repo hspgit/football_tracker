@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RouterLinkActive, RouterOutlet, Router, NavigationEnd, RouterLink} from '@angular/router';
 import {MatListItem, MatNavList} from '@angular/material/list'
 import {
@@ -9,8 +9,10 @@ import {
   MatSidenavContainer,
     MatSidenavContent,
 } from "@angular/material/sidenav";
-import {MatFabButton} from "@angular/material/button";
+import {MatButtonModule, MatFabButton} from "@angular/material/button";
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule, MatIconDefaultOptions, MAT_ICON_DEFAULT_OPTIONS, MatIconRegistry} from '@angular/material/icon';
 
 export interface Link {
   name: string;               // Display name of the link
@@ -23,7 +25,7 @@ export interface Link {
   selector: 'app-root',
   standalone: true,
   imports: [
-      RouterOutlet,
+    RouterOutlet,
     MatNavList,
     MatDrawerContainer,
     MatDrawerContent,
@@ -35,7 +37,9 @@ export interface Link {
     MatFabButton,
     RouterLinkActive,
     RouterLink,
-      MatExpansionModule
+    MatExpansionModule,
+    MatButtonModule,
+    MatIconModule
 
   ],
   templateUrl: './app.component.html',
@@ -47,12 +51,17 @@ export class AppComponent implements OnInit{
 
   links: Link[] = [
     {
+      name: 'Home',
+      href: '/home-page',
+      isActive: false
+    },
+    {
       name: "League Table",
       href: '/league-table',
       isActive: false,
       subItems: [
         { name: 'Premier League', href: '/league-table/premier-league', isActive: false },
-        { name: 'La Liga', href: '/league-table/la-liga', isActive: false },  // Example of active sub-item
+        { name: 'La Liga', href: '/league-table/la-liga', isActive: false },
         { name: 'Major League Soccer', href: '/league-table/major-league-soccer', isActive: false }
       ]
     },
@@ -72,57 +81,22 @@ export class AppComponent implements OnInit{
       isActive: false,
       subItems: [
         { name: 'Add Game', href: '/game-details/add-game', isActive: false },
-        { name: 'View Game', href: '/game-details/view-game', isActive: false } // Example of active sub-item
+        { name: 'View Game', href: '/game-details/view-game', isActive: false },
       ]
+    },
+    {
+      name: "Sponsors",
+      href: '/sponsor-details',
+      isActive: false
     }
   ];
 
-  // links = [
-  //   {
-  //     name: "League Table",
-  //     href: '/league-table',
-  //     isActive: false,
-  //     subItems: [
-  //       {
-  //         name: 'Premier League', href: '/league-table/premier-league'
-  //       },
-  //       {
-  //         name: 'La Liga', href: '/league-table/la-liga'
-  //       },
-  //       {
-  //         name: 'Major League Soccer', href: '/league-table/major-league-soccer'
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     name: "Team Details",
-  //     href: '/team-details',
-  //     isActive: false
-  //   },
-  //   {
-  //     name: "Player Details",
-  //     href: '/player-details',
-  //     isActive: false
-  //   },
-  //   {
-  //     name: "Game Details",
-  //     href: '/game-details',
-  //     isActive: false,
-  //     subItems: [
-  //       {
-  //         name: 'Add Game', href: '/game-details/add-game'
-  //       },
-  //       {
-  //         name: 'View Game', href: '/game-details/view-game'
-  //       }
-  //     ]
-  //   }
-  // ]
-
-  constructor(protected router: Router) {
+  constructor(protected router: Router, iconRegistry: MatIconRegistry) {
+    iconRegistry.setDefaultFontSetClass("material-symbols-outlined", 'mat-ligature-font', 'blue900')
   }
 
   ngOnInit() {
+
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.setActiveLink(this.router.url);

@@ -7,13 +7,6 @@ CREATE TABLE team (
     established_year INT NOT NULL
 );
 
-CREATE TABLE sponsor (
-    name VARCHAR(128) PRIMARY KEY,
-    country VARCHAR(128) NOT NULL,
-    industry VARCHAR(128) NOT NULL DEFAULT 'Other',
-    website_url VARCHAR(128) NOT NULL
-);
-
 CREATE TABLE league (
     name VARCHAR(128) PRIMARY KEY,
     country VARCHAR(128) NOT NULL
@@ -79,21 +72,6 @@ CREATE TABLE team_captain (
     FOREIGN KEY (team_name) REFERENCES team(name)
 );
 
-CREATE TABLE sponsor_league (
-    sponsor_name VARCHAR(128),
-    league_name VARCHAR(128),
-    sponsorship_amount DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
-    PRIMARY KEY (sponsor_name, league_name),
-    FOREIGN KEY (sponsor_name) 
-        REFERENCES sponsor(name) 
-        ON UPDATE CASCADE 
-        ON DELETE CASCADE,
-    FOREIGN KEY (league_name) 
-        REFERENCES league(name) 
-        ON UPDATE CASCADE 
-        ON DELETE CASCADE
-);
-
 CREATE TABLE manager (
     manager_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(128) NOT NULL,
@@ -145,6 +123,28 @@ CREATE TABLE player_stat (
          REFERENCES game(team_1_name, team_2_name, match_date)
          ON UPDATE CASCADE
          ON DELETE CASCADE
+);
+
+CREATE TABLE sponsor (
+                         name VARCHAR(128) PRIMARY KEY,
+                         country VARCHAR(128) NOT NULL,
+                         industry VARCHAR(128) NOT NULL DEFAULT 'Other',
+                         website_url VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE sponsor_league (
+                                sponsor_name VARCHAR(128),
+                                league_name VARCHAR(128),
+                                sponsorship_amount BIGINT NOT NULL DEFAULT 0,
+                                PRIMARY KEY (sponsor_name, league_name),
+                                FOREIGN KEY (sponsor_name)
+                                    REFERENCES sponsor(name)
+                                    ON UPDATE CASCADE
+                                    ON DELETE CASCADE,
+                                FOREIGN KEY (league_name)
+                                    REFERENCES league(name)
+                                    ON UPDATE CASCADE
+                                    ON DELETE CASCADE
 );
 
 

@@ -33,10 +33,6 @@ Make sure the following are installed on your system:
   ```bash
   source venv/bin/activate
   ```
-- Go back to the root directory:
-  ```bash
-  cd ..
-  ```
 - Install the required Python packages:
   ```bash
   pip install -r requirements.txt

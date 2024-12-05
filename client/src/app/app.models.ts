@@ -24,6 +24,19 @@ export interface PlayerStat {
   red_card: number
 }
 
+export interface Sponsor {
+  name: string
+  country: string
+  industry: string
+  website_url: string
+}
+
+export interface SponsorLeague {
+  sponsor_name: string
+  league_name: string
+  sponsorship_amount: number
+}
+
 export interface Player {
   player_id: number,
   first_name: string,
@@ -35,6 +48,18 @@ export interface Player {
   position_abb: string
 }
 
+export interface TeamDetails {
+  manager_id: number,
+  first_name: string,
+  last_name: string,
+  dob: string,
+  nationality: string,
+  team_name: string,
+  total_team_value: number,
+  stadium_name: string,
+  league_name: string
+}
+
 export interface Game {
   team_1_name: string,
   team_2_name: string,
@@ -44,6 +69,7 @@ export interface Game {
 }
 
 export interface LeagueTableRow {
+  team_rank?: number;
   league_name: string;
   team_name: string;
   season: number;
@@ -56,3 +82,23 @@ export interface LeagueTableRow {
   goal_difference: number;
   draws: number;
 }
+
+export interface TopStatRow {
+  first_name: string;
+  last_name: string;
+  player_id: number;
+  position_abb: string;
+  team_name: string;
+  total_stat: number;
+}
+
+export interface PlayerStatRow {
+  player_id: number;
+  season: number;
+  total_goals: number;
+  total_yellows: number;
+  total_reds: number;
+  team_name?: string;
+  league_name?: string;
+}
+

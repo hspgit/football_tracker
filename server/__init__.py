@@ -3,12 +3,13 @@
 from flask import Flask
 from flask_cors import CORS
 from server.config import Config
-from server.routes import league_routes
 from server.routes.league_routes import league_bp
+from server.routes.player_routes import player_bp
 from server.routes.player_stat_routes import player_stat_bp
 from server.routes.stadium_routes import stadium_bp
 from server.routes.team_routes import team_bp
 from server.routes.game_routes import game_bp
+from server.routes.sponsor_routes import sponsor_bp
 
 def create_app():
     # Create the Flask app instance
@@ -26,4 +27,6 @@ def create_app():
     app.register_blueprint(stadium_bp, url_prefix='/api/stadiums')
     app.register_blueprint(game_bp, url_prefix='/api/games')
     app.register_blueprint(player_stat_bp, url_prefix='/api/player_stats')
+    app.register_blueprint(player_bp, url_prefix='/api/players')
+    app.register_blueprint(sponsor_bp, url_prefix='/api/sponsors')
     return app

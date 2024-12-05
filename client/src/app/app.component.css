@@ -8,17 +8,43 @@ mat-sidenav-container {
     width: 100%;
 }
 
+mat-panel-title{
+  font-size: 1rem;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: .5rem;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+nav > h1 {
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+mat-icon {
+  transform: scale(1.7);
+  margin: 0 !important;
+}
+
+.menu-button {
+  margin: 1rem 0rem 1rem 1rem;
+}
+
 mat-sidenav {
     width: 260px;
-    padding: 16px 8px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+}
+
+.mdc-list {
+  padding: 0;
 }
 
 
 mat-panel-title {
     font-weight: normal;
 }
-
-mat-expansion-panel-header{
-    padding: 0 16px;
-}
-

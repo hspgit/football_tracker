@@ -13,13 +13,13 @@ import {StadiumService} from '../../services/stadium.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {MatButton} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
 import {TeamService} from '../../services/team.service';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule} from '@angular/material/stepper';
 import {GameService} from '../../services/game.service';
 import {PlayerStatService} from '../../services/player_stat.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-add-game',
@@ -35,7 +35,6 @@ import {PlayerStatService} from '../../services/player_stat.service';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatButton,
-    MatDividerModule,
     MatTableModule,
     NgIf,
     MatCheckboxModule,
@@ -72,6 +71,9 @@ export class AddGameComponent implements OnInit {
   leagueAndDateFormGroup: FormGroup;
   teamsFormGroup: FormGroup;
   MiscFormGroup: FormGroup;
+
+  errorInsertingGame = false;
+  errorMessage = '';
 
 
 
@@ -142,7 +144,6 @@ export class AddGameComponent implements OnInit {
   onLeagueAndDateNext() {
     const leagueName = this.leagueAndDateFormGroup.get('league')?.value;
     const season = new Date(this.leagueAndDateFormGroup.get('date')?.value).getFullYear();
-    console.log(leagueName, season);
     if (leagueName && season ) this.fetchTeamsForLeague(leagueName, season);
   }
 
@@ -217,9 +218,6 @@ export class AddGameComponent implements OnInit {
     const team2 = this.teamsFormGroup.get('team2')?.value || "";
     this.showStatTables = true;
 
-    console.log(team1);
-    console.log(team2);
-
     this.fetchTeamPlayersForSeason(team1.toString(), team2.toString());
     setTimeout(() => {
       this.showStatTables = true; // Ensure this happens after arrays are updated
@@ -258,7 +256,6 @@ export class AddGameComponent implements OnInit {
     const stadium = this.MiscFormGroup.get('stadium')?.value;
     const match_date = new Date(this.leagueAndDateFormGroup.get('date')?.value).toISOString().split('T')[0];
     const attendance = this.MiscFormGroup.get('attendance')?.value;
-
     // Create the game object with the form values
     const game: Game = {
       team_1_name: team_1_name,
@@ -268,16 +265,19 @@ export class AddGameComponent implements OnInit {
       attendance: attendance
     };
     this.insertGame(game)
-    this.insertPlayerStats(match_date);
+    // this.insertPlayerStats(match_date);
   }
 
   insertGame(game: Game) {
     this.gameService.insertGame(game).subscribe({
       next: (response) => {
-        console.log('Game inserted successfully:', response);
+        this.errorInsertingGame = false;
+        this.errorMessage = ''
+        this.insertPlayerStats(game.match_date);
       },
-      error: (error) => {
-        console.error('Error inserting game:', error);
+      error: (error: HttpErrorResponse) => {
+        this.errorInsertingGame = true
+        this.errorMessage = error.error.error;
       }
     });
   }
@@ -286,7 +286,6 @@ export class AddGameComponent implements OnInit {
     const payload = this.createPlayerStatPayload(matchDate);
     this.playerStatService.insertPlayerStat(payload).subscribe({
       next: (response) => {
-        console.log('Player stat inserted successfully:', response);
       },
       error: (error) => {
         console.error('Error inserting Player stat:', error);
@@ -294,7 +293,7 @@ export class AddGameComponent implements OnInit {
     });
   }
 
-  createPlayerStatPayload(matchDate: string): PlayerStat[] {
+  createPlayerStatPayload(matchDate: string): any {
     // Filter team 1 and team 2 player stats where any of the stats are non-zero
     const nonZeroPlayerStats = [
       ...this.team1PlayerStats.filter(stat => (stat.goals_scored + stat.yellow_card + stat.red_card) != 0),
@@ -303,7 +302,12 @@ export class AddGameComponent implements OnInit {
     nonZeroPlayerStats.filter(stat => {
       stat.match_date = matchDate;
     })
-    return nonZeroPlayerStats;
+    return {
+      player_stats: nonZeroPlayerStats,
+      team_1_name: this.teamsFormGroup.get('team1')?.value,
+      team_2_name: this.teamsFormGroup.get('team2')?.value,
+      match_date: matchDate
+    };
   }
 
   get team1Goals(): number {
@@ -320,7 +324,7 @@ export class AddGameComponent implements OnInit {
     // Find the player by ID
     const player = playerList.find(player => player.player_id === playerId);
     // Return the full name or a placeholder if not found
-    return player ? `${player.first_name} ${player.last_name}` : 'Unknown Player';
+    return player ? `${player.first_name} ${player.last_name} \[${player.position_abb}\]` : 'Unknown Player';
   }
 
 }

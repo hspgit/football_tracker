@@ -1,3 +1,8 @@
+.main {
+  padding: 2rem;
+}
+
+
 .example-form {
   min-width: 150px;
   max-width: 500px;
@@ -6,6 +11,14 @@
 
 .example-full-width {
   width: 40%;
+}
+
+.submit-buttons {
+  margin: 1rem;
+}
+
+.mat-stepper-horizontal {
+  padding: 1rem;
 }
 
 .example-additional-selection {
@@ -20,8 +33,47 @@
 }
 
 .stat-table {
+  place-self: start;
   width: 40%; /* Each table occupies 40% of the parent container */
   margin: 0 5%; /* Add spacing (5% on each side) to center the tables within the container */
-  display: inline-block; /* Align tables horizontally */
-  vertical-align: top; /* Ensure tables align at the top */
+  display: flex;
+  flex-direction: column;
+  justify-items: center;/* Ensure tables align at the top */
+}
+
+.table-header {
+  padding: 0 .5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.table-header > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.table-header > h2 {
+  margin: 0;
+}
+
+.form-field-spacer {
+  display: flex;
+  gap: 2rem;
+}
+
+.mat-column-goals_scored{
+  padding: 10px;
+}
+
+mat-table {
+  padding: 1rem;
 }

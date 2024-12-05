@@ -1,229 +1,261 @@
-<mat-stepper orientation="horizontal" linear="true">
-  <!-- Step 1: Select League -->
-  <mat-step [stepControl]="leagueAndDateFormGroup">
-    <ng-template matStepLabel>League & Date</ng-template>
-    <form [formGroup]="leagueAndDateFormGroup">
-      <mat-form-field class="example-full-width">
-        <mat-label>Select League</mat-label>
-        <mat-select formControlName="league" placeholder="Pick one">
-          @for (league of leagues; track league) {
-            <mat-option [value]="league">{{league}}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
+<div class="main">
+  <h2>Add Game Details</h2>
 
-      <mat-form-field>
-        <mat-label>Choose game-date</mat-label>
-        <input
-          matInput
-          [matDatepicker]="picker"
-          formControlName="date">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+  <mat-stepper orientation="horizontal" linear="true">
+    <mat-step [stepControl]="leagueAndDateFormGroup">
+      <ng-template matStepLabel>League & Date</ng-template>
 
-      <div>
-        <button mat-button matStepperNext (click)="onLeagueAndDateNext()">Next</button>
-      </div>
+      <form [formGroup]="leagueAndDateFormGroup">
+        <div class="form-field-spacer">
+          <mat-form-field class="example-full-width">
+            <mat-label>Select League</mat-label>
+            <mat-select class="league-select" formControlName="league" placeholder="Pick one">
+              @for (league of leagues; track league) {
+                <mat-option [value]="league">{{league}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
 
-
-    </form>
-
-  </mat-step>
-
-  <!-- Step 2: Select Teams -->
-  <mat-step [stepControl]="teamsFormGroup">
-    <ng-template matStepLabel>Team 1 and Team 2</ng-template>
-    <form [formGroup]="teamsFormGroup">
-      <mat-form-field class="example-full-width">
-        <mat-label>Select Team 1</mat-label>
-        <input type="text"
-               matInput
-               placeholder="Pick one"
-               formControlName="team1"
-               [matAutocomplete]="auto1">
-        <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete">
-          @for (option1 of team1FilteredOptions | async; track option1) {
-            <mat-option [value]="option1">{{option1}}</mat-option>
-          }
-        </mat-autocomplete>
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <mat-label>Select Team 2</mat-label>
-        <input type="text"
-               matInput
-               placeholder="Pick one"
-               formControlName="team2"
-               [matAutocomplete]="auto2">
-        <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete">
-          @for (option2 of team2FilteredOptions | async; track option2) {
-            <mat-option [value]="option2">{{option2}}</mat-option>
-          }
-        </mat-autocomplete>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext (click)="onTeamsNext()">Next</button>
-      </div>
-    </form>
-  </mat-step>
-
-  <!-- Misc Step -->
-  <mat-step [stepControl]="MiscFormGroup">
-    <ng-template matStepLabel>Stadium and Attendance</ng-template>
-    <form [formGroup]="MiscFormGroup">
-    <mat-form-field>
-      <mat-label>Select Stadium</mat-label>
-      <mat-select
-        placeholder="Pick one"
-        formControlName="stadium"
-        (selectionChange)="onStadiumChange($event.value)">
-        @for (stadium of stadiums; track stadium) {
-          <mat-option [value]="stadium">{{stadium.name}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-
-      <mat-form-field class="width: 50%">
-        <mat-label>Enter fan attendance</mat-label>
-        <input formControlName="attendance" matInput type="number">
-        <mat-hint align="start">{{MiscFormGroup.get('attendance')?.value}} / {{selectedStadium?.capacity}}</mat-hint>
-      </mat-form-field>
-
-<!--      <mat-form-field>-->
-<!--        <mat-label>Broadcasters</mat-label>-->
-<!--        <mat-select-->
-<!--          multiple-->
-<!--          formControlName="broadcaster"-->
-<!--          placeholder="Pick many">-->
-<!--          <mat-select-trigger>-->
-<!--            {{ selectedBroadcasters[0] || '' }}-->
-<!--            @if (selectedBroadcasters.length > 1) {-->
-<!--              <span class="example-additional-selection">-->
-<!--              (+{{ selectedBroadcasters.length - 1 }}-->
-<!--                        {{ selectedBroadcasters.length === 2 ? 'other' : 'others' }})-->
-<!--            </span>-->
-<!--            }-->
-<!--          </mat-select-trigger>-->
-<!--          @for (broadcaster of broadcasters; track broadcaster) {-->
-<!--            <mat-option-->
-<!--              [value]="broadcaster.channel_name">-->
-<!--              {{broadcaster.channel_name}}</mat-option>-->
-<!--          }-->
-<!--        </mat-select>-->
-<!--      </mat-form-field>-->
-
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext (click)="showPlayerStats()">Next</button>
-      </div>
-
-    </form>
-
-  </mat-step>
-
-  <mat-step>
-    <ng-template matStepLabel>Fill Player Stats</ng-template>
-    @if (showStatTables) {
-      <div class="stat-table-div">
-        <div class="stat-table">
-          <span>{{teamsFormGroup.get('team1')?.value}}</span>
-          <span>Goals: {{team1Goals}}</span>
-          <table mat-table [dataSource]="team1PlayerStats" class="mat-elevation-z8">
-            <!-- Player Name Column -->
-            <ng-container matColumnDef="player_id">
-              <th mat-header-cell *matHeaderCellDef> Player Name </th>
-              <td mat-cell *matCellDef="let stat"> {{ getPlayerName(stat.player_id, 'team1') }} </td>
-            </ng-container>
-
-            <!-- Goals Scored Column -->
-            <ng-container matColumnDef="goals_scored">
-              <th mat-header-cell *matHeaderCellDef> Goals Scored </th>
-              <td mat-cell *matCellDef="let stat">
-                <mat-form-field>
-                  <input matInput type="number" [(ngModel)]="stat.goals_scored" [min]="0">
-                </mat-form-field>
-              </td>
-            </ng-container>
-
-            <!-- Yellow Card Column -->
-            <ng-container matColumnDef="yellow_card">
-              <th mat-header-cell *matHeaderCellDef> Yellow Card </th>
-              <td mat-cell *matCellDef="let stat">
-                <mat-checkbox class="example-margin" [(ngModel)]="stat.yellow_card"/>
-              </td>
-            </ng-container>
-
-            <!-- Red Card Column -->
-            <ng-container matColumnDef="red_card">
-              <th mat-header-cell *matHeaderCellDef> Red Card </th>
-              <td mat-cell *matCellDef="let stat">
-                <mat-checkbox class="example-margin" [(ngModel)]="stat.red_card"/>
-              </td>
-            </ng-container>
-
-            <!-- Header Row -->
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <!-- Data Row -->
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
+          <mat-form-field>
+            <mat-label>Choose game-date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="date">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </div>
 
-        <div class="stat-table">
-          <span>{{teamsFormGroup.get('team2')?.value}}</span>
-          <span>Goals: {{team2Goals}}</span>
-          <table mat-table [dataSource]="team2PlayerStats" class="mat-elevation-z8">
-            <!-- Player Name Column -->
-            <ng-container matColumnDef="player_id">
-              <th mat-header-cell *matHeaderCellDef> Player Name </th>
-              <td mat-cell *matCellDef="let stat"> {{ getPlayerName(stat.player_id, 'team2') }} </td>
-            </ng-container>
-
-            <!-- Goals Scored Column -->
-            <ng-container matColumnDef="goals_scored">
-              <th mat-header-cell *matHeaderCellDef> Goals Scored </th>
-              <td mat-cell *matCellDef="let stat">
-                <mat-form-field>
-                  <input matInput type="number" [(ngModel)]="stat.goals_scored" [min]="0">
-                </mat-form-field>
-              </td>
-            </ng-container>
-
-            <!-- Yellow Card Column -->
-            <ng-container matColumnDef="yellow_card">
-              <th mat-header-cell *matHeaderCellDef> Yellow Card </th>
-              <td mat-cell *matCellDef="let stat">
-                <mat-checkbox class="example-margin" [(ngModel)]="stat.yellow_card"/>
-              </td>
-            </ng-container>
-
-            <!-- Red Card Column -->
-            <ng-container matColumnDef="red_card">
-              <th mat-header-cell *matHeaderCellDef> Red Card </th>
-              <td mat-cell *matCellDef="let stat">
-                <mat-checkbox class="example-margin" [(ngModel)]="stat.red_card"/>
-              </td>
-            </ng-container>
-
-            <!-- Header Row -->
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <!-- Data Row -->
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
+        <div>
+          <button mat-button matStepperNext (click)="onLeagueAndDateNext()">Next</button>
         </div>
 
+
+      </form>
+
+    </mat-step>
+
+    <!-- Step 2: Select Teams -->
+    <mat-step [stepControl]="teamsFormGroup">
+      <ng-template matStepLabel>Team 1 and Team 2</ng-template>
+      <form [formGroup]="teamsFormGroup">
+        <div class="form-field-spacer">
+          <mat-form-field class="example-full-width">
+            <mat-label>Select Team 1</mat-label>
+            <input type="text"
+                   matInput
+                   placeholder="Pick one"
+                   formControlName="team1"
+                   [matAutocomplete]="auto1">
+            <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete">
+              @for (option1 of team1FilteredOptions | async; track option1) {
+                <mat-option [value]="option1">{{option1}}</mat-option>
+              }
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Select Team 2</mat-label>
+            <input type="text"
+                   matInput
+                   placeholder="Pick one"
+                   formControlName="team2"
+                   [matAutocomplete]="auto2">
+            <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete">
+              @for (option2 of team2FilteredOptions | async; track option2) {
+                <mat-option [value]="option2">{{option2}}</mat-option>
+              }
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext (click)="onTeamsNext()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="MiscFormGroup">
+      <ng-template matStepLabel>Stadium and Attendance</ng-template>
+      <form [formGroup]="MiscFormGroup">
+        <div class="form-field-spacer">
+          <mat-form-field>
+            <mat-label>Select Stadium</mat-label>
+            <mat-select
+              placeholder="Pick one"
+              formControlName="stadium"
+              (selectionChange)="onStadiumChange($event.value)">
+              @for (stadium of stadiums; track stadium) {
+                <mat-option [value]="stadium">{{stadium.name}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="width: 50%">
+            <mat-label>Enter fan attendance</mat-label>
+            <input formControlName="attendance" matInput type="number">
+            <mat-hint align="start">{{MiscFormGroup.get('attendance')?.value}} / {{selectedStadium?.capacity}}</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <!--      <mat-form-field>-->
+        <!--        <mat-label>Broadcasters</mat-label>-->
+        <!--        <mat-select-->
+        <!--          multiple-->
+        <!--          formControlName="broadcaster"-->
+        <!--          placeholder="Pick many">-->
+        <!--          <mat-select-trigger>-->
+        <!--            {{ selectedBroadcasters[0] || '' }}-->
+        <!--            @if (selectedBroadcasters.length > 1) {-->
+        <!--              <span class="example-additional-selection">-->
+        <!--              (+{{ selectedBroadcasters.length - 1 }}-->
+        <!--                        {{ selectedBroadcasters.length === 2 ? 'other' : 'others' }})-->
+        <!--            </span>-->
+        <!--            }-->
+        <!--          </mat-select-trigger>-->
+        <!--          @for (broadcaster of broadcasters; track broadcaster) {-->
+        <!--            <mat-option-->
+        <!--              [value]="broadcaster.channel_name">-->
+        <!--              {{broadcaster.channel_name}}</mat-option>-->
+        <!--          }-->
+        <!--        </mat-select>-->
+        <!--      </mat-form-field>-->
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext (click)="showPlayerStats()">Next</button>
+        </div>
+
+      </form>
+
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Fill Player Stats</ng-template>
+      @if (showStatTables) {
+        <div class="stat-table-div">
+          <div class="stat-table">
+            <div class="table-header">
+              <h2>{{teamsFormGroup.get('team1')?.value}}</h2>
+              <div>
+                {{team1Goals}}
+              </div>
+            </div>
+
+            <table mat-table [dataSource]="team1PlayerStats" class="mat-elevation-z8">
+              <!-- Player Name Column -->
+              <ng-container matColumnDef="player_id">
+                <th mat-header-cell *matHeaderCellDef> Player Name </th>
+                <td mat-cell *matCellDef="let stat"> {{ getPlayerName(stat.player_id, 'team1') }} </td>
+              </ng-container>
+
+              <!-- Goals Scored Column -->
+              <ng-container matColumnDef="goals_scored">
+                <th mat-header-cell *matHeaderCellDef> Goals Scored </th>
+                <td mat-cell *matCellDef="let stat">
+                  <mat-form-field [style.width.px]=100>
+                    <input matInput type="number" [(ngModel)]="stat.goals_scored" [min]="0">
+                  </mat-form-field>
+                </td>
+              </ng-container>
+
+              <!-- Yellow Card Column -->
+              <ng-container matColumnDef="yellow_card">
+                <th mat-header-cell *matHeaderCellDef> Yellow Card </th>
+                <td mat-cell *matCellDef="let stat">
+                  <mat-checkbox class="example-margin" [(ngModel)]="stat.yellow_card"/>
+                </td>
+              </ng-container>
+
+              <!-- Red Card Column -->
+              <ng-container matColumnDef="red_card">
+                <th mat-header-cell *matHeaderCellDef> Red Card </th>
+                <td mat-cell *matCellDef="let stat">
+                  <mat-checkbox class="example-margin" [(ngModel)]="stat.red_card"/>
+                </td>
+              </ng-container>
+
+              <!-- Header Row -->
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <!-- Data Row -->
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          <div class="stat-table">
+            <div class="table-header">
+              <div>
+                {{team2Goals}}
+              </div>
+              <h2>{{teamsFormGroup.get('team2')?.value}}</h2>
+            </div>
+            <table mat-table [dataSource]="team2PlayerStats" class="mat-elevation-z8">
+              <!-- Player Name Column -->
+              <ng-container matColumnDef="player_id">
+                <th mat-header-cell *matHeaderCellDef> Player Name </th>
+                <td mat-cell *matCellDef="let stat"> {{ getPlayerName(stat.player_id, 'team2') }} </td>
+              </ng-container>
+
+              <!-- Goals Scored Column -->
+              <ng-container matColumnDef="goals_scored">
+                <th mat-header-cell *matHeaderCellDef> Goals Scored </th>
+                <td mat-cell *matCellDef="let stat">
+                  <mat-form-field [style.width.px]=100>
+                    <input  matInput type="number" [(ngModel)]="stat.goals_scored" [min]="0">
+                  </mat-form-field>
+                </td>
+              </ng-container>
+
+              <!-- Yellow Card Column -->
+              <ng-container matColumnDef="yellow_card">
+                <th mat-header-cell *matHeaderCellDef> Yellow Card </th>
+                <td mat-cell *matCellDef="let stat">
+                  <mat-checkbox class="example-margin" [(ngModel)]="stat.yellow_card"/>
+                </td>
+              </ng-container>
+
+              <!-- Red Card Column -->
+              <ng-container matColumnDef="red_card">
+                <th mat-header-cell *matHeaderCellDef> Red Card </th>
+                <td mat-cell *matCellDef="let stat">
+                  <mat-checkbox class="example-margin" [(ngModel)]="stat.red_card"/>
+                </td>
+              </ng-container>
+
+              <!-- Header Row -->
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <!-- Data Row -->
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+
+        </div>
+      }
+
+      <div class="submit-buttons">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext (click)="submit()">Submit Details</button>
       </div>
-    }
+    </mat-step>
 
-    <button mat-button matStepperPrevious>Back</button>
-    <button mat-button matStepperNext (click)="submit()">Submit Details</button>
-  </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Finished</ng-template>
+      @if (errorInsertingGame) {
+        Error Inserting Game: {{errorMessage}}
+      } @else {
+        Game Added Successfully. Navigate to League to see updated table.
+      }
 
 
 
-</mat-stepper>
+
+    </mat-step>
+
+  </mat-stepper>
+
+</div>
+
 
 
 

@@ -2,19 +2,20 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {League, LeagueTableRow, Team} from "../app.models";
+import {baseUrl} from '../app.utils';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeagueService {
 
-  private apiUrl = 'http://localhost:5001/api/leagues';  // API endpoint
+  private leaguesBaseUrl = `${baseUrl}/leagues`
 
   constructor(private http: HttpClient) { }
 
-  getAllLeagues(): Observable<any> {
+  getAllLeagues(): Observable<League[]> {
     // Make the HTTP GET request to the Flask API
-    return this.http.get<League[]>(`${this.apiUrl}/all`);
+    return this.http.get<League[]>(`${this.leaguesBaseUrl}/all`);
   }
 
   getLeagueTeams(leagueName: string, season: number): Observable<any> {
@@ -24,7 +25,7 @@ export class LeagueService {
       .set('season', season.toString());
 
     // Make the HTTP GET request to the Flask API
-    return this.http.get<Team[]>(`${this.apiUrl}/teams`, { params });
+    return this.http.get<Team[]>(`${this.leaguesBaseUrl}/teams`, { params });
   }
 
   getLeagueTable(leagueName: string, season: number, sortColumn: string, sortOrder: string): Observable<any> {
@@ -36,6 +37,23 @@ export class LeagueService {
       .set('sort_order',sortOrder);
 
     // Make the HTTP GET request to the Flask API
-    return this.http.get<LeagueTableRow[]>(`${this.apiUrl}/table`, { params });
+    return this.http.get<LeagueTableRow[]>(`${this.leaguesBaseUrl}/table`, { params });
+  }
+
+  getTeamStats(leagueName: string, teamName: string, season: number): Observable<LeagueTableRow> {
+    const params = new HttpParams()
+      .set('league_name', leagueName)
+      .set('season', season)
+      .set('team_name', teamName)
+
+    return this.http.get<LeagueTableRow>(`${this.leaguesBaseUrl}/team_rank`, {params});
+  }
+
+  getLeagueStats(leagueName: string, season: number): Observable<LeagueTableRow> {
+    const params = new HttpParams()
+      .set('league_name', leagueName)
+      .set('season', season)
+
+    return this.http.get<LeagueTableRow>(`${this.leaguesBaseUrl}/home`, {params});
   }
 }

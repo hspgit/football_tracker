@@ -1,0 +1,29 @@
+.main {
+  padding: 2rem;
+}
+
+.sponsor-card-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.sponsor-card {
+  width: 400px;
+  padding: 0.5rem;
+}
+
+.dialog-content {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sponsor-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{data.sponsorName}}</h2>
+<mat-dialog-content>
+@for(league of data.leagues; track league) {
+  <ul class="dialog-content">
+    {{league}}
+    <mat-form-field>
+      <input class="dialog-input" [disabled] = "data.viewMode"
+      matInput
+      type="number"
+      min="0"
+      [(ngModel)]="data.mapData[league]" />
+    </mat-form-field>
+  </ul>
+}
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  @if(!data.viewMode) {
+    <button mat-button (click)="onClickCancel()" cdkFocusInitial>Cancel</button>
+  }
+  <button mat-button [mat-dialog-close]="data.mapData" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

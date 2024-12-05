@@ -1,0 +1,50 @@
+.main {
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.league-table-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.league-table-div > h2 {
+  font-size: 1.4rem;
+}
+
+.yellow-card-table-div > h2, .red-card-table-div > h2 {
+  gap: 0.3rem;
+}
+
+.league-table-div > div:not:first-child {
+  overflow-x: scroll;
+  border: 1px solid black;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.stat-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.red-card-table-div > table, .yellow-card-table-div > table, .goal-table-div > table {
+  /*border: 1px solid black;*/
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1485px) {
+  .stat-div {
+  }
+}
+

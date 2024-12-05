@@ -1,0 +1,39 @@
+.header {
+  padding: .8rem 2rem;
+  height: 50px;
+}
+
+.main {
+  max-height: 100vh;
+}
+
+.header > h1 {
+  font-size: 1.7rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.section-1 {
+  padding: 1rem 2rem;
+}
+
+.section-1 > h2 {
+  font-size: 1.3rem;
+}
+
+.home-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.home-charts > div > h3 {
+  font-size: 1.1rem;
+}
+
+.home-charts > div {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+}

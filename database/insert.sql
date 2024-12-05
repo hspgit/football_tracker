@@ -2011,14 +2011,6 @@ INSERT INTO manager (First_Name, Last_Name, DOB, Nationality, team_name) VALUES
 ('Frank', 'Klopas', '1966-09-01', 'USA', 'Chicago Fire'),
 ('Gerardo', 'Martino', '1962-11-20', 'Argentina', 'Inter Miami');
 
-# -- Inserting Broadcasters
-# INSERT INTO broadcaster (Channel_Name, Streaming_Link) VALUES
-# ('Sky Sports', 'https://www.sky.com/sports'),
-# ('BBC Sport', 'https://www.bbc.co.uk/sport'),
-# ('NBC Sports', 'https://www.nbcsports.com'),
-# ('ESPN', 'https://www.espn.com'),
-# ('Fox Sports', 'https://www.foxsports.com');
-
 -- Inserting stadiums
 INSERT INTO stadium (Name, City, Zip_Code, Capacity, Team_Name) VALUES
 -- Premier League stadiums
@@ -2057,50 +2049,41 @@ INSERT INTO stadium (Name, City, Zip_Code, Capacity, Team_Name) VALUES
 ('Soldier Field', 'Chicago', '60605', 61500, 'Chicago Fire'),
 ('DRV PNK Stadium', 'Fort Lauderdale', '33309', 19500, 'Inter Miami');
 
--- Insert Barclays into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
 ('Barclays', 'England', 'Banking', 'https://www.barclays.co.uk');
 
--- Link Barclays to the Premier League in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
 ('Barclays', 'Premier League', 50000000.00);
 
--- Insert Santander into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
 ('Santander', 'Spain', 'Banking', 'https://www.santander.com');
 
--- Link Santander to La Liga in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
 ('Santander', 'La Liga', 45000000.00);
 
--- Insert Adidas into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
 ('Adidas', 'Germany', 'Sportswear', 'https://www.adidas.com');
 
--- Link Adidas to Major League Soccer in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
 ('Adidas', 'Major League Soccer', 25000000.00);
 
--- Insert Emirates into the sponsor table
+INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
+    ('Adidas', 'Premier League', 25000000.00);
+
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
 ('Emirates', 'UAE', 'Airline', 'https://www.emirates.com');
 
--- Link Emirates to Premier League in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
 ('Emirates', 'Premier League', 40000000.00);
 
--- Insert Coca-Cola into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
 ('Coca-Cola', 'USA', 'Beverage', 'https://www.coca-cola.com');
 
--- Link Coca-Cola to Major League Soccer in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
 ('Coca-Cola', 'Major League Soccer', 15000000.00);
 
--- Insert Rakuten into the sponsor table
 INSERT INTO sponsor (name, country, industry, website_url) VALUES
 ('Rakuten', 'Japan', 'E-commerce', 'https://www.rakuten.com');
 
--- Link Rakuten to La Liga in the sponsor_league table
 INSERT INTO sponsor_league (sponsor_name, league_name, sponsorship_amount) VALUES
 ('Rakuten', 'La Liga', 30000000.00);

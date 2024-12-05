@@ -1,9 +1,19 @@
-<mat-sidenav-container autosize>
-    <mat-sidenav opened mode="side">
+<mat-sidenav-container>
+    <mat-sidenav
+      #sidenav
+      mode="over"
+    >
         <mat-nav-list>
+          <button class="menu-button" mat-button (click)="sidenav.toggle()">
+            <mat-icon aria-hidden="false" fontIcon="menu_open"></mat-icon>
+          </button>
             @for (link of links; track link) {
                 @if (!link.subItems) {
-                    <a mat-list-item routerLink="{{link.href}}" [activated]="link.isActive">
+                    <a
+                      (click)="sidenav.toggle()"
+                      mat-list-item
+                      routerLink="{{link.href}}"
+                      [activated]="link.isActive">
                         {{ link.name }}
                     </a>
                 } @else {
@@ -17,6 +27,7 @@
                         </mat-expansion-panel-header>
                         @for (subItem of link.subItems; track subItem) {
                             <a mat-list-item
+                               (click)="sidenav.toggle()"
                                routerLink="{{subItem.href}}"
                                [activated]="router.url === subItem.href"
                                class="nested-item">
@@ -27,8 +38,17 @@
                 }
             }
         </mat-nav-list>
+
     </mat-sidenav>
     <mat-sidenav-content>
+
+      <nav>
+        <button class="menu-button" mat-button (click)="sidenav.toggle()">
+          <mat-icon  aria-hidden="false" fontIcon="menu"></mat-icon>
+        </button>
+        <h1>Football Tracker</h1>
+      </nav>
+
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

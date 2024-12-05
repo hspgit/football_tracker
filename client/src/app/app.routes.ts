@@ -9,8 +9,14 @@ import {MajorLeagueSoccerComponent} from "./league-table/major-league-soccer/maj
 import {GameDetailsComponent} from './game-details/game-details.component';
 import {AddGameComponent} from './game-details/add-game/add-game.component';
 import {ViewGameComponent} from './game-details/view-game/view-game.component';
+import {HomePageComponent} from './home-page/home-page.component';
+import {SponsorDetailsComponent} from './sponsor-details/sponsor-details.component';
 
 export const routes: Routes = [
+  {
+    path:'home-page',
+    component: HomePageComponent
+  },
   {
     path: 'league-table',
     component: LeagueTableComponent,
@@ -47,8 +53,18 @@ export const routes: Routes = [
       {
         path: 'view-game',
         component: ViewGameComponent
-      }
+      },
+      // {
+      //   path: 'update-game',
+      //   component: UpdateGameComponent
+      // }
     ]
   },
+  {
+    path: 'sponsor-details',
+    component: SponsorDetailsComponent
+
+  },
+  { path: '**', redirectTo: '/home-page', pathMatch: 'full' },
 
 ];

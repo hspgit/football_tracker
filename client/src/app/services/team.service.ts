@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import {catchError, Observable} from 'rxjs';
-import {Player, Team, TeamDetails} from '../app.models';
+import {insertTeamAndPlayerPayload, Player, Team, TeamDetails} from '../app.models';
 import {baseUrl} from '../app.utils';
 
 @Injectable({
@@ -36,8 +36,8 @@ export class TeamService {
     return this.http.get<TeamDetails[]>(`${this.teamsBaseUrl}/details`, {params});
   }
 
-  insertTeam(team: Team) {
-    return this.http.post<any>(`${this.teamsBaseUrl}/insert`, team)
+  insertTeam(payload: insertTeamAndPlayerPayload) {
+    return this.http.post<any>(`${this.teamsBaseUrl}/insert`, payload)
       .pipe(
         catchError((error) => {
           throw error;

@@ -1,0 +1,21 @@
+.main {
+  padding: 2rem;
+}
+
+.example-full-width {
+  width: 40%;
+}
+
+.stadium-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field-spacer {
+  display: flex;
+  gap: 2rem;
+}
+
+.player-form {
+  padding: 0.5rem;
+}

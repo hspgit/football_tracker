@@ -14,6 +14,14 @@ export interface Team {
   established_year: string;
 }
 
+export interface insertTeamAndPlayerPayload {
+  leagueName: string,
+  seasons: string[],
+  team: Team,
+  stadium: Stadium
+  players: Player[],
+}
+
 export interface PlayerStat {
   player_id: number,
   team_1_name:string,

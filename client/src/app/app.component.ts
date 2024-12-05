@@ -71,6 +71,11 @@ export class AppComponent implements OnInit{
       isActive: false
     },
     {
+      name: "Add Team",
+      href: '/add-team',
+      isActive: false
+    },
+    {
       name: "Player Details",
       href: '/player-details',
       isActive: false

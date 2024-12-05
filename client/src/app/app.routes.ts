@@ -11,6 +11,7 @@ import {AddGameComponent} from './game-details/add-game/add-game.component';
 import {ViewGameComponent} from './game-details/view-game/view-game.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {SponsorDetailsComponent} from './sponsor-details/sponsor-details.component';
+import {AddTeamComponent} from './add-team/add-team.component';
 
 export const routes: Routes = [
   {
@@ -34,7 +35,10 @@ export const routes: Routes = [
         component: MajorLeagueSoccerComponent
       }
     ]
-
+  },
+  {
+    path: 'add-team',
+    component: AddTeamComponent
   },
   {
     path: 'player-details',

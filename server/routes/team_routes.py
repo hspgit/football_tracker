@@ -123,3 +123,9 @@ def get_team_details():
         return jsonify({'error': str(e)}), 500
     finally:
         connection.close()
+
+@team_bp.route('/insert', methods=['POST'])
+def insert_team():
+    data = request.get_json()
+    print(data)
+    return jsonify({'message': 'Data received '}), 200

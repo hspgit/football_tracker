@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {catchError, Observable} from 'rxjs';
 import {Player, Team, TeamDetails} from '../app.models';
 import {baseUrl} from '../app.utils';
 
@@ -34,6 +34,15 @@ export class TeamService {
       .set('season', seasonParam)
 
     return this.http.get<TeamDetails[]>(`${this.teamsBaseUrl}/details`, {params});
+  }
+
+  insertTeam(team: Team) {
+    return this.http.post<any>(`${this.teamsBaseUrl}/insert`, team)
+      .pipe(
+        catchError((error) => {
+          throw error;
+        })
+      );
   }
 
 }

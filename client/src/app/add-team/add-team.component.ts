@@ -11,6 +11,7 @@ import {LeagueService} from '../services/league.service';
 import {MatButton} from '@angular/material/button';
 import {NgForOf, NgIf} from '@angular/common';
 import {TeamService} from '../services/team.service';
+import {MatRadioButton, MatRadioGroup} from '@angular/material/radio';
 
 @Component({
   selector: 'app-add-team',
@@ -32,7 +33,9 @@ import {TeamService} from '../services/team.service';
     MatButton,
     NgForOf,
     NgIf,
-    MatError
+    MatError,
+    MatRadioGroup,
+    MatRadioButton
   ],
   templateUrl: './add-team.component.html',
   styleUrl: './add-team.component.css'
@@ -42,6 +45,7 @@ export class AddTeamComponent implements OnInit{
   teamFormGroup: FormGroup;
   stadiumFormGroup: FormGroup;
   playersFormGroup: FormGroup;
+  managerFormControl: FormGroup;
   leagues: string[] = [];
   seasons: number[] = [2022, 2023, 2024];
   errorMessage = ''
@@ -67,6 +71,12 @@ export class AddTeamComponent implements OnInit{
       zip_code: ['', Validators.required],
       capacity: ['', Validators.required],
     });
+    this.managerFormControl = this.fb.group({
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      dob: ['', Validators.required],
+      nationality: ['', Validators.required],
+    })
     this.playersFormGroup = this.fb.group({
       players: this.fb.array(this.createInitialPlayers())
     });
@@ -128,6 +138,12 @@ export class AddTeamComponent implements OnInit{
         zip_code: '',
         capacity: 0,
       },
+      manager: {
+        first_name: '',
+        last_name: '',
+        dob: '',
+        nationality: ''
+      },
       players: [],
     };
     this.payload.leagueName = this.leagueAndSeasonFormGroup.get('league')?.value;
@@ -138,6 +154,10 @@ export class AddTeamComponent implements OnInit{
     this.payload.stadium.capacity = this.stadiumFormGroup.get('capacity')?.value;
     this.payload.stadium.city = this.stadiumFormGroup.get('city')?.value;
     this.payload.stadium.zip_code = this.stadiumFormGroup.get('zip_code')?.value;
+    this.payload.manager.first_name = this.managerFormControl.get('first_name')?.value
+    this.payload.manager.last_name = this.managerFormControl.get('last_name')?.value
+    this.payload.manager.dob = this.managerFormControl.get('dob')?.value
+    this.payload.manager.nationality = this.managerFormControl.get('nationality')?.value
     this.payload.players = this.players.controls.map(playerForm => playerForm.value);
 
     console.log('Payload:', this.payload);
@@ -145,11 +165,14 @@ export class AddTeamComponent implements OnInit{
   }
 
   insertDetails() {
+    this.errorMessage = ''
     this.teamService.insertTeam(this.payload).subscribe({
       next: (data) => {
+        this.errorMessage = '';
         console.log('All details inserted successfully', data);
       },
       error: (err) => {
+        this.errorMessage = err;
         console.error('Error inserting details:', err);
       },
       complete: () => {

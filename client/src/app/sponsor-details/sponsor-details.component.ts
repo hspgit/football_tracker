@@ -161,15 +161,15 @@ export class SponsorDetailsComponent implements OnInit{
     if (payload.length) {
       this.sponsorService.updateSponsorLeagueDetails(payload).subscribe({
         next: (data) => {
-          // Handle the response here if needed
-          console.log('Sponsorship details updated successfully');
           this.getAllSponsors()
         },
         error: (err) => {
-          // Handle errors here
           console.error('Error updating sponsorship details', err);
         }
       });
+    }
+    else {
+      this.getAllSponsors();
     }
   }
 

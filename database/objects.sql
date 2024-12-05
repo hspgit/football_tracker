@@ -726,4 +726,95 @@ END $$
 
 DELIMITER ;
 
+-- ADD TEAM PROCEDURES
+DROP PROCEDURE IF EXISTS insert_team;
+DELIMITER //
 
+CREATE PROCEDURE insert_team(
+    IN p_team_name VARCHAR(128),
+    IN p_established_year INT
+)
+BEGIN
+    INSERT INTO team (name, established_year)
+    VALUES (p_team_name, p_established_year);
+END //
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS insert_stadium;
+DELIMITER //
+CREATE PROCEDURE insert_stadium(
+    IN p_stadium_name VARCHAR(128),
+    IN p_city VARCHAR(128),
+    IN p_zip_code VARCHAR(20),
+    IN p_capacity INT,
+    IN p_team_name VARCHAR(128)
+)
+BEGIN
+    INSERT INTO stadium (name, city, zip_code, capacity, team_name)
+    VALUES (p_stadium_name, p_city, p_zip_code, p_capacity, p_team_name);
+END //
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS insert_league_team;
+DELIMITER //
+
+CREATE PROCEDURE insert_league_team(
+    IN p_league_name VARCHAR(128),
+    IN p_team_name VARCHAR(128),
+    IN p_season INT
+)
+BEGIN
+    INSERT INTO league_team (league_name, team_name, season)
+    VALUES (p_league_name, p_team_name, p_season);
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS insert_player;
+DELIMITER //
+
+CREATE PROCEDURE insert_player(
+    IN p_first_name VARCHAR(128),
+    IN p_last_name VARCHAR(128),
+    IN p_dob DATE,
+    IN p_nationality VARCHAR(128),
+    IN p_market_value DECIMAL(15,2),
+    IN p_jersey_number INT,
+    IN p_position_abb VARCHAR(10)
+)
+BEGIN
+    INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb)
+    VALUES (p_first_name, p_last_name, p_dob, p_nationality, p_market_value, p_jersey_number, p_position_abb);
+END //
+
+DELIMITER ;
+DROP PROCEDURE IF EXISTS insert_player_team;
+DELIMITER //
+
+CREATE PROCEDURE insert_player_team(
+    IN p_player_id INT,
+    IN p_team_name VARCHAR(128),
+    IN p_season INT
+)
+BEGIN
+    INSERT INTO player_team (player_id, team_name, season)
+    VALUES (p_player_id, p_team_name, p_season);
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS insert_manager;
+DELIMITER //
+CREATE PROCEDURE insert_manager(
+    IN p_first_name VARCHAR(128),
+    IN p_last_name VARCHAR(128),
+    IN p_dob DATE,
+    IN p_nationality VARCHAR(128),
+    IN p_team_name VARCHAR(128)
+)
+BEGIN
+    INSERT INTO manager (first_name, last_name, dob, nationality, team_name)
+    VALUES (p_first_name, p_last_name, p_dob, p_nationality, p_team_name);
+END //
+
+DELIMITER ;

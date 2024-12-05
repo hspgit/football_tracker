@@ -63,15 +63,6 @@ CREATE TABLE player_team (
     FOREIGN KEY (team_name) REFERENCES team(name)
 );
 
-CREATE TABLE team_captain (
-    captain_id INT,
-    team_name VARCHAR(128),
-    season INT,
-    PRIMARY KEY (captain_id, team_name, season),
-    FOREIGN KEY (captain_id) REFERENCES player(player_id),
-    FOREIGN KEY (team_name) REFERENCES team(name)
-);
-
 CREATE TABLE manager (
     manager_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(128) NOT NULL,

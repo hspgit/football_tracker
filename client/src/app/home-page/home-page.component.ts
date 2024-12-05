@@ -184,7 +184,9 @@ export class HomePageComponent implements OnInit {
       const seasons = this.seasons;
 
       // Prepare datasets
-      const datasets = Array.from(teamStatsMap.entries()).map(([teamName, teamStats], index) => {
+      const datasets = Array.from(
+        teamStatsMap.entries())
+        .map(([teamName, teamStats], index) => {
         const data = seasons.map(season => {
           const statForSeason = teamStats.find(stat => stat.season === season);
           return statForSeason ? statForSeason.rank : null; // Null for missing data
@@ -203,7 +205,7 @@ export class HomePageComponent implements OnInit {
       // Assign chart data for this league
       leagueChartData[leagueName] = {
         labels: seasons,
-        datasets: datasets.slice(0, 10) // Limit to top 10 teams if needed
+        datasets: datasets
       };
     });
 

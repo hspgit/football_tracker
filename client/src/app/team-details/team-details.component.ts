@@ -10,7 +10,7 @@ import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatOptionModule} from '@angular/material/core';
 import {TeamService} from '../services/team.service';
 import {LeagueTableRow, Player, Team, TeamDetails} from '../app.models';
-import {debounceTime, distinctUntilChanged, forkJoin, Observable, of, switchMap} from 'rxjs';
+import {catchError, debounceTime, distinctUntilChanged, forkJoin, Observable, of, switchMap} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from '@angular/material/card';
 import {baseChartConfig, baseTension, calculateAge} from '../app.utils';
@@ -92,31 +92,54 @@ export class TeamDetailsComponent {
   }
 
   fetchTeamStats() {
-      if (this.selectedTeamDetails && this.selectedTeam) {
-        const leagueName = this.selectedTeamDetails.league_name;
-        const teamName = this.selectedTeam.name;
+    if (this.selectedTeamDetails && this.selectedTeam) {
+      const leagueName = this.selectedTeamDetails.league_name;
+      const teamName = this.selectedTeam.name;
 
-        // Create an array of observables for each year
-        const observables = [
-          this.leagueService.getTeamStats(leagueName, teamName, 2022),
-          this.leagueService.getTeamStats(leagueName, teamName, 2023),
-          this.leagueService.getTeamStats(leagueName, teamName, 2024),
-        ];
+      // Create an array of observables for each year, wrapped with catchError
+      const observables = [
+        this.leagueService.getTeamStats(leagueName, teamName, 2022).pipe(
+          catchError(err => {
+            console.error('Error fetching 2022 stats:', err);
+            return of([]); // Return empty array to continue the chain
+          })
+        ),
+        this.leagueService.getTeamStats(leagueName, teamName, 2023).pipe(
+          catchError(err => {
+            console.error('Error fetching 2023 stats:', err);
+            return of([]); // Return empty array to continue the chain
+          })
+        ),
+        this.leagueService.getTeamStats(leagueName, teamName, 2024).pipe(
+          catchError(err => {
+            console.error('Error fetching 2024 stats:', err);
+            return of([]); // Return empty array to continue the chain
+          })
+        ),
+      ];
 
-        // Use forkJoin to make parallel calls and wait for all responses
-        forkJoin(observables).subscribe({
-          next: (responses) => {
-            // Combine the results into selectedTeamStats
-            this.selectedTeamStats = responses.flat(); // Use flat() if each response contains an array
-            this.setChartData();
-          },
-          error: (err) => {
-            console.error('Error fetching team stats:', err);
-          },
-        });
-      } else {
-        console.warn('Selected team details or team name is missing.');
-      }
+      // Use forkJoin with catchError
+      forkJoin(observables).pipe(
+        catchError(err => {
+          console.error('Overall error in forkJoin:', err);
+          return of([[], [], []]); // Fallback to empty arrays
+        })
+      ).subscribe({
+        next: (responses) => {
+          // Combine the results into selectedTeamStats
+          this.selectedTeamStats = responses.flat();
+          this.setChartData();
+        },
+        error: (err) => {
+          console.error('Unexpected error:', err);
+          // Optional: Set a default or empty state
+          this.selectedTeamStats = [];
+          this.setChartData();
+        }
+      });
+    } else {
+      console.warn('Selected team details or team name is missing.');
+    }
   }
 
   setChartData() {

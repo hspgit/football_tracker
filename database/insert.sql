@@ -191,10 +191,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester City', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester City', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester City', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Manchester City', 2022),
-(LAST_INSERT_ID(), 'Manchester City', 2023),
-(LAST_INSERT_ID(), 'Manchester City', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Bernardo', 'Silva', '1994-08-10', 'Portugal', 80000000.00, 20, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester City', 2022);
@@ -246,10 +242,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Arsenal', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Arsenal', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Arsenal', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Arsenal', 2022),
-(LAST_INSERT_ID(), 'Arsenal', 2023),
-(LAST_INSERT_ID(), 'Arsenal', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Bukayo', 'Saka', '2001-09-05', 'England', 100000000.00, 7, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Arsenal', 2022);
@@ -306,10 +298,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester United', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester United', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester United', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Manchester United', 2022),
-(LAST_INSERT_ID(), 'Manchester United', 2023),
-(LAST_INSERT_ID(), 'Manchester United', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Mason', 'Mount', '1999-01-10', 'England', 55000000.00, 7, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Manchester United', 2022);
@@ -337,10 +325,7 @@ VALUES ('Heung-Min', 'Son', '1992-07-08', 'South Korea', 45000000.00, 7, 'LW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Tottenham Hotspur', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Tottenham Hotspur', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Tottenham Hotspur', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Tottenham Hotspur', 2022),
-(LAST_INSERT_ID(), 'Tottenham Hotspur', 2023),
-(LAST_INSERT_ID(), 'Tottenham Hotspur', 2024);
+
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb)
 VALUES ('James', 'Maddison', '1996-11-23', 'England', 70000000.00, 10, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Tottenham Hotspur', 2022);
@@ -449,10 +434,6 @@ VALUES ('John', 'McGinn', '1994-10-18', 'Scotland', 30000000.0, 7, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Aston Villa', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Aston Villa', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Aston Villa', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Aston Villa', 2022),
-(LAST_INSERT_ID(), 'Aston Villa', 2023),
-(LAST_INSERT_ID(), 'Aston Villa', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb)
 VALUES ('Douglas', 'Luiz', '1998-05-09', 'Brazil', 25000000.0 ,6 , 'CM');
@@ -482,10 +463,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Newcastle United', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Newcastle United', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Newcastle United', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Newcastle United', 2022),
-(LAST_INSERT_ID(), 'Newcastle United', 2023),
-(LAST_INSERT_ID(), 'Newcastle United', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Sven', 'Botman', '2000-01-12', 'Netherlands', 45000000.00, 4, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Newcastle United', 2022);
@@ -542,10 +519,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Fulham', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Fulham', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Fulham', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Fulham', 2022),
-(LAST_INSERT_ID(), 'Fulham', 2023),
-(LAST_INSERT_ID(), 'Fulham', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Issa', 'Diop', '1997-01-09', 'France', 15000000.00, 31, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Fulham', 2022);
@@ -622,10 +595,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Brentford', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Brentford', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Brentford', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Brentford', 2022),
-(LAST_INSERT_ID(), 'Brentford', 2023),
-(LAST_INSERT_ID(), 'Brentford', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Mathias', 'Jensen', '1996-01-01', 'Denmark', 14000000.00, 8, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Brentford', 2022);
@@ -662,10 +631,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Liverpool', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Liverpool', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Liverpool', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Liverpool', 2022),
-(LAST_INSERT_ID(), 'Liverpool', 2023),
-(LAST_INSERT_ID(), 'Liverpool', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Trent', 'Alexander-Arnold', '1998-10-07', 'England', 80000000.00, 66, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Liverpool', 2022);
@@ -717,10 +682,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chelsea', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chelsea', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chelsea', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Chelsea', 2022),
-(LAST_INSERT_ID(), 'Chelsea', 2023),
-(LAST_INSERT_ID(), 'Chelsea', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Enzo', 'Fernández', '2001-01-17', 'Argentina', 120000000.00, 8, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chelsea', 2022);
@@ -782,10 +743,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Madrid', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Madrid', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Madrid', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Real Madrid', 2022),
-(LAST_INSERT_ID(), 'Real Madrid', 2023),
-(LAST_INSERT_ID(), 'Real Madrid', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Eder', 'Militão', '1998-01-18', 'Brazil', 65000000.00, 3, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Madrid', 2022);
@@ -837,10 +794,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Barcelona', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Barcelona', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Barcelona', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Barcelona', 2022),
-(LAST_INSERT_ID(), 'Barcelona', 2023),
-(LAST_INSERT_ID(), 'Barcelona', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Jules', 'Koundé', '1998-11-12', 'France', 60000000.00, 23, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Barcelona', 2022);
@@ -922,10 +875,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atletico Madrid', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atletico Madrid', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atletico Madrid', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Atletico Madrid', 2022),
-(LAST_INSERT_ID(), 'Atletico Madrid', 2023),
-(LAST_INSERT_ID(), 'Atletico Madrid', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Rodrigo', 'De Paul', '1994-05-24', 'Argentina', 35000000.00, 5, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atletico Madrid', 2022);
@@ -997,10 +946,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Sevilla', 2022),
-(LAST_INSERT_ID(), 'Sevilla', 2023),
-(LAST_INSERT_ID(), 'Sevilla', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Lucien', 'Agoumé', '2002-02-09', 'France', 5000000.00, 20, 'CDM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Sevilla', 2022);
@@ -1027,10 +972,7 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Betis', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Betis', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Betis', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Real Betis', 2022),
-(LAST_INSERT_ID(), 'Real Betis', 2023),
-(LAST_INSERT_ID(), 'Real Betis', 2024);
+
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Diego', 'Llorente', '1993-08-16', 'Spain', 8000000.00, 6, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Betis', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Betis', 2023);
@@ -1126,10 +1068,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Sociedad', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Sociedad', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Real Sociedad', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Real Sociedad', 2022),
-(LAST_INSERT_ID(), 'Real Sociedad', 2023),
-(LAST_INSERT_ID(), 'Real Sociedad', 2024);
 
 -- Players for Team: Athletic Club
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Unai', 'Simón', '1997-06-11', 'Spain', 25000000.00, 1, 'GK');
@@ -1141,10 +1079,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Athletic Club', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Athletic Club', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Athletic Club', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Athletic Club', 2022),
-(LAST_INSERT_ID(), 'Athletic Club', 2023),
-(LAST_INSERT_ID(), 'Athletic Club', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Dani', 'Vivian', '1999-07-05', 'Spain', 15000000.00, 3, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Athletic Club', 2022);
@@ -1222,10 +1156,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Valencia', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Valencia', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Valencia', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Valencia', 2022),
-(LAST_INSERT_ID(), 'Valencia', 2023),
-(LAST_INSERT_ID(), 'Valencia', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Diego', 'López', '2002-02-13', 'Spain', 12000000.00, 16, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Valencia', 2022);
@@ -1267,10 +1197,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Villarreal', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Villarreal', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Villarreal', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Villarreal', 2022),
-(LAST_INSERT_ID(), 'Villarreal', 2023),
-(LAST_INSERT_ID(), 'Villarreal', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Jorge', 'Cuenca', '1999-11-17', 'Spain', 5000000.00, 4, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Villarreal', 2022);
@@ -1332,10 +1258,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Espanyol', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Espanyol', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Espanyol', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Espanyol', 2022),
-(LAST_INSERT_ID(), 'Espanyol', 2023),
-(LAST_INSERT_ID(), 'Espanyol', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Brian', 'Oliván', '1994-04-01', 'Spain', 2000000.00, 14, 'LB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Espanyol', 2022);
@@ -1387,10 +1309,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'LA Galaxy', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'LA Galaxy', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'LA Galaxy', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'LA Galaxy', 2022),
-(LAST_INSERT_ID(), 'LA Galaxy', 2023),
-(LAST_INSERT_ID(), 'LA Galaxy', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Martín', 'Cáceres', '1987-04-07', 'Uruguay', 400000.00, 22, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'LA Galaxy', 2022);
@@ -1437,10 +1355,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'DC United', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'DC United', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'DC United', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'DC United', 2022),
-(LAST_INSERT_ID(), 'DC United', 2023),
-(LAST_INSERT_ID(), 'DC United', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Mateusz', 'Klich', '1990-06-13', 'Poland', 2093588.00, 43, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'DC United', 2022);
@@ -1507,10 +1421,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'New York Red Bulls', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'New York Red Bulls', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'New York Red Bulls', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'New York Red Bulls', 2022),
-(LAST_INSERT_ID(), 'New York Red Bulls', 2023),
-(LAST_INSERT_ID(), 'New York Red Bulls', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Andrés', 'Reyes', '1999-09-08', 'Colombia', 9600000.00, 4, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'New York Red Bulls', 2022);
@@ -1577,10 +1487,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Seattle Sounders', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Seattle Sounders', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Seattle Sounders', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Seattle Sounders', 2022),
-(LAST_INSERT_ID(), 'Seattle Sounders', 2023),
-(LAST_INSERT_ID(), 'Seattle Sounders', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('João', 'Paulo', '1991-03-08', 'Brazil', 3000000.00, 6, 'CDM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Seattle Sounders', 2022);
@@ -1642,10 +1548,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Portland Timbers', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Portland Timbers', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Portland Timbers', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Portland Timbers', 2022),
-(LAST_INSERT_ID(), 'Portland Timbers', 2023),
-(LAST_INSERT_ID(), 'Portland Timbers', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Cristhian', 'Paredes', '1998-05-18', 'Paraguay', 1400000.00, 22, 'CM');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Portland Timbers', 2022);
@@ -1677,10 +1579,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atlanta United', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atlanta United', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atlanta United', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Atlanta United', 2022),
-(LAST_INSERT_ID(), 'Atlanta United', 2023),
-(LAST_INSERT_ID(), 'Atlanta United', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Ronald', 'Hernández', '1997-09-21', 'Venezuela', 450000.00, 2, 'RB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Atlanta United', 2022);
@@ -1767,10 +1665,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Orlando City', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Orlando City', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Orlando City', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Orlando City', 2022),
-(LAST_INSERT_ID(), 'Orlando City', 2023),
-(LAST_INSERT_ID(), 'Orlando City', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Facundo', 'Torres', '2000-04-13', 'Uruguay', 12000000.00, 17, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Orlando City', 2022);
@@ -1822,10 +1716,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Toronto', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Toronto', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Toronto', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Toronto', 2022),
-(LAST_INSERT_ID(), 'Toronto', 2023),
-(LAST_INSERT_ID(), 'Toronto', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Federico', 'Bernardeschi', '1994-02-16', 'Italy', 8000000.00, 10, 'RW');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Toronto', 2022);
@@ -1867,10 +1757,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chicago Fire', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chicago Fire', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chicago Fire', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Chicago Fire', 2022),
-(LAST_INSERT_ID(), 'Chicago Fire', 2023),
-(LAST_INSERT_ID(), 'Chicago Fire', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Carlos', 'Terán', '2000-09-24', 'Colombia', 1500000.00, 4, 'CB');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Chicago Fire', 2022);
@@ -1957,10 +1843,6 @@ INSERT INTO player (first_name, last_name, dob, nationality, market_value, jerse
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2022);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2023);
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2024);
-INSERT INTO team_captain (captain_id, team_name, season) VALUES
-(LAST_INSERT_ID(), 'Inter Miami', 2022),
-(LAST_INSERT_ID(), 'Inter Miami', 2023),
-(LAST_INSERT_ID(), 'Inter Miami', 2024);
 
 INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb) VALUES ('Leonardo', 'Campana', '2000-07-24', 'Ecuador', 4000000.00, 9, 'ST');
 INSERT INTO player_team (player_id, team_name, season) VALUES (LAST_INSERT_ID(), 'Inter Miami', 2022);

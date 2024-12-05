@@ -618,19 +618,6 @@ DELIMITER ;
 CALL get_team_details('Barcelona', 2024);
 
 
-DROP FUNCTION IF EXISTS get_team_form;
-DELIMITER $$
-
-CREATE FUNCTION get_team_form(
-    IN in_team_name VARCHAR(128),
-    IN _in_season INT
-) RETURNS VARCHAR(3)
-BEGIN
-
-END $$
-
-DELIMITER ;
-
 DROP PROCEDURE IF EXISTS get_team_games;
 DELIMITER $$
 

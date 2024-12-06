@@ -19,7 +19,6 @@ END $$
 
 DELIMITER ;
 
-CALL get_team_players_for_season('Arsenal', 2023);
 
 DROP PROCEDURE IF EXISTS get_all_leagues;
 DELIMITER $$
@@ -56,7 +55,6 @@ END $$
 
 DELIMITER ;
 
-CALL get_league_teams_for_season('Major League Soccer', 2024);
 
 DROP PROCEDURE IF EXISTS get_all_stadiums;
 DELIMITER $$
@@ -72,7 +70,6 @@ END $$
 
 DELIMITER ;
 
-CALL get_all_stadiums();
 
 DROP PROCEDURE IF EXISTS get_stadiums_by_teams_list;
 DELIMITER $$
@@ -91,8 +88,6 @@ END $$
 
 DELIMITER ;
 
-CALL get_stadiums_by_teams_list('Manchester United,Arsenal,Chelsea');
-CALL get_stadiums_by_teams_list('Manchester City,Arsenal,Chelsea');
 
 DROP PROCEDURE IF EXISTS get_all_filtered_sponsors;
 DELIMITER $$
@@ -118,10 +113,6 @@ END $$
 
 DELIMITER ;
 
-CALL get_all_filtered_sponsors('');
-CALL get_all_filtered_sponsors('Premier League,La Liga');
-CALL get_all_filtered_sponsors('La Liga');
-
 
 DROP PROCEDURE IF EXISTS delete_sponsor;
 DELIMITER $$
@@ -137,9 +128,6 @@ BEGIN
 END $$
 
 DELIMITER ;
-
-
-CALL delete_sponsor('Rakuten');
 
 
 DROP PROCEDURE IF EXISTS get_sponsor_league_details;
@@ -159,8 +147,6 @@ BEGIN
 END $$
 DELIMITER ;
 
-CALL get_sponsor_league_details('Rakuten');
-
 DROP PROCEDURE IF EXISTS get_sponsor_league_details_for_league;
 DELIMITER $$
 
@@ -178,7 +164,6 @@ BEGIN
 END $$
 DELIMITER ;
 
-CALL get_sponsor_league_details_for_league('La Liga');
 
 DROP PROCEDURE IF EXISTS update_sponsor_league_details;
 DELIMITER $$
@@ -210,7 +195,6 @@ END $$
 
 DELIMITER ;
 
-CALL update_sponsor_league_details('Rakuten', 'Premier League', 99900);
 
 DROP PROCEDURE IF EXISTS add_sponsor;
 DELIMITER $$
@@ -235,8 +219,6 @@ END $$
 
 DELIMITER ;
 
-CALL add_sponsor('ChartJS', 'United States', 'https://www.chartjs.org', 'Software Development');
-CALL update_sponsor_league_details('ChartJS', 'Major League Soccer', 9990000);
 
 
 DROP PROCEDURE IF EXISTS insert_game;
@@ -438,7 +420,6 @@ END $$
 
 DELIMITER ;
 
-CALL get_league_table('La Liga', 2022, NULL, NULL);
 
 DROP PROCEDURE IF EXISTS get_league_top_stat;
 DELIMITER $$
@@ -488,10 +469,6 @@ END $$
 
 DELIMITER ;
 
-CALL get_league_top_stat('La Liga', 2022, 'goals_scored'); -- Top scorers
-CALL get_league_top_stat('La Liga', 2022, 'yellow_card');  -- Most yellow cards
-CALL get_league_top_stat('La Liga', 2022, 'red_card');     -- Most red cards
-
 
 DROP PROCEDURE IF EXISTS search_player;
 DELIMITER $$
@@ -508,8 +485,6 @@ BEGIN
 END $$
 
 DELIMITER ;
-
-CALL search_player('ede');
 
 
 DROP PROCEDURE IF EXISTS player_stats_across_seasons;
@@ -562,11 +537,6 @@ END $$
 
 DELIMITER ;
 
-CALL player_stats_across_seasons(328, '2022,2023,2024');
-CALL player_stats_across_seasons(318, '2022,2023,2024');
-CALL player_stats_across_seasons(328, '2022');
-CALL player_stats_across_seasons(340, '2022');
-
 
 DROP PROCEDURE IF EXISTS search_team;
 DELIMITER $$
@@ -583,7 +553,6 @@ END $$
 
 DELIMITER ;
 
-CALL search_team('Ars');
 
 DROP PROCEDURE IF EXISTS get_team_details;
 DELIMITER $$
@@ -615,21 +584,7 @@ END $$
 DELIMITER ;
 
 -- Example usage
-CALL get_team_details('Barcelona', 2024);
 
-
-DROP FUNCTION IF EXISTS get_team_form;
-DELIMITER $$
-
-CREATE FUNCTION get_team_form(
-    IN in_team_name VARCHAR(128),
-    IN _in_season INT
-) RETURNS VARCHAR(3)
-BEGIN
-
-END $$
-
-DELIMITER ;
 
 DROP PROCEDURE IF EXISTS get_team_games;
 DELIMITER $$
@@ -654,7 +609,6 @@ END $$
 
 DELIMITER ;
 
-CALL get_team_games('Arsenal', 'Aston Villa', 2024);
 
 DROP PROCEDURE IF EXISTS get_player_stats_for_game;
 DELIMITER $$
@@ -678,9 +632,6 @@ BEGIN
 END $$
 
 DELIMITER ;
-
-CALL get_player_stats_for_game('Arsenal', 'Aston Villa', '2024-11-01');
-
 
 
 DROP PROCEDURE IF EXISTS update_player_stats;
@@ -726,4 +677,289 @@ END $$
 
 DELIMITER ;
 
+-- ADD TEAM PROCEDURES
+DROP PROCEDURE IF EXISTS insert_team;
+DELIMITER //
+
+CREATE PROCEDURE insert_team(
+    IN p_team_name VARCHAR(128),
+    IN p_established_year INT
+)
+BEGIN
+    INSERT INTO team (name, established_year)
+    VALUES (p_team_name, p_established_year);
+END //
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS insert_stadium;
+DELIMITER //
+CREATE PROCEDURE insert_stadium(
+    IN p_stadium_name VARCHAR(128),
+    IN p_city VARCHAR(128),
+    IN p_zip_code VARCHAR(20),
+    IN p_capacity INT,
+    IN p_team_name VARCHAR(128)
+)
+BEGIN
+    INSERT INTO stadium (name, city, zip_code, capacity, team_name)
+    VALUES (p_stadium_name, p_city, p_zip_code, p_capacity, p_team_name);
+END //
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS insert_league_team;
+DELIMITER //
+
+CREATE PROCEDURE insert_league_team(
+    IN p_league_name VARCHAR(128),
+    IN p_team_name VARCHAR(128),
+    IN p_season INT
+)
+BEGIN
+    INSERT INTO league_team (league_name, team_name, season)
+    VALUES (p_league_name, p_team_name, p_season);
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS insert_player;
+DELIMITER //
+
+CREATE PROCEDURE insert_player(
+    IN p_first_name VARCHAR(128),
+    IN p_last_name VARCHAR(128),
+    IN p_dob DATE,
+    IN p_nationality VARCHAR(128),
+    IN p_market_value DECIMAL(15,2),
+    IN p_jersey_number INT,
+    IN p_position_abb VARCHAR(10)
+)
+BEGIN
+    INSERT INTO player (first_name, last_name, dob, nationality, market_value, jersey_number, position_abb)
+    VALUES (p_first_name, p_last_name, p_dob, p_nationality, p_market_value, p_jersey_number, p_position_abb);
+END //
+
+DELIMITER ;
+DROP PROCEDURE IF EXISTS insert_player_team;
+DELIMITER //
+
+CREATE PROCEDURE insert_player_team(
+    IN p_player_id INT,
+    IN p_team_name VARCHAR(128),
+    IN p_season INT
+)
+BEGIN
+    INSERT INTO player_team (player_id, team_name, season)
+    VALUES (p_player_id, p_team_name, p_season);
+END //
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS insert_manager;
+DELIMITER //
+CREATE PROCEDURE insert_manager(
+    IN p_first_name VARCHAR(128),
+    IN p_last_name VARCHAR(128),
+    IN p_dob DATE,
+    IN p_nationality VARCHAR(128),
+    IN p_team_name VARCHAR(128)
+)
+BEGIN
+    INSERT INTO manager (first_name, last_name, dob, nationality, team_name)
+    VALUES (p_first_name, p_last_name, p_dob, p_nationality, p_team_name);
+END //
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS get_latest_team_by_player_id;
+DELIMITER $$
+
+CREATE PROCEDURE get_latest_team_by_player_id(
+    IN in_player_id INT
+)
+BEGIN
+    DECLARE v_team_name VARCHAR(128);
+    DECLARE v_season INT;
+
+    -- Check 2024 season first
+    SELECT team_name, season INTO v_team_name, v_season
+    FROM player_team
+    WHERE player_id = in_player_id AND season = 2024
+    LIMIT 1;
+
+    -- If no team found for 2024, check 2023
+    IF v_team_name IS NULL THEN
+        SELECT team_name, season INTO v_team_name, v_season
+        FROM player_team
+        WHERE player_id = in_player_id AND season = 2023
+        LIMIT 1;
+    END IF;
+
+    -- If no team found for 2023, check 2022
+    IF v_team_name IS NULL THEN
+        SELECT team_name, season INTO v_team_name, v_season
+        FROM player_team
+        WHERE player_id = in_player_id AND season = 2022
+        LIMIT 1;
+    END IF;
+
+    -- Return the found team name and season
+    SELECT v_team_name AS team_name, v_season AS season;
+END $$
+
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS get_latest_season_by_team;
+DELIMITER $$
+
+CREATE PROCEDURE get_latest_season_by_team(
+    IN in_team_name VARCHAR(255)
+)
+BEGIN
+    DECLARE v_league_name VARCHAR(255);
+    DECLARE v_season INT;
+
+    -- Check 2024 season first
+    SELECT league_name, season INTO v_league_name, v_season
+    FROM league_team
+    WHERE team_name = in_team_name AND season = 2024
+    LIMIT 1;
+
+    -- If no league found for 2024, check 2023
+    IF v_league_name IS NULL THEN
+        SELECT league_name, season INTO v_league_name, v_season
+        FROM league_team
+        WHERE team_name = in_team_name AND season = 2023
+        LIMIT 1;
+    END IF;
+
+    -- If no league found for 2023, check 2022
+    IF v_league_name IS NULL THEN
+        SELECT league_name, season INTO v_league_name, v_season
+        FROM league_team
+        WHERE team_name = in_team_name AND season = 2022
+        LIMIT 1;
+    END IF;
+
+    -- Return the found league name and season
+    SELECT v_league_name AS league_name, v_season AS season;
+END $$
+
+DELIMITER ;
+
+# DROP PROCEDURE IF EXISTS delete_team;
+# DELIMITER $$
+#
+# CREATE PROCEDURE delete_team(
+#     IN in_team_name VARCHAR(128)
+# )
+# BEGIN
+#
+#     DELETE FROM team
+#     WHERE name = in_team_name;
+# END $$
+# DELIMITER ;
+
+DROP PROCEDURE IF EXISTS delete_team_and_recalculate;
+DELIMITER $$
+
+CREATE PROCEDURE delete_team_and_recalculate(
+    IN in_team_name VARCHAR(128)
+)
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE v_team_1_name VARCHAR(128);
+    DECLARE v_team_2_name VARCHAR(128);
+    DECLARE v_match_date DATE;
+
+    DECLARE cur CURSOR FOR
+        SELECT team_1_name, team_2_name, match_date
+        FROM game
+        WHERE team_1_name = in_team_name OR team_2_name = in_team_name;
+
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN cur;
+    loop_fetch: LOOP
+        FETCH cur INTO v_team_1_name, v_team_2_name, v_match_date;
+        IF done THEN
+            LEAVE loop_fetch;
+        END IF;
+
+        -- Identify the other team
+        SET @other_team = IF(v_team_1_name = in_team_name, v_team_2_name, v_team_1_name);
+
+        SET @season = YEAR(v_match_date);
+
+        -- Calculate the goals scored by each team in this match
+        SELECT
+            COALESCE(SUM(CASE WHEN pt.team_name = v_team_1_name THEN ps.goals_scored END), 0),
+            COALESCE(SUM(CASE WHEN pt.team_name = v_team_2_name THEN ps.goals_scored END), 0)
+        INTO @team_1_goals, @team_2_goals
+        FROM player_stat ps
+                 JOIN player_team pt ON ps.player_id = pt.player_id
+        WHERE pt.season = @season
+          AND ps.team_1_name = v_team_1_name
+          AND ps.team_2_name = v_team_2_name
+          AND ps.match_date = v_match_date;
+
+        -- Determine which team is the "other_team" and get their goals and conceded
+        IF @other_team = v_team_1_name THEN
+            SET @other_team_goals = @team_1_goals;
+            SET @other_team_conceded = @team_2_goals;
+        ELSE
+            SET @other_team_goals = @team_2_goals;
+            SET @other_team_conceded = @team_1_goals;
+        END IF;
+
+        -- Determine if the other_team had a win, loss, or draw
+        IF @other_team_goals > @other_team_conceded THEN
+            SET @other_team_win_increment = 1;
+            SET @other_team_loss_increment = 0;
+        ELSEIF @other_team_goals < @other_team_conceded THEN
+            SET @other_team_win_increment = 0;
+            SET @other_team_loss_increment = 1;
+        ELSE
+            -- Draw
+            SET @other_team_win_increment = 0;
+            SET @other_team_loss_increment = 0;
+        END IF;
+
+        -- Revert increments in league_team for the other_team
+        UPDATE league_team
+        SET matches_played = matches_played - 1,
+            wins = wins - @other_team_win_increment,
+            losses = losses - @other_team_loss_increment,
+            goals_scored = goals_scored - @other_team_goals,
+            goals_conceded = goals_conceded - @other_team_conceded
+        WHERE team_name = @other_team
+          AND season = @season;
+
+        -- Delete all player stats for this match
+        DELETE FROM player_stat
+        WHERE team_1_name = v_team_1_name
+          AND team_2_name = v_team_2_name
+          AND match_date = v_match_date;
+
+        -- Delete the game record
+        DELETE FROM game
+        WHERE team_1_name = v_team_1_name
+          AND team_2_name = v_team_2_name
+          AND match_date = v_match_date;
+
+    END LOOP loop_fetch;
+    CLOSE cur;
+
+    -- Now remove all references to the deleted team
+    DELETE FROM league_team WHERE team_name = in_team_name;
+    DELETE FROM stadium WHERE team_name = in_team_name;
+    DELETE FROM manager WHERE team_name = in_team_name;
+    DELETE FROM player_team WHERE team_name = in_team_name;
+
+    -- Finally, remove the team
+    DELETE FROM team WHERE name = in_team_name;
+
+END $$
+
+DELIMITER ;
 

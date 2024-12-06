@@ -1,0 +1,42 @@
+.main {
+  padding: 2rem;
+}
+
+.example-full-width {
+  width: 40%;
+}
+
+.stadium-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field-spacer {
+  display: flex;
+  gap: 2rem;
+}
+
+.team-form {
+  display: flex;
+  gap: 15px;
+}
+
+.player-form {
+  padding: 0.5rem;
+}
+
+.radio-group, .radio-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.players-add-group {
+  display: flex;
+}
+
+.input-fields {
+  display: flex;
+  gap: 10px;
+}
+

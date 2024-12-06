@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import {Player, Team, TeamDetails} from '../app.models';
+import {catchError, Observable} from 'rxjs';
+import {insertTeamAndPlayerPayload, Player, Team, TeamDetails} from '../app.models';
 import {baseUrl} from '../app.utils';
 
 @Injectable({
@@ -34,6 +34,30 @@ export class TeamService {
       .set('season', seasonParam)
 
     return this.http.get<TeamDetails[]>(`${this.teamsBaseUrl}/details`, {params});
+  }
+
+  insertTeam(payload: insertTeamAndPlayerPayload) {
+    return this.http.post<any>(`${this.teamsBaseUrl}/insert`, payload)
+      .pipe(
+        catchError((error) => {
+          throw error;
+        })
+      );
+  }
+
+  getLastExistingSeason(teamName: string) {
+    const params = new HttpParams().set('team_name', teamName)
+
+    return this.http.get<{
+      league_name: string,
+      season: number
+    }>(`${this.teamsBaseUrl}/latest-season`, {params})
+  }
+
+  deleteTeam(teamName: string) {
+    const params = new HttpParams().set('team_name', teamName)
+
+     return this.http.delete(`${this.teamsBaseUrl}/delete`, {params})
   }
 
 }

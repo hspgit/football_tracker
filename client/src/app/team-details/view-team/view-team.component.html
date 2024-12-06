@@ -1,0 +1,68 @@
+<div class="main">
+  <h2>View Team Details</h2>
+
+  <form>
+    <div class="form-field-spacer">
+      <mat-form-field class="example-full-width">
+        <mat-label>Select Team</mat-label>
+        <input type="text"
+               matInput
+               placeholder="Name"
+               [formControl]="teamFormControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          (optionSelected)="onTeamSelected($event.option.value)"
+          [displayWith]="displayFn">
+          @for (option of teamFilteredOptions | async; track option) {
+            <mat-option [value]=option>
+              {{option.name}} ({{option.established_year}})
+            </mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </form>
+
+  @if (selectedTeam && selectedTeamDetails && selectedTeamStats.length) {
+    <div class="display">
+
+      <mat-card class="team-card">
+        <mat-card-header>
+          <mat-card-title>{{ selectedTeam.name }} ({{ selectedTeam.established_year }})</mat-card-title>
+          <mat-card-subtitle>
+            Latest League: {{selectedTeamDetails.league_name}} ({{lastExistingSeason}})
+          </mat-card-subtitle>
+          <mat-card-subtitle>
+            Manager: {{ selectedTeamDetails.first_name }} {{ selectedTeamDetails.last_name }} ({{ calculateAge(selectedTeamDetails.dob) }})
+          </mat-card-subtitle>
+          <mat-card-subtitle>
+            Home Stadium: {{selectedTeamDetails.stadium_name}}
+          </mat-card-subtitle>
+          <mat-card-subtitle>
+            Current Team: {{selectedTeamPlayers}}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <!--      <p><strong>Age:</strong> {{ calculateAge(selectedPlayer.dob) }} ({{ selectedPlayer.dob | date: 'longDate' }})</p>-->
+          <!--      <p><strong>Date of Birth:</strong> {{ selectedPlayer.dob | date: 'longDate' }}</p>-->
+          <!--      <p><strong>Nationality:</strong> {{ selectedPlayer.nationality }}</p>-->
+          <p><strong>Team Value:</strong> ${{ selectedTeamDetails.total_team_value | number: '1.0-2' }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="stat-chart">
+        <div>
+          <canvas
+            baseChart
+            [data]="chartData"
+            [options]="chartOptions"
+            [type]="'line'">
+          </canvas>
+        </div>
+
+      </div>
+    </div>
+  }
+</div>

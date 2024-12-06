@@ -20,6 +20,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {GameService} from '../../services/game.service';
 import {PlayerStatService} from '../../services/player_stat.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {MatRadioModule} from '@angular/material/radio';
 
 @Component({
   selector: 'app-add-game',
@@ -39,6 +40,7 @@ import {HttpErrorResponse} from '@angular/common/http';
     NgIf,
     MatCheckboxModule,
     MatStepperModule,
+    MatRadioModule
   ],
   templateUrl: './add-game.component.html',
   styleUrls: ['./add-game.component.css'],

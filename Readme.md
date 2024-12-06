@@ -47,7 +47,7 @@ Make sure the following are installed on your system:
 
 - Start the Flask server:
   ```bash
-  flask --app server.main run --port=5001
+  flask --app main run --port=5001
   ```
 
 ### 2. Frontend Setup (Angular)

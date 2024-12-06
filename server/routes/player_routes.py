@@ -42,3 +42,45 @@ def get_players():
     finally:
         cursor.close()
         conn.close()
+
+@player_bp.route('/latest-team', methods=['GET'])
+def get_latest_team_by_player_id():
+    player_id = request.args.get('player_id')  # Get 'player_id' from query parameters
+
+    # Validate player_id
+    if not player_id:
+        return jsonify({'error': 'Player ID is required'}), 400
+
+    try:
+        player_id = int(player_id)  # Ensure player_id is an integer
+    except ValueError:
+        return jsonify({'error': 'Invalid player ID'}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor()  # Use dictionary cursor to get column names
+
+    try:
+        # Call the stored procedure
+        cursor.callproc('get_latest_team_by_player_id', [player_id])
+
+        # Fetch results from the procedure
+        results = cursor.fetchone()
+
+        # Check if a team was found
+        if results and results['team_name'] is not None:
+            return jsonify({
+                'team_name': results['team_name'],
+                'season': results['season']
+            })
+        else:
+            return jsonify({
+                'team_name': None,
+                'season': None
+            }), 404
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        cursor.close()
+        conn.close()

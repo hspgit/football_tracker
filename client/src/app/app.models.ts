@@ -14,6 +14,23 @@ export interface Team {
   established_year: string;
 }
 
+export interface Manager {
+  first_name: string
+  last_name: string,
+  dob: string,
+  nationality: string,
+}
+
+export interface insertTeamAndPlayerPayload {
+  // leagueSeasonMap: {[key: string]: number}
+  leagueName: string,
+  seasons: string[],
+  team: Team,
+  stadium: Stadium
+  players: Player[],
+  manager: Manager,
+}
+
 export interface PlayerStat {
   player_id: number,
   team_1_name:string,

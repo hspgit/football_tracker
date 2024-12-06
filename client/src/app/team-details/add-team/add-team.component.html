@@ -1,0 +1,221 @@
+<div class="main">
+  <h2>Add Team Details</h2>
+
+  <mat-stepper orientation="horizontal" linear="true">
+
+    <mat-step [stepControl]="teamFormGroup">
+      <ng-template matStepLabel>Team Details</ng-template>
+      <form [formGroup]="teamFormGroup">
+        <div class="team-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Team Name</mat-label>
+            <input matInput formControlName="name" placeholder="Name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Established Year</mat-label>
+            <input matInput formControlName="established_year" placeholder="ex.1990" type="number" min="0" max="2024">
+          </mat-form-field>
+        </div>
+        <div>
+<!--          <button mat-button matStepperPrevious>Back</button>-->
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="playersFormGroup">
+      <ng-template matStepLabel>Player Details</ng-template>
+      <form [formGroup]="playersFormGroup">
+        <div class="players-add-group">
+          <div formArrayName="players">
+            @for (player of players.controls; track $index) {
+              <div [formGroupName]="$index" class="player-form">
+                <h4>Player {{ $index + 1 }}</h4>
+
+                <div class="input-fields">
+                  <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="first_name" placeholder="First Name">
+                    @if (player.get('first_name')?.invalid) {
+                      <mat-error>First Name is required</mat-error>
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="last_name" placeholder="Last Name">
+                    @if (player.get('last_name')?.invalid) {
+                      <mat-error>Last Name is required</mat-error>
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput type="date" formControlName="dob">
+                    @if (player.get('dob')?.invalid) {
+                      <mat-error>Date of Birth is required</mat-error>
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Nationality</mat-label>
+                    <input matInput formControlName="nationality" placeholder="Nationality">
+                    @if (player.get('nationality')?.invalid) {
+                      <mat-error>Nationality is required</mat-error>
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Market Value</mat-label>
+                    <input matInput type="number" formControlName="market_value" placeholder="Market Value">
+                    @if (player.get('market_value')?.invalid) {
+                      <mat-error>Market Value is required</mat-error>
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Jersey Number</mat-label>
+                    <input matInput type="number" formControlName="jersey_number" placeholder="Jersey Number">
+                    @if (player.get('jersey_number')?.invalid) {
+                      <mat-error>Jersey Number is required</mat-error>
+                    }
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Position</mat-label>
+                    <input matInput formControlName="position_abb" placeholder="Position Abbreviation">
+                    @if (player.get('position_abb')?.invalid) {
+                      <mat-error>Position is required</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div>
+            }
+          </div>
+
+        </div>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext >Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="leagueAndSeasonFormGroup">
+      <ng-template matStepLabel>League & Season</ng-template>
+      <form [formGroup]="leagueAndSeasonFormGroup">
+        <div class="form-field-spacer">
+          <mat-form-field class="example-full-width">
+            <mat-label>Select League</mat-label>
+            <mat-select class="league-select" formControlName="league" placeholder="Pick one">
+              @for (league of leagues; track league) {
+                <mat-option [value]="league">{{league}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Seasons</mat-label>
+            <mat-select
+              formControlName="season"
+              multiple>
+              @for (season of seasons; track season) {
+                <mat-option [value]="season">{{season}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="stadiumFormGroup">
+      <ng-template matStepLabel>Stadium Details</ng-template>
+
+      <form [formGroup]="stadiumFormGroup">
+        <div class="stadium-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Stadium Name</mat-label>
+            <input matInput formControlName="name" placeholder="Name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" placeholder="City">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>ZipCode</mat-label>
+            <input matInput formControlName="zip_code" placeholder="ZipCode">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Capacity</mat-label>
+            <input matInput formControlName="capacity" placeholder="Capcity" type="number" min="0">
+          </mat-form-field>
+        </div>
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+      </form>
+
+
+    </mat-step>
+
+    <mat-step [stepControl]="managerFormControl">
+      <ng-template matStepLabel>Manager</ng-template>
+      <form [formGroup]="managerFormControl">
+        <div class="stadium-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="first_name" placeholder="Name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="last_name" placeholder="City">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>DOB</mat-label>
+            <input matInput formControlName="dob" type="date">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Nationality</mat-label>
+            <input matInput formControlName="nationality" placeholder="Nationality">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext (click)="submit()">Submit</button>
+        </div>
+      </form>
+
+    </mat-step>
+
+
+
+
+    <mat-step>
+      <ng-template matStepLabel>Finished</ng-template>
+      @if(errorMessage.length) {
+        {{errorMessage}}
+      } @else {
+        Team and Players Created Successfully. Navigate to Game details and add games.
+      }
+
+    </mat-step>
+
+  </mat-stepper>
+
+</div>

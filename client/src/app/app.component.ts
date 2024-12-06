@@ -68,12 +68,12 @@ export class AppComponent implements OnInit{
     {
       name: "Team Details",
       href: '/team-details',
-      isActive: false
-    },
-    {
-      name: "Player Details",
-      href: '/player-details',
-      isActive: false
+      isActive: false,
+      subItems: [
+        { name: 'Add Team', href: '/team-details/add-team', isActive: false },
+        { name: 'View Team', href: '/team-details/view-team', isActive: false },
+        { name: 'Delete Team', href: '/team-details/delete-team', isActive: false },
+      ]
     },
     {
       name: "Game Details",
@@ -83,6 +83,11 @@ export class AppComponent implements OnInit{
         { name: 'Add Game', href: '/game-details/add-game', isActive: false },
         { name: 'View Game', href: '/game-details/view-game', isActive: false },
       ]
+    },
+    {
+      name: "Player Details",
+      href: '/player-details',
+      isActive: false
     },
     {
       name: "Sponsors",

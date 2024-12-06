@@ -7,7 +7,7 @@ import {
 import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
-import {debounceTime, distinctUntilChanged, Observable, of, switchMap} from 'rxjs';
+import {catchError, debounceTime, distinctUntilChanged, forkJoin, Observable, of, switchMap} from 'rxjs';
 import {PlayerService} from '../services/player.service';
 import {map, startWith} from 'rxjs/operators';
 import {Player, PlayerStatRow} from '../app.models';
@@ -53,6 +53,8 @@ export class PlayerDetailsComponent {
   selectedPlayerStats: PlayerStatRow[] | undefined
   chartData!: ChartConfiguration['data'];
   chartOptions: ChartConfiguration['options'];
+  selectedPlayerTeam = '';
+  selectedPlayerSeason =  '';
 
   constructor(
     private playerService: PlayerService,
@@ -86,28 +88,80 @@ export class PlayerDetailsComponent {
 
   onPlayerSelected(selectedPlayer: Player): void {
     this.selectedPlayer = selectedPlayer;
+    this.fetchPlayerTeam();
     this.fetchPlayerStats();
+  }
+
+  fetchPlayerTeam() {
+    if (this.selectedPlayer) {
+      this.playerService.getLatestTeam(this.selectedPlayer?.player_id).subscribe({
+        next: (data) => {
+          // @ts-ignore
+          this.selectedPlayerTeam = data['team_name'];
+          // @ts-ignore
+          this.selectedPlayerSeason = data['season'];
+        }
+      })
+    }
+
   }
 
   fetchPlayerStats() {
     if (this.selectedPlayer) {
-      this.playerStatService
-        .fetchPlayerStatsForSeasons(this.selectedPlayer.player_id, '2022,2023,2024')
-        .subscribe({
-          next: (resp: PlayerStatRow[]) => {
-            // Map the response to ensure the totals are numbers
-             this.selectedPlayerStats = resp.map(stat => ({
+      const playerId = this.selectedPlayer.player_id;
+
+      // Create individual observables for each season
+      const observables = [
+        this.playerStatService.fetchPlayerStatsForSeasons(playerId, '2022').pipe(
+          catchError(err => {
+            console.error('Error fetching 2022 player stats:', err);
+            return of([]); // Return empty array to continue the chain
+          })
+        ),
+        this.playerStatService.fetchPlayerStatsForSeasons(playerId, '2023').pipe(
+          catchError(err => {
+            console.error('Error fetching 2023 player stats:', err);
+            return of([]); // Return empty array to continue the chain
+          })
+        ),
+        this.playerStatService.fetchPlayerStatsForSeasons(playerId, '2024').pipe(
+          catchError(err => {
+            console.error('Error fetching 2024 player stats:', err);
+            return of([]); // Return empty array to continue the chain
+          })
+        )
+      ];
+
+      // Use forkJoin with additional error handling
+      forkJoin(observables).pipe(
+        catchError(err => {
+          console.error('Overall error in forkJoin player stats:', err);
+          return of([[], [], []]); // Fallback to empty arrays
+        })
+      ).subscribe({
+        next: (responses) => {
+          // Flatten and process the responses
+          const processedStats = responses.flat()
+            .filter(stat => stat && Object.keys(stat).length > 0)
+            .map(stat => ({
               ...stat,
               total_goals: Number(stat.total_goals),
               total_reds: Number(stat.total_reds),
               total_yellows: Number(stat.total_yellows)
             }));
-            this.setChartData();
-          },
-          error: (err) => {
-            console.error('Error fetching player stats:', err);
-          }
-        });
+
+          this.selectedPlayerStats = processedStats;
+          this.setChartData();
+        },
+        error: (err) => {
+          console.error('Unexpected error in player stats fetch:', err);
+          // Set default empty state
+          this.selectedPlayerStats = [];
+          this.setChartData();
+        }
+      });
+    } else {
+      console.warn('No player selected');
     }
   }
 

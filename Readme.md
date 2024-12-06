@@ -4,14 +4,14 @@ A web application for tracking football leagues, teams, matches, and player stat
 
 ## Prerequisites
 Make sure the following are installed on your system:
-- **Angular 18**
-- **npm**
-- **Node.js**
+- **Angular v18**
+- **npm v10.8.2**
+- **Node v20.18.0**
 - **Python 3.9**
-- **pip**
+- **pip v21.2.4**
 
 ## Database Setup
-1. Ensure that you have created your MySQL database and set up all required tables and stored procedures.
+1. Open the football_tracker.sql dump file in MySql Workbench and run the entire file.
 
 ## Steps to Run the Project
 
@@ -37,7 +37,7 @@ Make sure the following are installed on your system:
   ```bash
   pip install -r requirements.txt
   ```
-- Set env variables:
+- Set env variables (make sure you enter password for your root user):
   ```bash
   export MYSQL_HOST='localhost'
   export MYSQL_USER='root'
@@ -52,6 +52,11 @@ Make sure the following are installed on your system:
 
 ### 2. Frontend Setup (Angular)
 - Open a new terminal window.
+
+- Navigate to the main football_tracker directory:
+  ```bash
+  cd football_tracker
+  ```
 - Navigate to the client directory:
   ```bash
   cd client
@@ -66,7 +71,7 @@ Make sure the following are installed on your system:
   ```
 
 ### Accessing the Application
-- Once the backend and frontend are running, you can access the app in your web browser at `http://localhost:4200`.
+- Once the backend and frontend are running, you can access the app in your web browser at `http://localhost:4200/home-page`.
 
 ## Project Structure
 - **server/**: Contains the Flask backend code.

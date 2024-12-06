@@ -78,7 +78,7 @@ export class AddTeamComponent implements OnInit{
 
   createInitialPlayers(): FormGroup[] {
     const players: FormGroup[] = [];
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 11; i++) {
       players.push(this.createPlayerForm());
     }
     return players;

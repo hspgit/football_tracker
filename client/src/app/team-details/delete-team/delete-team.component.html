@@ -1,5 +1,5 @@
 <div class="main">
-  <h2>View Team Details</h2>
+  <h2>Delete Team</h2>
 
   <form>
     <div class="form-field-spacer">
@@ -25,7 +25,7 @@
     </div>
   </form>
 
-  @if (selectedTeam && selectedTeamDetails && selectedTeamStats.length) {
+  @if (selectedTeam && selectedTeamDetails && !successMessage.length) {
     <div class="display">
 
       <mat-card class="team-card">
@@ -50,19 +50,16 @@
           <!--      <p><strong>Nationality:</strong> {{ selectedPlayer.nationality }}</p>-->
           <p><strong>Team Value:</strong> ${{ selectedTeamDetails.total_team_value | number: '1.0-2' }}</p>
         </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="deleteTeam()">
+            Delete
+          </button>
+
+        </mat-card-actions>
       </mat-card>
 
-      <div class="stat-chart">
-        <div>
-          <canvas
-            baseChart
-            [data]="chartData"
-            [options]="chartOptions"
-            [type]="'line'">
-          </canvas>
-        </div>
-
-      </div>
     </div>
+  } @else {
+    {{successMessage}}
   }
 </div>

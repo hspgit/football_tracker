@@ -72,6 +72,7 @@ export class AppComponent implements OnInit{
       subItems: [
         { name: 'Add Team', href: '/team-details/add-team', isActive: false },
         { name: 'View Team', href: '/team-details/view-team', isActive: false },
+        { name: 'Delete Team', href: '/team-details/delete-team', isActive: false },
       ]
     },
     {

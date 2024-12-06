@@ -12,7 +12,7 @@ import {TeamService} from '../../services/team.service';
 import {LeagueTableRow, Team, TeamDetails} from '../../app.models';
 import {catchError, debounceTime, distinctUntilChanged, forkJoin, Observable, of, switchMap} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from '@angular/material/card';
+import {MatCardModule} from '@angular/material/card';
 import {baseChartConfig, baseTension, calculateAge} from '../../app.utils';
 import {LeagueService} from '../../services/league.service';
 import {Chart, ChartConfiguration, registerables} from 'chart.js';
@@ -32,11 +32,7 @@ import {BaseChartDirective} from 'ng2-charts';
     ReactiveFormsModule,
     DatePipe,
     DecimalPipe,
-    MatCard,
-    MatCardContent,
-    MatCardHeader,
-    MatCardSubtitle,
-    MatCardTitle,
+    MatCardModule,
     BaseChartDirective
   ],
   templateUrl: './view-team.component.html',
@@ -89,7 +85,6 @@ export class ViewTeamComponent {
   onTeamSelected(selectedTeam: Team): void {
     this.selectedTeam = selectedTeam;
     this.getLastExistingSeason();
-
   }
 
   getLastExistingSeason() {

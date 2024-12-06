@@ -22,6 +22,7 @@ export interface Manager {
 }
 
 export interface insertTeamAndPlayerPayload {
+  // leagueSeasonMap: {[key: string]: number}
   leagueName: string,
   seasons: string[],
   team: Team,

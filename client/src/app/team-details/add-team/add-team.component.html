@@ -3,36 +3,6 @@
 
   <mat-stepper orientation="horizontal" linear="true">
 
-    <mat-step [stepControl]="leagueAndSeasonFormGroup">
-      <ng-template matStepLabel>League & Season</ng-template>
-      <form [formGroup]="leagueAndSeasonFormGroup">
-        <div class="form-field-spacer">
-          <mat-form-field class="example-full-width">
-            <mat-label>Select League</mat-label>
-            <mat-select class="league-select" formControlName="league" placeholder="Pick one">
-              @for (league of leagues; track league) {
-                <mat-option [value]="league">{{league}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Seasons</mat-label>
-            <mat-select
-              formControlName="season"
-              multiple>
-              @for (season of seasons; track season) {
-                <mat-option [value]="season">{{season}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-
     <mat-step [stepControl]="teamFormGroup">
       <ng-template matStepLabel>Team Details</ng-template>
       <form [formGroup]="teamFormGroup">
@@ -48,80 +18,10 @@
           </mat-form-field>
         </div>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
+<!--          <button mat-button matStepperPrevious>Back</button>-->
           <button mat-button matStepperNext>Next</button>
         </div>
       </form>
-    </mat-step>
-
-
-
-    <mat-step [stepControl]="stadiumFormGroup">
-      <ng-template matStepLabel>Stadium Details</ng-template>
-
-      <form [formGroup]="stadiumFormGroup">
-        <div class="stadium-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>Stadium Name</mat-label>
-            <input matInput formControlName="name" placeholder="Name">
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>City</mat-label>
-            <input matInput formControlName="city" placeholder="City">
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>ZipCode</mat-label>
-            <input matInput formControlName="zip_code" placeholder="ZipCode">
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>Capacity</mat-label>
-            <input matInput formControlName="capacity" placeholder="Capcity" type="number" min="0">
-          </mat-form-field>
-        </div>
-
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-      </form>
-
-
-    </mat-step>
-
-    <mat-step [stepControl]="managerFormControl">
-      <ng-template matStepLabel>Manager</ng-template>
-      <form [formGroup]="managerFormControl">
-        <div class="stadium-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>First Name</mat-label>
-            <input matInput formControlName="first_name" placeholder="Name">
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName="last_name" placeholder="City">
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>DOB</mat-label>
-            <input matInput formControlName="dob" type="date">
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>Nationality</mat-label>
-            <input matInput formControlName="nationality" placeholder="Nationality">
-          </mat-form-field>
-        </div>
-
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-
     </mat-step>
 
     <mat-step [stepControl]="playersFormGroup">
@@ -198,10 +98,112 @@
 
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext  (click)="submit()">Submit</button>
+          <button mat-button matStepperNext >Next</button>
         </div>
       </form>
     </mat-step>
+
+    <mat-step [stepControl]="leagueAndSeasonFormGroup">
+      <ng-template matStepLabel>League & Season</ng-template>
+      <form [formGroup]="leagueAndSeasonFormGroup">
+        <div class="form-field-spacer">
+          <mat-form-field class="example-full-width">
+            <mat-label>Select League</mat-label>
+            <mat-select class="league-select" formControlName="league" placeholder="Pick one">
+              @for (league of leagues; track league) {
+                <mat-option [value]="league">{{league}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Seasons</mat-label>
+            <mat-select
+              formControlName="season"
+              multiple>
+              @for (season of seasons; track season) {
+                <mat-option [value]="season">{{season}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="stadiumFormGroup">
+      <ng-template matStepLabel>Stadium Details</ng-template>
+
+      <form [formGroup]="stadiumFormGroup">
+        <div class="stadium-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Stadium Name</mat-label>
+            <input matInput formControlName="name" placeholder="Name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" placeholder="City">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>ZipCode</mat-label>
+            <input matInput formControlName="zip_code" placeholder="ZipCode">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Capacity</mat-label>
+            <input matInput formControlName="capacity" placeholder="Capcity" type="number" min="0">
+          </mat-form-field>
+        </div>
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+      </form>
+
+
+    </mat-step>
+
+    <mat-step [stepControl]="managerFormControl">
+      <ng-template matStepLabel>Manager</ng-template>
+      <form [formGroup]="managerFormControl">
+        <div class="stadium-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="first_name" placeholder="Name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="last_name" placeholder="City">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>DOB</mat-label>
+            <input matInput formControlName="dob" type="date">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Nationality</mat-label>
+            <input matInput formControlName="nationality" placeholder="Nationality">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext (click)="submit()">Submit</button>
+        </div>
+      </form>
+
+    </mat-step>
+
+
 
 
     <mat-step>

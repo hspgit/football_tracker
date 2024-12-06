@@ -254,3 +254,22 @@ def latest_season():
     finally:
         cursor.close()
         conn.close()
+
+
+@team_bp.route('/delete', methods=['DELETE'])
+def delete_team():
+    team_name = request.args.get('team_name')
+    team_name = request.args.get('team_name')
+    connection = get_db_connection()
+
+    try:
+        with connection.cursor() as cursor:
+            cursor.callproc('delete_team_and_recalculate', [team_name])
+            result = cursor.fetchall()
+            connection.commit()
+
+            return jsonify({'message': 'Team deleted successfully'}), 201
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    finally:
+        connection.close()

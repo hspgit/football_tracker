@@ -54,4 +54,10 @@ export class TeamService {
     }>(`${this.teamsBaseUrl}/latest-season`, {params})
   }
 
+  deleteTeam(teamName: string) {
+    const params = new HttpParams().set('team_name', teamName)
+
+     return this.http.delete(`${this.teamsBaseUrl}/delete`, {params})
+  }
+
 }

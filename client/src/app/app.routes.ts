@@ -13,6 +13,7 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {SponsorDetailsComponent} from './sponsor-details/sponsor-details.component';
 import {AddTeamComponent} from './team-details/add-team/add-team.component';
 import {ViewTeamComponent} from './team-details/view-team/view-team.component';
+import {DeleteTeamComponent} from './team-details/delete-team/delete-team.component';
 
 export const routes: Routes = [
   {
@@ -48,6 +49,10 @@ export const routes: Routes = [
       {
         path: 'view-team',
         component: ViewTeamComponent
+      },
+      {
+        path: 'delete-team',
+        component: DeleteTeamComponent
       }
     ]
   },

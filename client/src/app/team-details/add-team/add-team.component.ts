@@ -1,17 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MatStepperModule} from '@angular/material/stepper';
+import { Component, OnInit } from '@angular/core';
 import {
-  MatDatepickerModule,
-} from '@angular/material/datepicker';
-import {MatError, MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatOptionModule} from '@angular/material/core';
-import {MatSelectModule} from '@angular/material/select';
-import {insertTeamAndPlayerPayload, League} from '../../app.models';
-import {LeagueService} from '../../services/league.service';
-import {MatButtonModule} from '@angular/material/button';
-import {TeamService} from '../../services/team.service';
+  FormArray,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatError, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { insertTeamAndPlayerPayload, League } from '../../app.models';
+import { LeagueService } from '../../services/league.service';
+import { MatButtonModule } from '@angular/material/button';
+import { TeamService } from '../../services/team.service';
 
 @Component({
   selector: 'app-add-team',
@@ -28,9 +32,9 @@ import {TeamService} from '../../services/team.service';
     MatError,
   ],
   templateUrl: './add-team.component.html',
-  styleUrl: './add-team.component.css'
+  styleUrl: './add-team.component.css',
 })
-export class AddTeamComponent implements OnInit{
+export class AddTeamComponent implements OnInit {
   leagueAndSeasonFormGroup: FormGroup;
   teamFormGroup: FormGroup;
   stadiumFormGroup: FormGroup;
@@ -38,13 +42,13 @@ export class AddTeamComponent implements OnInit{
   managerFormControl: FormGroup;
   leagues: string[] = [];
   seasons: number[] = [2022, 2023, 2024];
-  errorMessage = ''
+  errorMessage = '';
   payload!: insertTeamAndPlayerPayload;
 
   constructor(
     private fb: FormBuilder,
     private leagueService: LeagueService,
-    private teamService: TeamService
+    private teamService: TeamService,
   ) {
     this.leagueAndSeasonFormGroup = this.fb.group({
       league: ['', Validators.required], // League Selection
@@ -66,9 +70,9 @@ export class AddTeamComponent implements OnInit{
       last_name: ['', Validators.required],
       dob: ['', Validators.required],
       nationality: ['', Validators.required],
-    })
+    });
     this.playersFormGroup = this.fb.group({
-      players: this.fb.array(this.createInitialPlayers())
+      players: this.fb.array(this.createInitialPlayers()),
     });
   }
 
@@ -97,11 +101,13 @@ export class AddTeamComponent implements OnInit{
       dob: ['', [Validators.required]],
       nationality: ['', Validators.required],
       market_value: ['', [Validators.required, Validators.min(0)]],
-      jersey_number: ['', [Validators.required, Validators.min(1), Validators.max(99)]],
+      jersey_number: [
+        '',
+        [Validators.required, Validators.min(1), Validators.max(99)],
+      ],
       position_abb: ['', Validators.required],
     });
   }
-
 
   fetchLeagues(): void {
     this.leagueService.getAllLeagues().subscribe({
@@ -132,30 +138,39 @@ export class AddTeamComponent implements OnInit{
         first_name: '',
         last_name: '',
         dob: '',
-        nationality: ''
+        nationality: '',
       },
       players: [],
     };
-    this.payload.leagueName = this.leagueAndSeasonFormGroup.get('league')?.value;
+    this.payload.leagueName =
+      this.leagueAndSeasonFormGroup.get('league')?.value;
     this.payload.seasons = this.leagueAndSeasonFormGroup.get('season')?.value;
     this.payload.team.name = this.teamFormGroup.get('name')?.value;
-    this.payload.team.established_year = this.teamFormGroup.get('established_year')?.value;
+    this.payload.team.established_year =
+      this.teamFormGroup.get('established_year')?.value;
     this.payload.stadium.name = this.stadiumFormGroup.get('name')?.value;
-    this.payload.stadium.capacity = this.stadiumFormGroup.get('capacity')?.value;
+    this.payload.stadium.capacity =
+      this.stadiumFormGroup.get('capacity')?.value;
     this.payload.stadium.city = this.stadiumFormGroup.get('city')?.value;
-    this.payload.stadium.zip_code = this.stadiumFormGroup.get('zip_code')?.value;
-    this.payload.manager.first_name = this.managerFormControl.get('first_name')?.value
-    this.payload.manager.last_name = this.managerFormControl.get('last_name')?.value
-    this.payload.manager.dob = this.managerFormControl.get('dob')?.value
-    this.payload.manager.nationality = this.managerFormControl.get('nationality')?.value
-    this.payload.players = this.players.controls.map(playerForm => playerForm.value);
+    this.payload.stadium.zip_code =
+      this.stadiumFormGroup.get('zip_code')?.value;
+    this.payload.manager.first_name =
+      this.managerFormControl.get('first_name')?.value;
+    this.payload.manager.last_name =
+      this.managerFormControl.get('last_name')?.value;
+    this.payload.manager.dob = this.managerFormControl.get('dob')?.value;
+    this.payload.manager.nationality =
+      this.managerFormControl.get('nationality')?.value;
+    this.payload.players = this.players.controls.map(
+      (playerForm) => playerForm.value,
+    );
 
     console.log('Payload:', this.payload);
     this.insertDetails();
   }
 
   insertDetails() {
-    this.errorMessage = ''
+    this.errorMessage = '';
     this.teamService.insertTeam(this.payload).subscribe({
       next: (data) => {
         this.errorMessage = '';

@@ -1,24 +1,24 @@
 import { Routes } from '@angular/router';
 
-import {LeagueTableComponent} from "./league-table/league-table.component";
-import {PlayerDetailsComponent} from "./player-details/player-details.component";
-import {TeamDetailsComponent} from "./team-details/team-details.component";
-import {PremierLeagueComponent} from "./league-table/premier-league/premier-league.component";
-import {LaLigaComponent} from "./league-table/la-liga/la-liga.component";
-import {MajorLeagueSoccerComponent} from "./league-table/major-league-soccer/major-league-soccer.component";
-import {GameDetailsComponent} from './game-details/game-details.component';
-import {AddGameComponent} from './game-details/add-game/add-game.component';
-import {ViewGameComponent} from './game-details/view-game/view-game.component';
-import {HomePageComponent} from './home-page/home-page.component';
-import {SponsorDetailsComponent} from './sponsor-details/sponsor-details.component';
-import {AddTeamComponent} from './team-details/add-team/add-team.component';
-import {ViewTeamComponent} from './team-details/view-team/view-team.component';
-import {DeleteTeamComponent} from './team-details/delete-team/delete-team.component';
+import { LeagueTableComponent } from './league-table/league-table.component';
+import { PlayerDetailsComponent } from './player-details/player-details.component';
+import { TeamDetailsComponent } from './team-details/team-details.component';
+import { PremierLeagueComponent } from './league-table/premier-league/premier-league.component';
+import { LaLigaComponent } from './league-table/la-liga/la-liga.component';
+import { MajorLeagueSoccerComponent } from './league-table/major-league-soccer/major-league-soccer.component';
+import { GameDetailsComponent } from './game-details/game-details.component';
+import { AddGameComponent } from './game-details/add-game/add-game.component';
+import { ViewGameComponent } from './game-details/view-game/view-game.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { SponsorDetailsComponent } from './sponsor-details/sponsor-details.component';
+import { AddTeamComponent } from './team-details/add-team/add-team.component';
+import { ViewTeamComponent } from './team-details/view-team/view-team.component';
+import { DeleteTeamComponent } from './team-details/delete-team/delete-team.component';
 
 export const routes: Routes = [
   {
-    path:'home-page',
-    component: HomePageComponent
+    path: 'home-page',
+    component: HomePageComponent,
   },
   {
     path: 'league-table',
@@ -26,17 +26,17 @@ export const routes: Routes = [
     children: [
       {
         path: 'premier-league',
-        component: PremierLeagueComponent
+        component: PremierLeagueComponent,
       },
       {
         path: 'la-liga',
-        component: LaLigaComponent
+        component: LaLigaComponent,
       },
       {
         path: 'major-league-soccer',
-        component: MajorLeagueSoccerComponent
-      }
-    ]
+        component: MajorLeagueSoccerComponent,
+      },
+    ],
   },
   {
     path: 'team-details',
@@ -44,17 +44,17 @@ export const routes: Routes = [
     children: [
       {
         path: 'add-team',
-        component: AddTeamComponent
+        component: AddTeamComponent,
       },
       {
         path: 'view-team',
-        component: ViewTeamComponent
+        component: ViewTeamComponent,
       },
       {
         path: 'delete-team',
-        component: DeleteTeamComponent
-      }
-    ]
+        component: DeleteTeamComponent,
+      },
+    ],
   },
   {
     path: 'game-details',
@@ -62,22 +62,21 @@ export const routes: Routes = [
     children: [
       {
         path: 'add-game',
-        component: AddGameComponent
+        component: AddGameComponent,
       },
       {
         path: 'view-game',
-        component: ViewGameComponent
-      }
-    ]
+        component: ViewGameComponent,
+      },
+    ],
   },
   {
     path: 'player-details',
-    component: PlayerDetailsComponent },
+    component: PlayerDetailsComponent,
+  },
   {
     path: 'sponsor-details',
-    component: SponsorDetailsComponent
-
+    component: SponsorDetailsComponent,
   },
   { path: '**', redirectTo: '/home-page', pathMatch: 'full' },
-
 ];

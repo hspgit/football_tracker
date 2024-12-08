@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
-import {BaseLeagueTableComponent} from "../base-league-table/base-league-table.component";
+import { BaseLeagueTableComponent } from '../base-league-table/base-league-table.component';
 
 @Component({
   selector: 'app-premier-league',
   standalone: true,
-    imports: [
-        BaseLeagueTableComponent
-    ],
+  imports: [BaseLeagueTableComponent],
   templateUrl: './premier-league.component.html',
-  styleUrl: './premier-league.component.css'
+  styleUrl: './premier-league.component.css',
 })
-export class PremierLeagueComponent {
-
-}
+export class PremierLeagueComponent {}

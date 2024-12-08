@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -10,8 +11,8 @@ html, body {
 }
 
 @font-face {
-  font-family: 'Material Symbols';
-  src: url(assets/fonts/material-symbols.ttf) format('truetype');
+  font-family: "Material Symbols";
+  src: url(assets/fonts/material-symbols.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }

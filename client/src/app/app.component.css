@@ -1,14 +1,14 @@
 :host {
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 mat-sidenav-container {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
-mat-panel-title{
+mat-panel-title {
   font-size: 1rem;
 }
 
@@ -16,7 +16,7 @@ nav {
   display: flex;
   width: 100%;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -36,15 +36,14 @@ mat-icon {
 }
 
 mat-sidenav {
-    width: 260px;
-    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+  width: 260px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .mdc-list {
   padding: 0;
 }
 
-
 mat-panel-title {
-    font-weight: normal;
+  font-weight: normal;
 }

@@ -3,54 +3,54 @@
   <div class="dialog-content">
     Name
     <mat-form-field>
-      <input class="dialog-input"
-             matInput
-             [(ngModel)]="data.sponsor.name" />
+      <input class="dialog-input" matInput [(ngModel)]="data.sponsor.name" />
     </mat-form-field>
   </div>
   <div class="dialog-content">
     Country
     <mat-form-field>
-      <input class="dialog-input"
-             matInput
-             [(ngModel)]="data.sponsor.country" />
+      <input class="dialog-input" matInput [(ngModel)]="data.sponsor.country" />
     </mat-form-field>
   </div>
   <div class="dialog-content">
     Website URL
     <mat-form-field>
-      <input class="dialog-input"
-             matInput
-             [(ngModel)]="data.sponsor.website_url" />
+      <input
+        class="dialog-input"
+        matInput
+        [(ngModel)]="data.sponsor.website_url"
+      />
     </mat-form-field>
   </div>
   <div class="dialog-content">
     Industry
     <mat-form-field>
-      <input class="dialog-input"
-             matInput
-             required
-             [(ngModel)]="data.sponsor.industry" />
+      <input
+        class="dialog-input"
+        matInput
+        required
+        [(ngModel)]="data.sponsor.industry"
+      />
     </mat-form-field>
   </div>
-<mat-divider></mat-divider>
+  <mat-divider></mat-divider>
   @for(league of data.leagues; track league) {
-    <ul class="dialog-content">
-      {{league}}
-      <mat-form-field>
-        <input class="dialog-input"
-               matInput
-               type="number"
-               min="0"
-               [(ngModel)]="data.mapData[league]" />
-      </mat-form-field>
-    </ul>
+  <ul class="dialog-content">
+    {{league}}
+    <mat-form-field>
+      <input
+        class="dialog-input"
+        matInput
+        type="number"
+        min="0"
+        [(ngModel)]="data.mapData[league]"
+      />
+    </mat-form-field>
+  </ul>
   }
-
-
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-button (click)="onClickCancel()" cdkFocusInitial>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onClickCancel()" cdkFocusInitial>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>

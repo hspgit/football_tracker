@@ -1,33 +1,26 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Player} from '../app.models';
-import {baseUrl} from '../app.utils';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Player } from '../app.models';
+import { baseUrl } from '../app.utils';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlayerService {
+  private playersBaseUrl = `${baseUrl}/players`;
 
-  private playersBaseUrl = `${baseUrl}/players`
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getPlayers(playerSearchStr: string): Observable<Player[]> {
-    const params = new HttpParams()
-      .set('player_name', playerSearchStr)
+    const params = new HttpParams().set('player_name', playerSearchStr);
     // Make the HTTP GET request to the Flask API
-    return this.http.get<Player[]>(`${this.playersBaseUrl}/all`, {params});
+    return this.http.get<Player[]>(`${this.playersBaseUrl}/all`, { params });
   }
 
   getLatestTeam(id: number) {
-    const params = new HttpParams()
-      .set('player_id', id)
+    const params = new HttpParams().set('player_id', id);
 
-    return this.http.get(`${this.playersBaseUrl}/latest-team`, {params});
-
+    return this.http.get(`${this.playersBaseUrl}/latest-team`, { params });
   }
-
-
 }

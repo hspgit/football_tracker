@@ -4,19 +4,22 @@
     <div class="form-field-spacer">
       <mat-form-field class="example-full-width">
         <mat-label>Select Player</mat-label>
-        <input type="text"
-               matInput
-               placeholder="Name"
-               [formControl]="playerFormControl"
-               [matAutocomplete]="auto">
+        <input
+          type="text"
+          matInput
+          placeholder="Name"
+          [formControl]="playerFormControl"
+          [matAutocomplete]="auto"
+        />
         <mat-autocomplete
           autoActiveFirstOption
           #auto="matAutocomplete"
           (optionSelected)="onPlayerSelected($event.option.value)"
-          [displayWith]="displayFn">
+          [displayWith]="displayFn"
+        >
           @for (option of playerFilteredOptions | async; track option) {
-            <mat-option [value]=option>
-              {{option.first_name}} {{option.last_name}}
+            <mat-option [value]="option">
+              {{ option.first_name }} {{ option.last_name }}
             </mat-option>
           }
         </mat-autocomplete>
@@ -26,34 +29,49 @@
 
   @if (selectedPlayer) {
     <div class="display">
+      <mat-card class="player-card">
+        <mat-card-header>
+          <mat-card-title
+            >{{ selectedPlayer.first_name }}
+            {{ selectedPlayer.last_name }}</mat-card-title
+          >
+          <mat-card-subtitle
+            >{{ selectedPlayer.position_abb }} | Jersey #:
+            {{ selectedPlayer.jersey_number }}</mat-card-subtitle
+          >
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            <strong>Age:</strong> {{ calculateAge(selectedPlayer.dob) }} ({{
+              selectedPlayer.dob | date: "longDate"
+            }})
+          </p>
+          <!--      <p><strong>Date of Birth:</strong> {{ selectedPlayer.dob | date: 'longDate' }}</p>-->
+          <p><strong>Nationality:</strong> {{ selectedPlayer.nationality }}</p>
+          <p>
+            <strong>Market Value:</strong> ${{
+              selectedPlayer.market_value | number: "1.0-2"
+            }}
+          </p>
+          <p>
+            <strong>Latest Team:</strong> {{ selectedPlayerTeam }} ({{
+              selectedPlayerSeason
+            }})
+          </p>
+        </mat-card-content>
+      </mat-card>
 
-    <mat-card class="player-card">
-      <mat-card-header>
-        <mat-card-title>{{ selectedPlayer.first_name }} {{ selectedPlayer.last_name }}</mat-card-title>
-        <mat-card-subtitle>{{ selectedPlayer.position_abb }} | Jersey #: {{ selectedPlayer.jersey_number }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p><strong>Age:</strong> {{ calculateAge(selectedPlayer.dob) }} ({{ selectedPlayer.dob | date: 'longDate' }})</p>
-        <!--      <p><strong>Date of Birth:</strong> {{ selectedPlayer.dob | date: 'longDate' }}</p>-->
-        <p><strong>Nationality:</strong> {{ selectedPlayer.nationality }}</p>
-        <p><strong>Market Value:</strong> ${{ selectedPlayer.market_value | number: '1.0-2' }}</p>
-        <p><strong>Latest Team:</strong> {{selectedPlayerTeam}} ({{selectedPlayerSeason}})</p>
-      </mat-card-content>
-    </mat-card>
-
-    @if (selectedPlayerStats && selectedPlayerStats.length > 0) {
-      <div class="stat-chart">
-        <canvas
-          baseChart
-          [data]="chartData"
-          [options]="chartOptions"
-          [type]="'line'">
-        </canvas>
-      </div>
-    }
-
+      @if (selectedPlayerStats && selectedPlayerStats.length > 0) {
+        <div class="stat-chart">
+          <canvas
+            baseChart
+            [data]="chartData"
+            [options]="chartOptions"
+            [type]="'line'"
+          >
+          </canvas>
+        </div>
+      }
     </div>
-
   }
 </div>
-

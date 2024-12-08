@@ -8,9 +8,8 @@ describe('BaseLeagueTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BaseLeagueTableComponent]
-    })
-    .compileComponents();
+      imports: [BaseLeagueTableComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BaseLeagueTableComponent);
     component = fixture.componentInstance;

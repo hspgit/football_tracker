@@ -4,10 +4,10 @@ export interface Stadium {
   zip_code: string;
   capacity: number;
 }
- export interface League {
+export interface League {
   name: string;
   country: string;
- }
+}
 
 export interface Team {
   name: string;
@@ -15,74 +15,74 @@ export interface Team {
 }
 
 export interface Manager {
-  first_name: string
-  last_name: string,
-  dob: string,
-  nationality: string,
+  first_name: string;
+  last_name: string;
+  dob: string;
+  nationality: string;
 }
 
 export interface insertTeamAndPlayerPayload {
   // leagueSeasonMap: {[key: string]: number}
-  leagueName: string,
-  seasons: string[],
-  team: Team,
-  stadium: Stadium
-  players: Player[],
-  manager: Manager,
+  leagueName: string;
+  seasons: string[];
+  team: Team;
+  stadium: Stadium;
+  players: Player[];
+  manager: Manager;
 }
 
 export interface PlayerStat {
-  player_id: number,
-  team_1_name:string,
-  team_2_name:string,
-  match_date?: string,
-  goals_scored: number,
-  yellow_card: number,
-  red_card: number
+  player_id: number;
+  team_1_name: string;
+  team_2_name: string;
+  match_date?: string;
+  goals_scored: number;
+  yellow_card: number;
+  red_card: number;
 }
 
 export interface Sponsor {
-  name: string
-  country: string
-  industry: string
-  website_url: string
+  name: string;
+  country: string;
+  industry: string;
+  website_url: string;
 }
 
 export interface SponsorLeague {
-  sponsor_name: string
-  league_name: string
-  sponsorship_amount: number
+  sponsor_name: string;
+  league_name: string;
+  sponsorship_amount: number;
 }
 
 export interface Player {
-  player_id: number,
-  first_name: string,
-  last_name: string,
-  dob: string,
-  nationality: string,
-  market_value: number,
-  jersey_number: string,
-  position_abb: string
+  player_id: number;
+  first_name: string;
+  last_name: string;
+  dob: string;
+  nationality: string;
+  market_value: number;
+  jersey_number: string;
+  position_abb: string;
 }
 
 export interface TeamDetails {
-  manager_id: number,
-  first_name: string,
-  last_name: string,
-  dob: string,
-  nationality: string,
-  team_name: string,
-  total_team_value: number,
-  stadium_name: string,
-  league_name: string
+  manager_id: number;
+  first_name: string;
+  last_name: string;
+  dob: string;
+  nationality: string;
+  team_name: string;
+  total_team_value: number;
+  stadium_name: string;
+  league_name: string;
 }
 
 export interface Game {
-  team_1_name: string,
-  team_2_name: string,
-  stadium_name: string,
-  match_date: string,
-  attendance: number
+  team_1_name: string;
+  team_2_name: string;
+  stadium_name: string;
+  match_date: string;
+  attendance: number;
 }
 
 export interface LeagueTableRow {
@@ -95,7 +95,7 @@ export interface LeagueTableRow {
   losses: number;
   goals_scored: number;
   goals_conceded: number;
-  points: number;               // Total points (calculated as wins * 3 + draws)
+  points: number; // Total points (calculated as wins * 3 + draws)
   goal_difference: number;
   draws: number;
 }
@@ -118,4 +118,3 @@ export interface PlayerStatRow {
   team_name?: string;
   league_name?: string;
 }
-

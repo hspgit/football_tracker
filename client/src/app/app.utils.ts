@@ -1,3 +1,5 @@
+import { environment } from '../environments/environment';
+
 export function calculateAge(dob: string | undefined): number {
   if (!dob) {
     return 0; // Return 0 or a default value if dob is undefined
@@ -6,18 +8,26 @@ export function calculateAge(dob: string | undefined): number {
   const birthDate = new Date(dob);
   let age = today.getFullYear() - birthDate.getFullYear();
   const month = today.getMonth();
-  if (month < birthDate.getMonth() || (month === birthDate.getMonth() && today.getDate() < birthDate.getDate())) {
+  if (
+    month < birthDate.getMonth() ||
+    (month === birthDate.getMonth() && today.getDate() < birthDate.getDate())
+  ) {
     age--;
   }
   return age;
 }
 
-export const baseUrl = 'http://localhost:5001/api'
+export const baseUrl = environment.baseUrl;
 
 const totalDuration = 4800;
 const delayBetweenPoints = totalDuration / 3;
 // @ts-ignore
-const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1]?.getProps(['y'], true).y;
+const previousY = (ctx) =>
+  ctx.index === 0
+    ? ctx.chart.scales.y.getPixelForValue(100)
+    : ctx.chart
+        .getDatasetMeta(ctx.datasetIndex)
+        .data[ctx.index - 1]?.getProps(['y'], true).y;
 // @ts-ignore
 const baseAnimation = {
   x: {
@@ -32,7 +42,7 @@ const baseAnimation = {
       }
       ctx.xStarted = true;
       return ctx.index * delayBetweenPoints;
-    }
+    },
   },
   y: {
     type: 'number',
@@ -46,15 +56,14 @@ const baseAnimation = {
       }
       ctx.yStarted = true;
       return ctx.index * delayBetweenPoints;
-    }
-  }
+    },
+  },
 };
 
 //@ts-ignore
 let delayed;
 
 export const delayAnimation = {
-
   onComplete: () => {
     delayed = true;
   },
@@ -67,8 +76,7 @@ export const delayAnimation = {
     }
     return delay;
   },
-
-}
+};
 
 export const baseChartConfig = {
   responsive: true,
@@ -93,5 +101,4 @@ export const baseChartConfig = {
   },
 };
 
-export const baseTension =  0.1;
-
+export const baseTension = 0.1;

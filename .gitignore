@@ -57,3 +57,6 @@ dist/
 venv/
 
 .env
+
+# Ignore Angular environment files
+client/src/environments/environment.ts

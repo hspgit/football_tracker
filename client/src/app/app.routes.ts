@@ -19,6 +19,7 @@ export const routes: Routes = [
   {
     path: 'home-page',
     component: HomePageComponent,
+    title: 'Football Tracker',
   },
   {
     path: 'league-table',
@@ -27,14 +28,17 @@ export const routes: Routes = [
       {
         path: 'premier-league',
         component: PremierLeagueComponent,
+        title: 'Premier League',
       },
       {
         path: 'la-liga',
         component: LaLigaComponent,
+        title: 'La Liga',
       },
       {
         path: 'major-league-soccer',
         component: MajorLeagueSoccerComponent,
+        title: 'MLS',
       },
     ],
   },
@@ -45,14 +49,17 @@ export const routes: Routes = [
       {
         path: 'add-team',
         component: AddTeamComponent,
+        title: 'Add Team',
       },
       {
         path: 'view-team',
         component: ViewTeamComponent,
+        title: 'View Team',
       },
       {
         path: 'delete-team',
         component: DeleteTeamComponent,
+        title: 'Delete Team',
       },
     ],
   },
@@ -63,20 +70,24 @@ export const routes: Routes = [
       {
         path: 'add-game',
         component: AddGameComponent,
+        title: 'Add Game',
       },
       {
         path: 'view-game',
         component: ViewGameComponent,
+        title: 'View Game',
       },
     ],
   },
   {
     path: 'player-details',
     component: PlayerDetailsComponent,
+    title: 'Player Details',
   },
   {
     path: 'sponsor-details',
     component: SponsorDetailsComponent,
+    title: 'Sponsors',
   },
   { path: '**', redirectTo: '/home-page', pathMatch: 'full' },
 ];

@@ -26,10 +26,10 @@ import {
 } from '@angular/material/icon';
 
 export interface Link {
-  name: string; // Display name of the link
-  href: string; // URL of the link
-  isActive: boolean; // Indicates if the link is currently active
-  subItems?: Link[]; // Optional array of sub-items, also of type Link
+  name: string;
+  href: string;
+  isActive: boolean;
+  subItems?: Link[];
 }
 
 @Component({
@@ -113,6 +113,11 @@ export class AppComponent implements OnInit {
     {
       name: 'Sponsors',
       href: '/sponsor-details',
+      isActive: false,
+    },
+    {
+      name: 'Prediction',
+      href: '/prediction',
       isActive: false,
     },
   ];

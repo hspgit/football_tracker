@@ -53,7 +53,6 @@ import { PlayerStatService } from '../../services/player_stat.service';
   styleUrl: './view-game.component.css',
 })
 export class ViewGameComponent implements OnInit {
-  @Input() viewMode = true;
   teamsFormGroup: FormGroup;
   leagueAndSeasonFormGroup: FormGroup;
   leagues: string[] = [];
@@ -75,7 +74,6 @@ export class ViewGameComponent implements OnInit {
     'yellow_card',
     'red_card',
   ];
-  showTable = false;
 
   constructor(
     private fb: FormBuilder,
@@ -224,7 +222,6 @@ export class ViewGameComponent implements OnInit {
       );
       const date = this.selectedGame.match_date;
       const formattedDate = new Date(date).toISOString().split('T')[0];
-      console.log(formattedDate);
       const playerStatRequest = this.playerStatService.getPlayerStats(
         team1Name,
         team2Name,
@@ -307,44 +304,5 @@ export class ViewGameComponent implements OnInit {
     });
 
     this.cdr.detectChanges();
-  }
-
-  submit() {
-    console.log(this.team1PlayerStats);
-    console.log(this.team2PlayerStats);
-    this.insertPlayerStats();
-  }
-
-  insertPlayerStats() {
-    const payload = this.createPlayerStatPayload();
-    this.playerStatService.insertPlayerStat(payload).subscribe({
-      next: (response) => {},
-      error: (error) => {
-        console.error('Error inserting Player stat:', error);
-      },
-    });
-  }
-
-  createPlayerStatPayload(): any {
-    // Filter team 1 and team 2 player stats where any of the stats are non-zero
-    const nonZeroPlayerStats = [
-      ...this.team1PlayerStats.filter(
-        (stat) => stat.goals_scored + stat.yellow_card + stat.red_card != 0,
-      ),
-      ...this.team2PlayerStats.filter(
-        (stat) => stat.goals_scored + stat.yellow_card + stat.red_card != 0,
-      ),
-    ];
-    const date = this.selectedGame ? this.selectedGame.match_date : '';
-    const formattedDate = new Date(date).toISOString().split('T')[0];
-    nonZeroPlayerStats.filter((stat) => {
-      stat.match_date = formattedDate;
-    });
-    return {
-      player_stats: nonZeroPlayerStats,
-      team_1_name: this.teamsFormGroup.get('team1')?.value,
-      team_2_name: this.teamsFormGroup.get('team2')?.value,
-      match_date: formattedDate,
-    };
   }
 }

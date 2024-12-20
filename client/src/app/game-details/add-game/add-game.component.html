@@ -113,29 +113,6 @@
           </mat-form-field>
         </div>
 
-        <!--      <mat-form-field>-->
-        <!--        <mat-label>Broadcasters</mat-label>-->
-        <!--        <mat-select-->
-        <!--          multiple-->
-        <!--          formControlName="broadcaster"-->
-        <!--          placeholder="Pick many">-->
-        <!--          <mat-select-trigger>-->
-        <!--            {{ selectedBroadcasters[0] || '' }}-->
-        <!--            @if (selectedBroadcasters.length > 1) {-->
-        <!--              <span class="example-additional-selection">-->
-        <!--              (+{{ selectedBroadcasters.length - 1 }}-->
-        <!--                        {{ selectedBroadcasters.length === 2 ? 'other' : 'others' }})-->
-        <!--            </span>-->
-        <!--            }-->
-        <!--          </mat-select-trigger>-->
-        <!--          @for (broadcaster of broadcasters; track broadcaster) {-->
-        <!--            <mat-option-->
-        <!--              [value]="broadcaster.channel_name">-->
-        <!--              {{broadcaster.channel_name}}</mat-option>-->
-        <!--          }-->
-        <!--        </mat-select>-->
-        <!--      </mat-form-field>-->
-
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext (click)="showPlayerStats()">

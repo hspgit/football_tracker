@@ -1,0 +1,25 @@
+.main {
+  padding: 2rem;
+}
+
+.form-field-spacer {
+  display: flex;
+  gap: 2rem;
+}
+
+.form {
+  margin-top: 2rem;
+}
+
+.feature-text {
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.prediction-chart {
+  margin-top: 2rem;
+  height: 50vh;
+  width: 50vw;
+}

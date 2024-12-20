@@ -76,6 +76,18 @@ Make sure the following are installed on your system:
 ## Project Structure
 - **server/**: Contains the Flask backend code.
 - **client/**: Contains the Angular frontend code.
+- **database/**: Contains the Database dumps and other sql files.
+- **ml_model/**: Contains files related to game prediction feature.
+
+## Training the Machine Learning Model
+- The machine learning model is trained using the `train_model.py` script in the `ml_model` directory.
+- The script uses the `match_results.csv` file in the `ml_model -> data` directory to train the model.
+- To train the model, run the following command in the `ml_model` directory:
+  ```bash
+  python3 train_model.py
+  ```
+- The trained model is saved as a `ml_model.pkl` file in the `ml_model` directory.
+
 
 ## Additional Notes
 - The backend Flask server runs on `http://localhost:5001` by default.

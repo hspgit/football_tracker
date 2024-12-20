@@ -1,5 +1,5 @@
 <div class="main">
-  <h2>{{ viewMode ? "View" : "Update" }} Game Details</h2>
+  <h2>View Game Details</h2>
 
   <mat-stepper orientation="horizontal" linear="true">
     <!-- Step 1: Select League -->
@@ -156,7 +156,7 @@
                       type="number"
                       [(ngModel)]="stat.goals_scored"
                       [min]="0"
-                      [disabled]="viewMode"
+                      [disabled]="true"
                     />
                   </mat-form-field>
                 </td>
@@ -169,7 +169,7 @@
                   <mat-checkbox
                     class="example-margin"
                     [(ngModel)]="stat.yellow_card"
-                    [disabled]="viewMode"
+                    [disabled]="true"
                   />
                 </td>
               </ng-container>
@@ -181,7 +181,7 @@
                   <mat-checkbox
                     class="example-margin"
                     [(ngModel)]="stat.red_card"
-                    [disabled]="viewMode"
+                    [disabled]="true"
                   />
                 </td>
               </ng-container>
@@ -222,7 +222,7 @@
                       type="number"
                       [(ngModel)]="stat.goals_scored"
                       [min]="0"
-                      [disabled]="viewMode"
+                      [disabled]="true"
                     />
                   </mat-form-field>
                 </td>
@@ -235,7 +235,7 @@
                   <mat-checkbox
                     class="example-margin"
                     [(ngModel)]="stat.yellow_card"
-                    [disabled]="viewMode"
+                    [disabled]="true"
                   />
                 </td>
               </ng-container>
@@ -247,7 +247,7 @@
                   <mat-checkbox
                     class="example-margin"
                     [(ngModel)]="stat.red_card"
-                    [disabled]="viewMode"
+                    [disabled]="true"
                   />
                 </td>
               </ng-container>
@@ -259,12 +259,6 @@
             </table>
           </div>
         </div>
-
-        @if (!viewMode) {
-          <div class="submit-buttons">
-            <button mat-button (click)="submit()">Submit Details</button>
-          </div>
-        }
       }
     </mat-step>
   </mat-stepper>

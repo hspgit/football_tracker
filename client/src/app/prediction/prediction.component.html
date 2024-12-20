@@ -1,0 +1,67 @@
+<div class="main">
+  <h2>Prediction </h2>
+  <span class="feature-text">
+    This feature is limited to Premier League only.
+  </span>
+  <div class="form">
+    <form [formGroup]="teamsFormGroup">
+      <div class="form-field-spacer">
+        <mat-form-field class="example-full-width">
+          <mat-label>Select Home Team</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Pick one"
+            formControlName="home"
+            [matAutocomplete]="auto1"
+          />
+          <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete">
+            @for (option1 of team1FilteredOptions | async; track option1) {
+              <mat-option [value]="option1">{{ option1 }}</mat-option>
+            }
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Select Away Team</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Pick one"
+            formControlName="away"
+            [matAutocomplete]="auto2"
+          />
+          <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete">
+            @for (option2 of team2FilteredOptions | async; track option2) {
+              <mat-option [value]="option2">{{ option2 }}</mat-option>
+            }
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="getPrediction()"
+          [disabled]="teamsFormGroup.invalid
+        || teamsFormGroup.get('home')?.value == teamsFormGroup.get('away')?.value
+        || !team2Options.includes(teamsFormGroup.get('away')?.value)
+        || !team1Options.includes(teamsFormGroup.get('home')?.value)">
+          Get Prediction
+        </button>
+      </div>
+    </form>
+  </div>
+
+  @if (predictionResponse) {
+    <div class="prediction-chart">
+      <h3>Prediction</h3>
+      <canvas
+        baseChart
+        [data]="chartData"
+        [options]="chartOptions"
+        [type]="'doughnut'"
+      >
+      </canvas>
+    </div>
+  }
+</div>

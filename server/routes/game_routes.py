@@ -1,6 +1,8 @@
+import pandas as pd
 from flask import Blueprint, jsonify, request
 from server.db import get_db_connection
 from server.models.game import Game
+import joblib
 
 game_bp = Blueprint('game_bp', __name__)
 
@@ -96,3 +98,56 @@ def get_team_games():
         return jsonify({'error': str(e)}), 500
     finally:
         connection.close()
+
+
+# model_path = "../ml_model/ml_model.pkl"
+# with open(model_path, "rb") as file:
+#     model = joblib.load(file)
+
+model_path = "../ml_model/ml_model.pkl"
+model = joblib.load(model_path)
+
+# Load the LabelEncoder (you must save it in train_model.py)
+encoder_path = "../ml_model/label_encoder.pkl"
+encoder = joblib.load(encoder_path)
+
+# Mapping for results: 0 = HomeWin, 1 = Draw, 2 = AwayWin
+result_map = {0: "HomeWin", 1: "Draw", 2: "AwayWin"}
+
+# Define the route for predictions
+@game_bp.route('/predict', methods=['GET'])
+def predict():
+    # Get team names from the request
+    home_team = request.args.get('home_team')
+    away_team = request.args.get('away_team')
+
+    # Check if team names are valid
+    if home_team not in encoder.classes_ or away_team not in encoder.classes_:
+        return jsonify({'error': 'Invalid team name'}), 400
+
+    # Encode team names
+    home_team_encoded = encoder.transform([home_team])[0]
+    away_team_encoded = encoder.transform([away_team])[0]
+
+    # Create input features as a DataFrame with feature names
+    input_features = pd.DataFrame([{
+        'home_team_encoded': home_team_encoded,
+        'away_team_encoded': away_team_encoded
+    }])
+
+    # Predict using the loaded model
+    prediction = model.predict(input_features)
+
+    # Optionally get prediction probabilities for HomeWin, Draw, HomeLoss
+    probabilities = model.predict_proba(input_features)
+
+    # Return the prediction and probabilities
+    response = {
+        'prediction': int(prediction[0]),  # Convert to int for JSON compatibility
+        'probabilities': probabilities.tolist()[0]  # Flatten the list for the response
+    }
+
+    # Map the predicted result to a more readable format (0 = HomeWin, 1 = Draw, 2 = AwayWin)
+    response['prediction_label'] = result_map[response['prediction']]
+
+    return jsonify(response)

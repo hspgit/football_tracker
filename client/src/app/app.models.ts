@@ -118,3 +118,9 @@ export interface PlayerStatRow {
   team_name?: string;
   league_name?: string;
 }
+
+export interface PredictionResponse {
+  prediction: number;
+  prediction_label: string;
+  probabilities: number[];
+}

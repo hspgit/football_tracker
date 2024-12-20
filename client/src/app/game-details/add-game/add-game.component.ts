@@ -25,7 +25,7 @@ import {
 } from '../../app.models';
 import { forkJoin, Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import {
   MatAutocomplete,
   MatAutocompleteTrigger,
@@ -41,7 +41,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { GameService } from '../../services/game.service';
 import { PlayerStatService } from '../../services/player_stat.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { MatRadioModule } from '@angular/material/radio';
 
 @Component({
   selector: 'app-add-game',
@@ -58,10 +57,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatDatepickerModule,
     MatButton,
     MatTableModule,
-    NgIf,
     MatCheckboxModule,
     MatStepperModule,
-    MatRadioModule,
   ],
   templateUrl: './add-game.component.html',
   styleUrls: ['./add-game.component.css'],

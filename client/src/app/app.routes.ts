@@ -14,6 +14,7 @@ import { SponsorDetailsComponent } from './sponsor-details/sponsor-details.compo
 import { AddTeamComponent } from './team-details/add-team/add-team.component';
 import { ViewTeamComponent } from './team-details/view-team/view-team.component';
 import { DeleteTeamComponent } from './team-details/delete-team/delete-team.component';
+import { PredictionComponent } from './prediction/prediction.component';
 
 export const routes: Routes = [
   {
@@ -88,6 +89,11 @@ export const routes: Routes = [
     path: 'sponsor-details',
     component: SponsorDetailsComponent,
     title: 'Sponsors',
+  },
+  {
+    path: 'prediction',
+    component: PredictionComponent,
+    title: 'Prediction',
   },
   { path: '**', redirectTo: '/home-page', pathMatch: 'full' },
 ];

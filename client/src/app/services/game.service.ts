@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, Observable } from 'rxjs';
-import { Game, Team } from '../app.models';
+import { Game, PredictionResponse, Team } from '../app.models';
 import { baseUrl } from '../app.utils';
 
 @Injectable({
@@ -29,5 +29,15 @@ export class GameService {
 
     // Make the HTTP GET request to the Flask API
     return this.http.get<Game[]>(`${this.gamesBaseUrl}/team-games`, { params });
+  }
+
+  predictGame(team1: string, team2: string): Observable<PredictionResponse> {
+    const params = new HttpParams()
+      .set('home_team', team1)
+      .set('away_team', team2);
+
+    return this.http.get<PredictionResponse>(`${this.gamesBaseUrl}/predict`, {
+      params,
+    });
   }
 }

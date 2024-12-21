@@ -137,11 +137,11 @@ export class PredictionComponent implements OnInit {
       ],
       datasets: [
         {
-          label: 'Win Percentage',
+          label: 'Percent',
           data: [
-            this.predictionResponse?.probabilities[0],
-            this.predictionResponse?.probabilities[1],
-            this.predictionResponse?.probabilities[2],
+            this.predictionResponse?.probabilities[0] * 100,
+            this.predictionResponse?.probabilities[1] * 100,
+            this.predictionResponse?.probabilities[2] * 100,
           ],
           backgroundColor: [
             'rgba(54, 162, 235, 0.7)', // Light Blue

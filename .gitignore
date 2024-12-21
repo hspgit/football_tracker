@@ -60,3 +60,6 @@ venv/
 
 # Ignore Angular environment files
 client/src/environments/environment.ts
+
+
+deployment-readme.md

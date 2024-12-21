@@ -45,7 +45,12 @@
       <button class="menu-button" mat-button (click)="sidenav.toggle()">
         <mat-icon aria-hidden="false" fontIcon="menu"></mat-icon>
       </button>
-      <h1>Football Tracker</h1>
+      <h1
+        style="cursor: pointer;"
+        (click)="router.navigate(['/home-page'])"
+      >
+        Football Tracker
+      </h1>
     </nav>
 
     <router-outlet></router-outlet>

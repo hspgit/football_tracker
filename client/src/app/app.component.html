@@ -6,14 +6,19 @@
       </button>
       @for (link of links; track link) {
         @if (!link.subItems) {
-          <a
-            (click)="sidenav.toggle()"
-            mat-list-item
-            routerLink="{{ link.href }}"
-            [activated]="link.isActive"
-          >
-            {{ link.name }}
-          </a>
+          <div class="link">
+            <mat-icon aria-hidden="false" fontIcon="{{ iconMap[link.name] }}"></mat-icon>
+            <a
+              (click)="sidenav.toggle()"
+              mat-list-item
+              routerLink="{{ link.href }}"
+              [activated]="link.isActive"
+              appScrambleText
+            >
+              {{ link.name }}
+            </a>
+          </div>
+
         } @else {
           <mat-expansion-panel
             [expanded]="isSubItemActive(link.subItems)"
@@ -21,7 +26,10 @@
           >
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{ link.name }}
+                <div class="link">
+                  <mat-icon aria-hidden="false" fontIcon="{{ iconMap[link.name] }}"></mat-icon>
+                  {{ link.name }}
+                </div>
               </mat-panel-title>
             </mat-expansion-panel-header>
             @for (subItem of link.subItems; track subItem) {
@@ -31,6 +39,7 @@
                 routerLink="{{ subItem.href }}"
                 [activated]="router.url === subItem.href"
                 class="nested-item"
+                appScrambleText
               >
                 {{ subItem.name }}
               </a>
@@ -45,6 +54,7 @@
       <button class="menu-button" mat-button (click)="sidenav.toggle()">
         <mat-icon aria-hidden="false" fontIcon="menu"></mat-icon>
       </button>
+      <mat-icon aria-hidden="false" fontIcon="sports_and_outdoors"></mat-icon>
       <h1
         style="cursor: pointer;"
         (click)="router.navigate(['/home-page'])"

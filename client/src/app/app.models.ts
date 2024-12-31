@@ -65,6 +65,11 @@ export interface Player {
   position_abb: string;
 }
 
+export interface LatestPlayerTeam {
+  team_name: string;
+  season: number;
+}
+
 export interface TeamDetails {
   manager_id: number;
   first_name: string;

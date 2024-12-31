@@ -84,3 +84,40 @@ def get_latest_team_by_player_id():
     finally:
         cursor.close()
         conn.close()
+
+        # write route to fetch player by id
+@player_bp.route('/by-id', methods=['GET'])
+def get_player_by_id():
+    player_id = request.args.get('player_id')
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    try:
+        # Call the stored procedure
+        cursor.callproc('get_player_by_id', [player_id])
+
+        # Fetch results from the procedure
+        results = cursor.fetchone()
+
+        # Check if a player was found
+        if results:
+            player = Player(
+                player_id=results['player_id'],
+                first_name=results['first_name'],
+                last_name=results['last_name'],
+                dob=results['dob'],
+                nationality=results['nationality'],
+                market_value=results['market_value'],
+                jersey_number=results['jersey_number'],
+                position_abb=results['position_abb'],
+            )
+            return jsonify(player.__dict__)
+        else:
+            return jsonify({'error': 'Player not found'}), 404
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        cursor.close()
+        conn.close()

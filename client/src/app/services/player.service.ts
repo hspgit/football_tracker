@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Player } from '../app.models';
+import { LatestPlayerTeam, Player } from '../app.models';
 import { baseUrl } from '../app.utils';
 
 @Injectable({
@@ -21,6 +21,14 @@ export class PlayerService {
   getLatestTeam(id: number) {
     const params = new HttpParams().set('player_id', id);
 
-    return this.http.get(`${this.playersBaseUrl}/latest-team`, { params });
+    return this.http.get<LatestPlayerTeam>(
+      `${this.playersBaseUrl}/latest-team`,
+      { params },
+    );
+  }
+
+  getPlayerById(playerId: string): Observable<Player> {
+    const params = new HttpParams().set('player_id', playerId);
+    return this.http.get<Player>(`${this.playersBaseUrl}/by-id`, { params });
   }
 }

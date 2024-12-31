@@ -17,13 +17,8 @@ import {
 } from '@angular/material/sidenav';
 import { MatButtonModule, MatFabButton } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatInputModule } from '@angular/material/input';
-import {
-  MatIconModule,
-  MatIconDefaultOptions,
-  MAT_ICON_DEFAULT_OPTIONS,
-  MatIconRegistry,
-} from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { ScrambleTextDirective } from './scramble-text.directive';
 
 export interface Link {
   name: string;
@@ -51,6 +46,7 @@ export interface Link {
     MatExpansionModule,
     MatButtonModule,
     MatIconModule,
+    ScrambleTextDirective,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -58,12 +54,21 @@ export interface Link {
 export class AppComponent implements OnInit {
   title = 'client';
 
+  iconMap: { [key: string]: string } = {
+    'League Table': 'table_chart',
+    'Team Details': 'group',
+    'Game Details': 'sports_soccer',
+    'Player Details': 'person',
+    Sponsors: 'attach_money',
+    Prediction: 'insights',
+  };
+
   links: Link[] = [
-    {
-      name: 'Home',
-      href: '/home-page',
-      isActive: false,
-    },
+    // {
+    //   name: 'Home',
+    //   href: '/home-page',
+    //   isActive: false,
+    // },
     {
       name: 'League Table',
       href: '/league-table',

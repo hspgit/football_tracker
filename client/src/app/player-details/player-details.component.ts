@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AsyncPipe, DatePipe, DecimalPipe } from '@angular/common';
 import {
   MatAutocompleteModule,
@@ -23,9 +24,8 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { PlayerStatService } from '../services/player_stat.service';
 import { BaseChartDirective } from 'ng2-charts';
-import { Chart, registerables, ChartConfiguration } from 'chart.js';
-import { baseTension, calculateAge } from '../app.utils';
-import { baseChartConfig } from '../app.utils';
+import { Chart, ChartConfiguration, registerables } from 'chart.js';
+import { baseChartConfig, baseTension, calculateAge } from '../app.utils';
 
 @Component({
   selector: 'app-player-details',
@@ -47,7 +47,7 @@ import { baseChartConfig } from '../app.utils';
   templateUrl: './player-details.component.html',
   styleUrl: './player-details.component.css',
 })
-export class PlayerDetailsComponent {
+export class PlayerDetailsComponent implements OnInit {
   playerFormControl = new FormControl('', Validators.required);
   playerFilteredOptions: Observable<Player[]> | undefined;
   selectedPlayer: Player | undefined;
@@ -60,6 +60,8 @@ export class PlayerDetailsComponent {
   constructor(
     private playerService: PlayerService,
     private playerStatService: PlayerStatService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
     Chart.register(...registerables);
     this.playerFilteredOptions = this.playerFormControl.valueChanges.pipe(
@@ -70,10 +72,25 @@ export class PlayerDetailsComponent {
     );
   }
 
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      const playerId = params['playerId'];
+      if (playerId) {
+        this.playerService.getPlayerById(playerId).subscribe((player) => {
+          if (player) {
+            // @ts-ignore
+            this.playerFormControl.setValue(player);
+            this.onPlayerSelected(player);
+          }
+        });
+      }
+    });
+  }
+
   filter(val: any): Observable<Player[]> {
     if (typeof val === 'string') {
       return this.playerService
-        .getPlayers(val)
+        .getPlayers(encodeURIComponent(val))
         .pipe(
           map((response: Player[]) =>
             response.filter((option) =>
@@ -92,8 +109,15 @@ export class PlayerDetailsComponent {
 
   onPlayerSelected(selectedPlayer: Player): void {
     this.selectedPlayer = selectedPlayer;
-    this.fetchPlayerTeam();
-    this.fetchPlayerStats();
+    this.router
+      .navigate([], {
+        queryParams: { playerId: selectedPlayer.player_id },
+        queryParamsHandling: 'merge',
+      })
+      .then(() => {
+        this.fetchPlayerTeam();
+        this.fetchPlayerStats();
+      });
   }
 
   fetchPlayerTeam() {
@@ -102,10 +126,8 @@ export class PlayerDetailsComponent {
         .getLatestTeam(this.selectedPlayer?.player_id)
         .subscribe({
           next: (data) => {
-            // @ts-ignore
             this.selectedPlayerTeam = data['team_name'];
-            // @ts-ignore
-            this.selectedPlayerSeason = data['season'];
+            this.selectedPlayerSeason = data['season'].toString();
           },
         });
     }
@@ -115,14 +137,13 @@ export class PlayerDetailsComponent {
     if (this.selectedPlayer) {
       const playerId = this.selectedPlayer.player_id;
 
-      // Create individual observables for each season
       const observables = [
         this.playerStatService
           .fetchPlayerStatsForSeasons(playerId, '2022')
           .pipe(
             catchError((err) => {
               console.error('Error fetching 2022 player stats:', err);
-              return of([]); // Return empty array to continue the chain
+              return of([]);
             }),
           ),
         this.playerStatService
@@ -130,7 +151,7 @@ export class PlayerDetailsComponent {
           .pipe(
             catchError((err) => {
               console.error('Error fetching 2023 player stats:', err);
-              return of([]); // Return empty array to continue the chain
+              return of([]);
             }),
           ),
         this.playerStatService
@@ -138,23 +159,21 @@ export class PlayerDetailsComponent {
           .pipe(
             catchError((err) => {
               console.error('Error fetching 2024 player stats:', err);
-              return of([]); // Return empty array to continue the chain
+              return of([]);
             }),
           ),
       ];
 
-      // Use forkJoin with additional error handling
       forkJoin(observables)
         .pipe(
           catchError((err) => {
             console.error('Overall error in forkJoin player stats:', err);
-            return of([[], [], []]); // Fallback to empty arrays
+            return of([[], [], []]);
           }),
         )
         .subscribe({
           next: (responses) => {
-            // Flatten and process the responses
-            const processedStats = responses
+            this.selectedPlayerStats = responses
               .flat()
               .filter((stat) => stat && Object.keys(stat).length > 0)
               .map((stat) => ({
@@ -163,13 +182,10 @@ export class PlayerDetailsComponent {
                 total_reds: Number(stat.total_reds),
                 total_yellows: Number(stat.total_yellows),
               }));
-
-            this.selectedPlayerStats = processedStats;
             this.setChartData();
           },
           error: (err) => {
             console.error('Unexpected error in player stats fetch:', err);
-            // Set default empty state
             this.selectedPlayerStats = [];
             this.setChartData();
           },

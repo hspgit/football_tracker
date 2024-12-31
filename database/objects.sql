@@ -963,3 +963,15 @@ END $$
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS get_player_by_id;
+DELIMITER $$
+CREATE PROCEDURE get_player_by_id(
+    IN in_player_id INT
+)
+BEGIN
+    SELECT *
+    FROM player
+    WHERE player_id = in_player_id;
+END $$
+DELIMITER ;
+

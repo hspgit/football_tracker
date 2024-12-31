@@ -6,6 +6,7 @@ import { Chart, ChartConfiguration, ChartData, registerables } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { baseChartConfig, baseTension, delayAnimation } from '../app.utils';
 import { SponsorService } from '../services/sponsor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -32,6 +33,7 @@ export class HomePageComponent implements OnInit {
   constructor(
     private leagueService: LeagueService,
     private sponsorService: SponsorService,
+    protected router: Router,
   ) {
     Chart.register(...registerables);
   }

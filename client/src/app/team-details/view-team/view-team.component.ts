@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AsyncPipe, DatePipe, DecimalPipe } from '@angular/common';
 import {
   MatAutocompleteModule,
@@ -25,6 +25,7 @@ import { baseChartConfig, baseTension, calculateAge } from '../../app.utils';
 import { LeagueService } from '../../services/league.service';
 import { Chart, ChartConfiguration, registerables } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-details',
@@ -46,7 +47,7 @@ import { BaseChartDirective } from 'ng2-charts';
   templateUrl: './view-team.component.html',
   styleUrl: './view-team.component.css',
 })
-export class ViewTeamComponent {
+export class ViewTeamComponent implements OnInit {
   teamFormControl = new FormControl('', Validators.required);
   teamFilteredOptions: Observable<Team[]> | undefined;
   selectedTeam!: Team;
@@ -60,6 +61,8 @@ export class ViewTeamComponent {
   constructor(
     private teamsService: TeamService,
     private leagueService: LeagueService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) {
     Chart.register(...registerables);
     this.teamFilteredOptions = this.teamFormControl.valueChanges.pipe(
@@ -68,6 +71,22 @@ export class ViewTeamComponent {
       distinctUntilChanged(),
       switchMap((val) => this.filter(val || '')),
     );
+  }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      const teamName = params['teamName'];
+      if (teamName) {
+        this.teamsService.getTeams(teamName).subscribe((teams) => {
+          const selectedTeam = teams.find((team) => team.name === teamName);
+          if (selectedTeam) {
+            // @ts-ignore
+            this.teamFormControl.setValue(selectedTeam);
+            this.onTeamSelected(selectedTeam);
+          }
+        });
+      }
+    });
   }
 
   displayFn(teamOption: Team): string {
@@ -92,7 +111,14 @@ export class ViewTeamComponent {
 
   onTeamSelected(selectedTeam: Team): void {
     this.selectedTeam = selectedTeam;
-    this.getLastExistingSeason();
+    this.router
+      .navigate([], {
+        queryParams: { teamName: selectedTeam.name },
+        queryParamsHandling: 'merge',
+      })
+      .then(() => {
+        this.getLastExistingSeason();
+      });
   }
 
   getLastExistingSeason() {
@@ -110,45 +136,41 @@ export class ViewTeamComponent {
       const leagueName = this.selectedTeamDetails.league_name;
       const teamName = this.selectedTeam.name;
 
-      // Create an array of observables for each year, wrapped with catchError
       const observables = [
         this.leagueService.getTeamStats(leagueName, teamName, 2022).pipe(
           catchError((err) => {
             console.error('Error fetching 2022 stats:', err);
-            return of([]); // Return empty array to continue the chain
+            return of([]);
           }),
         ),
         this.leagueService.getTeamStats(leagueName, teamName, 2023).pipe(
           catchError((err) => {
             console.error('Error fetching 2023 stats:', err);
-            return of([]); // Return empty array to continue the chain
+            return of([]);
           }),
         ),
         this.leagueService.getTeamStats(leagueName, teamName, 2024).pipe(
           catchError((err) => {
             console.error('Error fetching 2024 stats:', err);
-            return of([]); // Return empty array to continue the chain
+            return of([]);
           }),
         ),
       ];
 
-      // Use forkJoin with catchError
       forkJoin(observables)
         .pipe(
           catchError((err) => {
             console.error('Overall error in forkJoin:', err);
-            return of([[], [], []]); // Fallback to empty arrays
+            return of([[], [], []]);
           }),
         )
         .subscribe({
           next: (responses) => {
-            // Combine the results into selectedTeamStats
             this.selectedTeamStats = responses.flat();
             this.setChartData();
           },
           error: (err) => {
             console.error('Unexpected error:', err);
-            // Optional: Set a default or empty state
             this.selectedTeamStats = [];
             this.setChartData();
           },
@@ -222,7 +244,6 @@ export class ViewTeamComponent {
         .getTeamPlayers(this.selectedTeam.name, this.lastExistingSeason)
         .subscribe({
           next: (resp) => {
-            // Join the player details into a single string
             this.selectedTeamPlayers = resp
               .map(
                 (player) =>
@@ -232,7 +253,7 @@ export class ViewTeamComponent {
           },
           error: (err) => {
             console.error('Failed to fetch team players:', err);
-            this.selectedTeamPlayers = ''; // Clear in case of error
+            this.selectedTeamPlayers = '';
           },
         });
     }

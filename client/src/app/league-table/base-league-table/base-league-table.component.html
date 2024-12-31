@@ -38,7 +38,13 @@
       <!-- Team Column (Sortable) -->
       <ng-container matColumnDef="team_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Team</th>
-        <td mat-cell *matCellDef="let row">{{ row.team_name }}</td>
+        <td
+          mat-cell
+          *matCellDef="let row"
+          style="cursor: pointer;"
+          (click)="navigateToTeamDetails(row)"
+        >
+          {{ row.team_name }}</td>
       </ng-container>
 
       <!-- Played Column (Sortable) -->
@@ -130,7 +136,12 @@
         <!-- Player Column -->
         <ng-container matColumnDef="player">
           <th mat-header-cell *matHeaderCellDef>Player</th>
-          <td mat-cell *matCellDef="let row">
+          <td
+            mat-cell
+            *matCellDef="let row"
+            style="cursor: pointer;"
+            (click)="navigateToPlayerDetails(row)"
+          >
             {{ row.first_name }} {{ row.last_name }}
           </td>
         </ng-container>
@@ -198,7 +209,12 @@
         <!-- Player Column -->
         <ng-container matColumnDef="player">
           <th mat-header-cell *matHeaderCellDef>Player</th>
-          <td mat-cell *matCellDef="let row">
+          <td
+            mat-cell
+            *matCellDef="let row"
+            style="cursor: pointer;"
+            (click)="navigateToPlayerDetails(row)"
+          >
             {{ row.first_name }} {{ row.last_name }}
           </td>
         </ng-container>
@@ -260,7 +276,12 @@
         <!-- Player Column -->
         <ng-container matColumnDef="player">
           <th mat-header-cell *matHeaderCellDef>Player</th>
-          <td mat-cell *matCellDef="let row">
+          <td
+            mat-cell
+            *matCellDef="let row"
+            style="cursor: pointer;"
+            (click)="navigateToPlayerDetails(row)"
+          >
             {{ row.first_name }} {{ row.last_name }}
           </td>
         </ng-container>

@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { LeagueService } from '../../services/league.service';
-import { LeagueTableRow, Player, TopStatRow } from '../../app.models';
+import { LeagueTableRow, Player, Team, TopStatRow } from '../../app.models';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
@@ -10,6 +10,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { PlayerStatService } from '../../services/player_stat.service';
 import { forkJoin } from 'rxjs';
 import { NgOptimizedImage } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-base-league-table',
@@ -57,6 +58,7 @@ export class BaseLeagueTableComponent implements OnChanges {
   constructor(
     private leagueService: LeagueService,
     private playerStatService: PlayerStatService,
+    private router: Router,
   ) {}
 
   ngOnChanges(changes: SimpleChanges) {
@@ -127,5 +129,21 @@ export class BaseLeagueTableComponent implements OnChanges {
         console.error('Error fetching players:', err);
       },
     });
+  }
+
+  navigateToPlayerDetails(player: Player): void {
+    this.router
+      .navigate(['/player-details'], {
+        queryParams: { playerId: player.player_id },
+      })
+      .then();
+  }
+
+  navigateToTeamDetails(team: any): void {
+    this.router
+      .navigate(['/team-details/view-team'], {
+        queryParams: { teamName: team.team_name },
+      })
+      .then();
   }
 }

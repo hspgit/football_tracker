@@ -109,6 +109,17 @@ export class ViewTeamComponent implements OnInit {
     } else return of([]);
   }
 
+  setRouterParams(team: Team) {
+    this.router
+      .navigate([], {
+        queryParams: { teamName: team.name },
+        queryParamsHandling: 'merge',
+      })
+      .then(() => {
+        // this.onTeamSelected(team);
+      });
+  }
+
   onTeamSelected(selectedTeam: Team): void {
     this.selectedTeam = selectedTeam;
     this.router

@@ -15,7 +15,7 @@
         <mat-autocomplete
           autoActiveFirstOption
           #auto="matAutocomplete"
-          (optionSelected)="onTeamSelected($event.option.value)"
+          (optionSelected)="setRouterParams($event.option.value)"
           [displayWith]="displayFn"
         >
           @for (option of teamFilteredOptions | async; track option) {
@@ -38,21 +38,21 @@
             }})</mat-card-title
           >
           <mat-card-subtitle>
-            Latest League: {{ selectedTeamDetails.league_name }} ({{
+            <strong>Latest League: </strong> {{ selectedTeamDetails.league_name }} ({{
               lastExistingSeason
             }})
           </mat-card-subtitle>
           <mat-card-subtitle>
-            Manager: {{ selectedTeamDetails.first_name }}
+            <strong> Manager: </strong> {{ selectedTeamDetails.first_name }}
             {{ selectedTeamDetails.last_name }} ({{
               calculateAge(selectedTeamDetails.dob)
             }})
           </mat-card-subtitle>
           <mat-card-subtitle>
-            Home Stadium: {{ selectedTeamDetails.stadium_name }}
+            <strong> Home Stadium: </strong>   {{ selectedTeamDetails.stadium_name }}
           </mat-card-subtitle>
           <mat-card-subtitle>
-            Current Team: {{ selectedTeamPlayers }}
+            <strong>Current Team:</strong> {{ selectedTeamPlayers }}
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>

@@ -14,7 +14,7 @@
         <mat-autocomplete
           autoActiveFirstOption
           #auto="matAutocomplete"
-          (optionSelected)="onPlayerSelected($event.option.value)"
+          (optionSelected)="setRouteParams($event.option.value)"
           [displayWith]="displayFn"
         >
           @for (option of playerFilteredOptions | async; track option) {

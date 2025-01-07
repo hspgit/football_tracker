@@ -80,6 +80,7 @@ export class PlayerDetailsComponent implements OnInit {
           if (player) {
             // @ts-ignore
             this.playerFormControl.setValue(player);
+            console.log('Setting player form control value:', player);
             this.onPlayerSelected(player);
           }
         });
@@ -107,17 +108,22 @@ export class PlayerDetailsComponent implements OnInit {
       : '';
   }
 
-  onPlayerSelected(selectedPlayer: Player): void {
-    this.selectedPlayer = selectedPlayer;
+  setRouteParams(player: Player) {
+    console.log('Setting route params for player:', player);
     this.router
       .navigate([], {
-        queryParams: { playerId: selectedPlayer.player_id },
+        queryParams: { playerId: player.player_id },
         queryParamsHandling: 'merge',
       })
       .then(() => {
-        this.fetchPlayerTeam();
-        this.fetchPlayerStats();
+        // this.onPlayerSelected(player);
       });
+  }
+
+  onPlayerSelected(selectedPlayer: Player): void {
+    this.selectedPlayer = selectedPlayer;
+    this.fetchPlayerTeam();
+    this.fetchPlayerStats();
   }
 
   fetchPlayerTeam() {

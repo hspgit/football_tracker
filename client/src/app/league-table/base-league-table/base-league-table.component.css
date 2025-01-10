@@ -5,6 +5,10 @@
   gap: 2rem;
 }
 
+.underline-on-hover:hover {
+  text-decoration: underline;
+}
+
 h2 {
   font-size: 1.2rem;
   display: flex;

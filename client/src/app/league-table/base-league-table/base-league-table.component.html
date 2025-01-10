@@ -39,9 +39,11 @@
       <ng-container matColumnDef="team_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Team</th>
         <td
+          class="underline-on-hover"
           mat-cell
           *matCellDef="let row"
           style="cursor: pointer;"
+
           (click)="navigateToTeamDetails(row)"
         >
           {{ row.team_name }}</td>
@@ -137,6 +139,7 @@
         <ng-container matColumnDef="player">
           <th mat-header-cell *matHeaderCellDef>Player</th>
           <td
+            class="underline-on-hover"
             mat-cell
             *matCellDef="let row"
             style="cursor: pointer;"
@@ -210,6 +213,7 @@
         <ng-container matColumnDef="player">
           <th mat-header-cell *matHeaderCellDef>Player</th>
           <td
+            class="underline-on-hover"
             mat-cell
             *matCellDef="let row"
             style="cursor: pointer;"
@@ -277,6 +281,7 @@
         <ng-container matColumnDef="player">
           <th mat-header-cell *matHeaderCellDef>Player</th>
           <td
+            class="underline-on-hover"
             mat-cell
             *matCellDef="let row"
             style="cursor: pointer;"
